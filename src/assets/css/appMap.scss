@@ -1,0 +1,317 @@
+@charset "utf-8";
+
+/*
+  颜色
+ */
+// $font_normal:#222;//页面字体默认颜色
+$font_normal:#fff;//页面字体默认颜色
+
+
+$theme_blue_color: #5bc0de; // 页面蓝色主题 --默认色
+// $theme_blue_color: #337ab7; // 页面蓝色主题 --默认色
+$theme_blue_normal_color:#222; // 页面蓝色主题 --未激活色
+$theme_blue_active_color: #31708f; // 页面蓝色主题 --默激活色
+
+$theme_pure_color:#4772d9; //页面紫色主题 --默认色
+$theme_pure_normal_color:#fff; //页面紫色主题 --未激活色
+$theme_pure_active_color:#b1c3ef; //页面紫色主题 --默激活色
+
+$theme_dark_color:#4e4e4e; //页面灰色主题 --默认色
+$theme_dark_normal_color:#e4e8f1; //页面灰色主题 --未激活色
+$theme_dark_active_color:#83878a; //页面灰色主题色
+
+$normal_bgcolor:#f4f3ef;//页面默认的背景色
+$shadow_color:rgba(0,0,0,.2);//标题栏的下阴影
+
+/*
+  间距相关
+ */
+ $normal_padding: 1rem;//默认的padding值
+ $normal_margin: 1rem;//默认的margin值
+ $normal_margin: 1rem;//默认的margin值
+
+/*
+  宽度
+ */
+ $left_width:270px;
+
+
+/*
+  高度
+ */
+$head_height:5rem;
+$head_line_height:3rem;
+$footer_height:3rem;
+
+/*
+  清除默认的样式bug
+ */
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #fff inset;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+button{
+  outline: 0 none;
+}
+.panel-oa{
+  border-radius: 0;
+  border: 0 none; 
+  .panel-heading{
+    cursor: pointer;
+    border-radius: 0;
+    color: #fff;
+  }
+  .panel-collapse .panel-body{
+    padding:0;
+    border:0 none;
+    .list-group {
+      .list-group-item{
+        border-radius: 0;
+        text-align: left;
+      }
+    }
+
+  }
+}
+/*
+  整体布局相关
+ */
+.mo-container{
+  overflow: hidden;
+  color: $font_normal;
+  .mo-oa-header{
+    background-color: $normal_bgcolor;
+    -webkit-box-shadow: 0 0 20px 2px $shadow_color;
+    box-shadow: 0 0 20px 2px $shadow_color;
+    transition: 0.3s;
+    padding: $normal_padding;
+    // line-height: $head_height;
+    height: $head_height;
+    color: $font_normal;
+    
+    &::after{
+      clear: both;
+    }
+    .mo-brand{
+      line-height: $head_height;
+    }
+    .navbar-header {
+      .mo-text{
+        line-height: $head_line_height;
+      }
+    }
+  }
+  main{
+    width: 100%;
+    // display: table;
+    height: 100%;
+    margin-top:0.2rem; 
+    .mo-oa-leftbar .mo-text:hover,.mo-oa-main .mo-text:hover{
+      font-weight: bolder;
+      text-shadow: 0 0 0 transparent;
+    }
+    .mo-oa-leftbar{
+      width: $left_width;
+      min-width: $left_width;
+      height: 100%;
+      position: fixed;
+      box-shadow: 8px 0 16px -8px $shadow_color, 0 7px 14px -3px $shadow_color;
+      -webkit-box-shadow: 8px 0 16px -8px $shadow_color, 0 7px 14px -3px $shadow_color;
+      .panel{
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    }
+    .mo-oa-main{
+      width: calc(100% - 270px);
+      min-height: calc(100% - 63px);
+      overflow: hidden;
+      position: absolute;
+      margin-left: 270px;
+      // -webkit-box-flex: 3;
+      padding:$normal_padding;
+      background-color: $normal_bgcolor;
+      // width: calc(100% - 270px);
+    }
+  }
+  .mo-oa-footer{
+    width: 100%;
+    // background-color: $normal_bgcolor;
+    line-height: $footer_height;
+    color: $font_normal;
+  }
+
+}
+
+
+/*
+  主题色相关
+ */
+
+.mo-theme-blue{
+  text-shadow: 0 0 1px $theme_blue_normal_color;
+  .mo-oa-leftbar{
+    background-color: $theme_blue_color;
+    .panel-oa {
+      border-color: $theme_blue_color;
+    }
+    .panel-oa > .panel-heading {
+      text-shadow: 0 0 1px $theme_blue_active_color;
+      background-color: $theme_blue_color;
+      border-color: $theme_blue_color;
+    }
+    .panel-oa > .panel-heading + .panel-collapse > .panel-body {
+      border-top-color: $theme_blue_color;
+    }
+    .panel-oa > .panel-heading .badge {
+      color: $theme_blue_color;
+      background-color: $theme_blue_active_color;
+    }
+    .panel-oa > .panel-footer + .panel-collapse > .panel-body {
+      border-bottom-color: $theme_blue_color;
+    }
+  }
+  .mo-oa-header{
+    .navbar-header{
+      text-shadow: 0 0 1px $theme_blue_normal_color;
+      .glyphicon.glyphicon-globe{
+        color: $theme_blue_color;
+      }
+    }
+  }    
+  .mo-oa-leftbar .active,.mo-oa-leftbar .active{
+    background-color: $theme_blue_active_color;
+  }
+  .mo-oa-leftbar .mo-text:hover,.mo-oa-main .mo-text:hover{
+    color: $theme_blue_color;
+  }
+  .mo-oa-leftbar .mo-panel:hover,.mo-oa-leftbar .mo-panel:hover{
+    color: $theme_blue_color;
+  }
+}
+
+.mo-theme-pure{
+  text-shadow: 0 0 1px $theme_pure_normal_color;
+  .panel-oa {
+    border-color: $theme_pure_color;
+  }
+  .panel-oa > .panel-heading {
+    text-shadow: 0 0 1px $theme_pure_active_color;
+    background-color: $theme_pure_color;
+    border-color: $theme_pure_color;
+  }
+  .panel-oa > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: $theme_pure_color;
+  }
+  .panel-oa > .panel-heading .badge {
+    color: $theme_pure_color;
+    background-color: $theme_pure_active_color;
+  }
+  .panel-oa > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: $theme_pure_color;
+  }
+  .mo-oa-leftbar{
+    background-color: $theme_pure_color;
+  }
+  .mo-oa-header{
+    .navbar-header{
+      .glyphicon.glyphicon-globe{
+        color: $theme_pure_color;
+      }
+    }
+    .mo-text{
+      text-shadow: 0 0 1px $theme_pure_color;
+    }
+  }  
+  .mo-oa-leftbar .active,.mo-oa-leftbar .active{
+    background-color: $theme_pure_active_color;
+  }
+  .mo-oa-leftbar .mo-text:hover,.mo-oa-main .mo-text:hover{
+    color: $theme_pure_color;
+  }
+  .mo-oa-leftbar .mo-panel:hover,.mo-oa-leftbar .mo-panel:hover{
+    color: $theme_pure_color;
+  }
+}
+
+.mo-theme-dark{
+  text-shadow: 0 0 1px $theme_dark_normal_color;
+  .panel-oa {
+    border-color: $theme_dark_color;
+  }
+  .panel-oa > .panel-heading {
+    text-shadow: 0 0 1px $theme_dark_active_color;
+    background-color: $theme_dark_color;
+    border-color: $theme_dark_color;
+  }
+  .panel-oa > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: $theme_dark_color;
+  }
+  .panel-oa > .panel-heading .badge {
+    color: $theme_dark_color;
+    background-color: $theme_dark_active_color;
+  }
+  .panel-oa > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: $theme_dark_color;
+  }
+  .mo-oa-leftbar{
+    background-color: $theme_dark_color;
+  }
+  .mo-oa-header{
+    .navbar-header{
+      .glyphicon.glyphicon-globe{
+        color: $theme_dark_color;
+      }
+    }
+    .mo-text{
+      text-shadow: 0 0 1px $theme_dark_color;
+    }
+  } 
+  .mo-oa-header{
+    .navbar-header{
+      text-shadow: 0 0 1px $theme_dark_normal_color;
+      .glyphicon.glyphicon-globe{
+        color: $theme_dark_color;
+      }
+    }
+  }
+  .mo-oa-leftbar .active,.mo-oa-leftbar .active{
+    background-color: $theme_dark_active_color;
+  }
+  .mo-oa-leftbar .mo-text:hover,.mo-oa-main .mo-text:hover{
+    color: $theme_dark_color;
+  }
+  .mo-oa-leftbar .mo-panel:hover,.mo-oa-leftbar .mo-panel:hover{
+    color: $theme_dark_color;
+  }
+}
+
+/*
+  工具类相关
+ */
+.mo-text-left{
+  text-align: left;
+}
+.mo-text-center{
+  text-align: center;
+}
+.mo-text-right{
+  text-align: right;
+}
+
+//子菜单展开效果
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .4s ease;
+}
+.component-fade-enter, .component-fade-leave-active {
+  opacity: 0;
+}
+

@@ -1,0 +1,119 @@
+@charset "utf-8";
+/*
+  颜色
+ */
+$nav_bgcolor: #222;// nav aside北京颜色
+$normal_bgcolor: #fff; //页面主色调
+$normal_color: #fff; // 页面字体颜色
+$child_li_bgcolor: rgb(10, 91, 196);
+$child_li_bgcolorhover: rgb(46, 141, 239); // 展开li标签的颜色hover状态
+
+/*
+  大小
+ */
+$normal_size: 1.5rem; // 字体大小
+$normal_li_height: 4rem; // 侧边栏li标签的高度
+$child_li_width: 8rem; // 展开li标签的宽度
+
+//nav
+#nav-search {
+  font-size: 0;
+  border: 1px solid rgb(11, 172, 211);
+  border-radius: 10px;
+
+  .btn {
+    border: none;
+    border-radius: 0;
+    padding: 7px 12px;
+    background: url("./../static/img/search.png") center no-repeat $nav_bgcolor;
+    background-size: contain;
+    outline: none;
+  }
+  .form-control {
+    border: none;
+    border-radius: 0;
+    height: 35px;
+    background: $nav_bgcolor;
+    color: $normal_color;
+  }
+}
+
+//侧边栏导航
+#aside {
+  background: $nav_bgcolor;
+  position: absolute;
+  bottom: 0;
+  top: 52px;
+  left: 0;
+  padding: 0;
+  li {
+    font-size: $normal_size;
+    font-family: "Arial Black";
+    height: $normal_li_height;
+    line-height: $normal_li_height;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+  a {
+    color: $normal_color;
+    cursor: pointer;
+  }
+  li.aside-li-hover {
+    background-color: $child_li_bgcolor;
+  }
+}
+
+/*导航条效果*/
+#section-li1, #section-li2 {
+  font-size: 0;
+  position: absolute;
+  height: $normal_li_height;
+  line-height: $normal_li_height;
+  background: $child_li_bgcolor;
+  left: 8.33%;
+  overflow: hidden;
+  z-index: 999;
+}
+#section-li1 {
+  width: $child_li_width * 2;
+  top: 100px;
+
+  li {
+    font-size: $normal_size;
+    width: $child_li_width;
+    display: inline-block;
+
+    &:hover {
+      background: $child_li_bgcolorhover;
+    }
+    a {
+      color: $normal_color;
+    }
+  }
+}
+#section-li2 {
+  width: $child_li_width * 3;
+  top: 148px;
+  overflow: visible;
+}
+
+//子菜单展开效果
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .4s ease;
+}
+.component-fade-enter, .component-fade-leave-active {
+  opacity: 0;
+}
+
+//右侧界面栏
+#article {
+  position: absolute;
+  top: 52px;
+  left: 8.33%;
+  bottom: 0;
+  z-index: -999;
+  padding: 0;
+}
