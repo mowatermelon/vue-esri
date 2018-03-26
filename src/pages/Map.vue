@@ -1,13 +1,12 @@
 <template>
   <div id="mapBox" class="map_box">
     <div id="map" @mousemove="showCoordinates($event)" class="map_div"></div>
-    <!-- <button @click="centerZoom()" id="zoomCenter" class="btn btn-default" :class="{'hidden': isHide}">★</button> -->
+    <button @click="centerZoom()" id="zoomCenter" class="btn btn-default" :class="{'hidden': isHide}">★</button>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
     </div>
 </template>
 <script>
   import esriLoader from 'esri-loader'
-  // import Panel from './Panel'
 
   export default {
     name: 'vueMap',
@@ -80,8 +79,8 @@
 <style lang="scss" scoped>
 
   // @import url('https://js.arcgis.com/3.15/dijit/themes/tundra/tundra.css');
-  @import url('https://js.arcgis.com/3.20/esri/css/esri.css');
-  // @import './../../static/plugins/css/esri.css';
+  // @import url('https://js.arcgis.com/3.20/esri/css/esri.css');
+  @import './../../static/plugins/css/esri.css';
 @media (max-width:768px){
   .map_box,.map_box .map_div {
     height: 100%;
