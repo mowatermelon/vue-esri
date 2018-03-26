@@ -2,7 +2,7 @@
   <div class="mo-oa-header">
     <div class="navbar-header col-xs-2 col-sm-6">
       <i class="glyphicon glyphicon-globe"></i>
-      <h1 class="mo-text">watermelon admin</h1>
+      <h1 class="mo-text">watermelon esri</h1>
     </div>
     <div class="col-xs-7 col-sm-4 col-md-4 col-lg-3 pull-right">
       <div class="theme col-xs-4 col-sm-5">
@@ -38,7 +38,7 @@ export default {
   computed: {
     uName () {
       return this.$store.state.userName;
-      
+
     }
   },
   methods: {
