@@ -80,9 +80,9 @@
 	width: 65px;
 	height: 36px;
 	z-index: 30;
-    background-image: url("../images/esri-logo.jpg");
-    background-repeat:no-repeat;
-    background-size:100% 100%;
+  background-image: url("../images/esri-logo.png");
+  background-repeat:no-repeat;
+  background-size:100% 100%;
 	cursor: pointer;
 	_background-image: none;
 }
@@ -93,7 +93,7 @@
 	width: 46px;
 	height: 22px;
 	z-index: 30;
-	background-image: url("../images/logo-sm.png");
+	background-image: url("../images/map/logo-sm.png");
 	cursor: pointer;
 	_background-image: none;
 }
@@ -109,7 +109,7 @@
 	width: 93px;
 	height: 29px;
 	z-index: 30;
-	background-image: url("../images/bing-logo-lg.png");
+	background-image: url("../images/map/bing-logo-lg.png");
 	_background-image: none;
 }
 
@@ -117,7 +117,7 @@
 	position: absolute;
 	width: 15px;
 	height: 15px;
-	background-image: url("../images/fixed-pan-sprite.png");
+	background-image: url("../images/map/fixed-pan-sprite.png");
 	overflow: hidden;
 	cursor: pointer;
 }
@@ -692,8 +692,7 @@
 	border-radius: 3px;
 	border: 1px solid #8b8b8b;
 	background: #F2F2F2;
-	background: url(data:image/svg+xml;
-	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#F2F2F2),color-stop(100%,#D1D1D1));
 	background: -webkit-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
 	background: -o-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
@@ -719,8 +718,7 @@
 
 .simpleDirections .esriStopsGetDirections:hover,.simpleDirections .esriStopsGetDirections:focus {
 	background: #E5E6E6;
-	background: url(data:image/svg+xml;
-	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#E5E6E6),color-stop(100%,#A0A1A1));
 	background: -webkit-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
 	background: -o-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
@@ -1205,8 +1203,7 @@
 	padding: 6px;
 	border: 1px solid #8b8b8b;
 	background: #f6f6f6;
-	background: url(data:image/svg+xml;
-	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZWZlZmUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#fefefe 0%,#fff 100%);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZWZlZmUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#fefefe 0%,#fff 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fefefe),color-stop(100%,#fff));
 	background: -webkit-linear-gradient(top,#fefefe 0%,#fff 100%);
 	background: -o-linear-gradient(top,#fefefe 0%,#fff 100%);
@@ -1390,8 +1387,7 @@
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	background: #F2F2F2;
-	background: url(data:image/svg+xml;
-	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#F2F2F2),color-stop(100%,#D1D1D1));
 	background: -webkit-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
 	background: -o-linear-gradient(top,#F2F2F2 0%,#D1D1D1 100%);
@@ -1418,8 +1414,7 @@
 
 .simpleDirections .esriPrintButton:hover,.simpleDirections .esriPrintButton:focus,.simpleDirections .esriCloseButton:hover,.simpleDirections .esriCloseButton:focus {
 	background: #E5E6E6;
-	background: url(data:image/svg+xml;
-	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#E5E6E6),color-stop(100%,#A0A1A1));
 	background: -webkit-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
 	background: -o-linear-gradient(top,#E5E6E6 0%,#A0A1A1 100%);
@@ -2828,7 +2823,7 @@
 	position: absolute;
 	top: 2px;
 	cursor: pointer;
-	background: url("../images/popup_sprite.png") no-repeat;
+	/* background: url("../images/popup_sprite.png") no-repeat; */
 }
 
 .esriPopup .titleButton.prev {
@@ -2931,7 +2926,7 @@
 
 .esriPopup .pointer, .esriPopup .outerPointer {
 	position: absolute;
-	background: url("../images/popup_sprite.png") no-repeat;
+	/* background: url("../images/popup_sprite.png") no-repeat; */
 }
 
 .esriPopup .pointer.top {
@@ -3149,7 +3144,7 @@
 	position: absolute;
 	top: 67px;
 	cursor: pointer;
-	background: url("../images/popup_sprite.png") no-repeat;
+	/* background: url("../images/popup_sprite.png") no-repeat; */
 }
 
 .esriViewPopup .gallery .mediaHandle.prev {
@@ -3171,7 +3166,7 @@
 }
 
 .esriViewPopup .gallery .mediaIcon {
-	background: url("../images/popup_sprite.png") no-repeat;
+	/* background: url("../images/popup_sprite.png") no-repeat; */
 }
 
 .esriViewPopup .gallery .mediaIcon.image {
@@ -4164,7 +4159,7 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .toolbarIcon {
-	background-image: url("../dijit/editing/images/toolbar_icons.png");
+	background-image: url("../images/dijit/editing/images/toolbar_icons.png");
 	width: 16px;
 	height: 16px;
 }
@@ -4347,7 +4342,7 @@ input.mosaicRuleLockRasterTextbox {
 .dojoxGridHeader .dojoxGridCell {
 	border: 1px solid;
 	border-color: #F6F4EB #ACA899 #ACA899 #F6F4EB;
-	background: url("../../dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
+	background: url("../images/dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
 	padding-bottom: 2px;
 }
 
@@ -4420,7 +4415,7 @@ input.mosaicRuleLockRasterTextbox {
 	border: 1px solid;
 	border-color: #F6F4EB #ACA899 #ACA899 #F6F4EB;
 	border-top: none;
-	background: url("../../dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
+	background: url("../images/dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
 }
 
 .dojoxGridRowbarInner {
@@ -4597,7 +4592,7 @@ input.mosaicRuleLockRasterTextbox {
 .dojoxGridDndAvatarItem td {
 	border: 1px solid;
 	border-color: #F6F4EB #ACA899 #ACA899 #F6F4EB;
-	background: url("../../dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
+	background: url("../images/dojo/dojox/grid/resources/images/grid_dx_gradient.gif") #E8E1CF top repeat-x;
 	padding: 0pt;
 	margin: 0pt;
 }
@@ -4612,35 +4607,35 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .dojoDndMove .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
-	background-image: url("../../dojo/dojo/resources/images/dndNoMove.png");
+	background-image: url("../images/dojo/dojo/resources/images/dndNoMove.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .dojoDndCopy .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
-	background-image: url("../../dojo/dojo/resources/images/dndNoCopy.png");
+	background-image: url("../images/dojo/dojo/resources/images/dndNoCopy.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .dojoDndMove .dojoDndAvatarCanDrop .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
-	background-image: url("../../dojo/dojo/resources/images/dndMove.png");
+	background-image: url("../images/dojo/dojo/resources/images/dndMove.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .dojoDndCopy .dojoDndAvatarCanDrop .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
-	background-image: url("../../dojo/dojo/resources/images/dndCopy.png");
+	background-image: url("../images/dojo/dojo/resources/images/dndCopy.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
 .dojoxGridColPlaceBottom {
-	background: transparent url("../../dojo/dojox/grid/resources/images/grid_sort_up.gif") no-repeat scroll left top;
+	background: transparent url("../images/dojo/dojox/grid/resources/images/grid_sort_up.gif") no-repeat scroll left top;
 }
 
 .dojoxGridColPlaceTop {
-	background: transparent url("../../dojo/dojox/grid/resources/images/grid_sort_down.gif") no-repeat scroll left top;
+	background: transparent url("../images/dojo/dojox/grid/resources/images/grid_sort_down.gif") no-repeat scroll left top;
 }
 
 .dojoxGridColPlaceTop, .dojoxGridColPlaceBottom {
@@ -4671,11 +4666,11 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .dojoxGridColPlaceBottom {
-	background: transparent url("../../dojo/dojox/grid/resources/images/grid_sort_up.gif") no-repeat scroll left top;
+	background: transparent url("../images/dojo/dojox/grid/resources/images/grid_sort_up.gif") no-repeat scroll left top;
 }
 
 .dojoxGridColPlaceTop {
-	background: transparent url("../../dojo/dojox/grid/resources/images/grid_sort_down.gif") no-repeat scroll left top;
+	background: transparent url("../images/dojo/dojox/grid/resources/images/grid_sort_down.gif") no-repeat scroll left top;
 }
 
 .dojoxGridColPlaceTop, .dojoxGridColPlaceBottom {
@@ -4870,8 +4865,8 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .tundra .dojoxCheckedMultiSelect .dojoxCheckedMultiSelectWrapper {
-	background: #fff url("../../dojo/dijit/themes/tundra/images/validationInputBg.png") repeat-x top left;
-	#background: #fff url("../../dojo/dijit/themes/tundra/images/validationInputBg.gif") repeat-x top left;
+	background: #fff url("../images/dojo/dijit/themes/tundra/images/validationInputBg.png") repeat-x top left;
+	#background: #fff url("../images/dojo/dijit/themes/tundra/images/validationInputBg.gif") repeat-x top left;
 	border: 1px solid #b3b3b3;
 	line-height: normal;
 }
@@ -4881,8 +4876,8 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .soria .dojoxCheckedMultiSelect .dojoxCheckedMultiSelectWrapper {
-	background: #fff url("../../dojo/dijit/themes/soria/images/validationInputBg.png") repeat-x top left;
-	#background: #fff url("../../dojo/dijit/themes/soria/images/validationInputBg.gif") repeat-x top left;
+	background: #fff url("../images/dojo/dijit/themes/soria/images/validationInputBg.png") repeat-x top left;
+	#background: #fff url("../images/dojo/dijit/themes/soria/images/validationInputBg.gif") repeat-x top left;
 	border: 1px solid #8ba0bd;
 	line-height: normal;
 }
@@ -4892,8 +4887,8 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .nihilo .dojoxCheckedMultiSelect .dojoxCheckedMultiSelectWrapper {
-	background: #fff url("../../dojo/dijit/themes/nihilo/images/validationInputBg.png") repeat-x top left;
-	#background: #fff url("../../dojo/dijit/themes/nihilo/images/validationInputBg.gif") repeat-x top left;
+	background: #fff url("../images/dojo/dijit/themes/nihilo/images/validationInputBg.png") repeat-x top left;
+	#background: #fff url("../images/dojo/dijit/themes/nihilo/images/validationInputBg.gif") repeat-x top left;
 	border: 1px solid #d3d3d3;
 	line-height: normal;
 }
@@ -4926,7 +4921,7 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .claro .dojoxCheckedMultiSelectMenuCheckBoxItemIcon {
-	background-image: url("../../dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
+	background-image: url("../images/dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
 	background-repeat: no-repeat;
 	background-position: -15px;
 	width: 15px;
@@ -4934,7 +4929,7 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .claro .dojoxCheckedMultiSelectMenuRadioItemIcon {
-	background-image: url("../../dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
+	background-image: url("../images/dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
 	background-repeat: no-repeat;
 	background-position: -105px;
 	width: 15px;
@@ -4942,7 +4937,7 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .dj_ie6 .claro .dojoxCheckedMultiSelectMenuItemIcon {
-	background-image: url("../../dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
+	background-image: url("../images/dojo/dijit/themes/claro/form/images/checkboxRadioButtonStates.png");
 }
 
 .claro .dojoxCheckedMultiSelectMenuItemChecked .dojoxCheckedMultiSelectMenuCheckBoxItemIcon {
@@ -4982,7 +4977,7 @@ input.mosaicRuleLockRasterTextbox {
 	border: 1px solid #ffffff;
 	border-top: none;
 	background-color: #efefef;
-	background-image: url("../../dojo/dijit/themes/claro/images/standardGradient.png");
+	background-image: url("../images/dojo/dijit/themes/claro/images/standardGradient.png");
 	background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
 	background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
@@ -4991,7 +4986,7 @@ input.mosaicRuleLockRasterTextbox {
 }
 
 .claro .dojoxCheckedMultiSelectButton .dijitArrowButton .dijitArrowButtonInner {
-	background-image: url("../../dojo/dijit/themes/claro/form/images/commonFormArrows.png");
+	background-image: url("../images/dojo/dijit/themes/claro/form/images/commonFormArrows.png");
 	background-position: -35px;
 	background-repeat: no-repeat;
 	width: 16px;
@@ -5493,7 +5488,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .Browser_ReloadProgress {
-	background-image: url("../dijit/geoenrichment/themes/common/images/largeBusy.gif");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/largeBusy.gif");
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 50%;
@@ -5527,7 +5522,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 	height: 50px;
 	top: 12pt;
 	right: 46pt;
-	background-image: url("../dijit/geoenrichment/themes/common/images/largeBusy.gif");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/largeBusy.gif");
 	background-repeat: no-repeat;
 }
 
@@ -5536,15 +5531,15 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 	height: 25px;
 	top: 3pt;
 	right: 3pt;
-	background-image: url("../dijit/geoenrichment/themes/common/images/smallBusy.gif");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/smallBusy.gif");
 }
 
 .Browser_BackTd .Browser_Back {
-	background-image: url("../dijit/geoenrichment/themes/common/images/legendLayerContextLightGray_rtl.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/legendLayerContextLightGray_rtl.png");
 }
 
 .Browser_BackTd:hover .Browser_Back {
-	background-image: url("../dijit/geoenrichment/themes/common/images/leftarrowwhite.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/leftarrowwhite.png");
 }
 
 .Browser_BackTd {
@@ -5564,23 +5559,23 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .dj_rtl .Browser_Back {
-	background-image: url("../dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
 }
 
 .dj_rtl .Browser_BackTd .Browser_Back {
-	background-image: url("../dijit/geoenrichment/themes/common/images/legendLayerContextLightGray.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/legendLayerContextLightGray.png");
 }
 
 .dj_rtl .Browser_BackTd:hover .Browser_Back {
-	background-image: url("../dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
 }
 
 .Browser_ForwardTd .Browser_Forward {
-	background-image: url("../dijit/geoenrichment/themes/common/images/legendLayerContextLightGray.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/legendLayerContextLightGray.png");
 }
 
 .Browser_ForwardTd:hover .Browser_Forward {
-	background-image: url("../dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/rightArrowwhite.png");
 }
 
 .Browser_ForwardTd {
@@ -5600,11 +5595,11 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .dj_rtl .Browser_ForwardTd .Browser_Forward {
-	background-image: url("../dijit/geoenrichment/themes/common/images/legendLayerContextLightGray_rtl.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/legendLayerContextLightGray_rtl.png");
 }
 
 .dj_rtl .Browser_ForwardTd:hover .Browser_Forward {
-	background-image: url("../dijit/geoenrichment/themes/common/images/leftarrowwhite.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/leftarrowwhite.png");
 }
 
 .Browser_HostBorder {
@@ -5662,7 +5657,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .Browser_Table .Browser_TitlePane .dijitSelect .dijitArrowButtonInner {
-	background-image: url("../dijit/geoenrichment/themes/common/images/PulldownTriangleIcon.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/PulldownTriangleIcon.png");
 	background-position: 3.75pt 50%;
 }
 
@@ -5769,14 +5764,14 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 .app_PanIcon {
 	width: 16px;
 	height: 16px;
-	background-image: url("../dijit/geoenrichment/themes/common/images/pan.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/pan.png");
 	background-repeat: no-repeat;
 }
 
 .app_GEIcon {
 	width: 16px;
 	height: 16px;
-	background-image: url("../dijit/geoenrichment/themes/common/images/DRA.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/DRA.png");
 	background-repeat: no-repeat;
 }
 
@@ -6345,7 +6340,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 
 .DataCollection_Icon {
 	width: 37.5pt;
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/default.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/default.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -6370,7 +6365,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .DataCollection:hover .DataCollection_Icon {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/default_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/default_over.png");
 }
 
 .DataCollection_Label {
@@ -6383,67 +6378,67 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .DataCollection_business {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Business.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Business.png");
 }
 
 .DataCollection:hover .DataCollection_business {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Business_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Business_over.png");
 }
 
 .DataCollection_health {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Health.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Health.png");
 }
 
 .DataCollection:hover .DataCollection_health {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Health_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Health_over.png");
 }
 
 .DataCollection_key {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData.png");
 }
 
 .DataCollection:hover .DataCollection_key {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData_over.png");
 }
 
 .DataCollection_media {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Media.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Media.png");
 }
 
 .DataCollection:hover .DataCollection_media {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Media_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Media_over.png");
 }
 
 .DataCollection_policy {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Policy.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Policy.png");
 }
 
 .DataCollection:hover .DataCollection_policy {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Policy_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Policy_over.png");
 }
 
 .DataCollection_tapestry {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Tapestry.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Tapestry.png");
 }
 
 .DataCollection:hover .DataCollection_tapestry {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Tapestry_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Tapestry_over.png");
 }
 
 .DataCollection_wealth {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Wealth.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Wealth.png");
 }
 
 .DataCollection:hover .DataCollection_wealth {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Wealth_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Wealth_over.png");
 }
 
 .DataCollection_landscape {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeNormal.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeNormal.png");
 }
 
 .DataCollection:hover .DataCollection_landscape {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeOver.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeOver.png");
 }
 
 .DataCollection {
@@ -6469,7 +6464,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 
 .DataCollection_Icon {
 	width: 37.5pt;
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/default.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/default.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -6494,7 +6489,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .DataCollection:hover .DataCollection_Icon {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/default_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/default_over.png");
 }
 
 .DataCollection_Label {
@@ -6507,67 +6502,67 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .DataCollection_business {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Business.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Business.png");
 }
 
 .DataCollection:hover .DataCollection_business {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Business_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Business_over.png");
 }
 
 .DataCollection_health {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Health.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Health.png");
 }
 
 .DataCollection:hover .DataCollection_health {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Health_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Health_over.png");
 }
 
 .DataCollection_key {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData.png");
 }
 
 .DataCollection:hover .DataCollection_key {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/KeyUSData_over.png");
 }
 
 .DataCollection_media {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Media.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Media.png");
 }
 
 .DataCollection:hover .DataCollection_media {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Media_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Media_over.png");
 }
 
 .DataCollection_policy {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Policy.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Policy.png");
 }
 
 .DataCollection:hover .DataCollection_policy {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Policy_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Policy_over.png");
 }
 
 .DataCollection_tapestry {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Tapestry.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Tapestry.png");
 }
 
 .DataCollection:hover .DataCollection_tapestry {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Tapestry_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Tapestry_over.png");
 }
 
 .DataCollection_wealth {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Wealth.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Wealth.png");
 }
 
 .DataCollection:hover .DataCollection_wealth {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/Wealth_over.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/Wealth_over.png");
 }
 
 .DataCollection_landscape {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeNormal.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeNormal.png");
 }
 
 .DataCollection:hover .DataCollection_landscape {
-	background-image: url("../dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeOver.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/dataCollections/DefaultLandscapeOver.png");
 }
 
 ._Wizard_Root {
@@ -6616,7 +6611,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .Wizard_Loading {
-	background: url("../dijit/geoenrichment/themes/common/images/largeBusy.gif");
+	background: url("../images/dijit/geoenrichment/themes/common/images/largeBusy.gif");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -6795,7 +6790,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .EnrichOptionsPage_Fields .ui-icon {
-	background-image: url("../dijit/geoenrichment/themes/common/images/expand.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/expand.png");
 }
 
 .EnrichOptionsPage_Fields .ui-icon-triangle-1-e, .EnrichOptionsPage_Fields .ui-icon-triangle-1-se {
@@ -6803,7 +6798,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .EnrichOptionsPage_Fields .ui-icon-triangle-1-se {
-	background-image: url("../dijit/geoenrichment/themes/common/images/collapse.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/collapse.png");
 }
 
 .EnrichOptionsPage_Fields .ui-icon-triangle-1-e:hover, .EnrichOptionsPage_Fields .ui-icon-triangle-1-se:hover {
@@ -6866,15 +6861,15 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .configureInfographicsStepOne {
-	background-image: url("../dijit/geoenrichment/themes/common/images/one.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/one.png");
 }
 
 .configureInfographicsStepTwo {
-	background-image: url("../dijit/geoenrichment/themes/common/images/two.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/two.png");
 }
 
 .configureInfographicsStepThree {
-	background-image: url("../dijit/geoenrichment/themes/common/images/three.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/three.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -6933,12 +6928,12 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .Tapestry_LeftArrowCell {
-	background-image: url("../dijit/geoenrichment/themes/common/images/leftArrowTail.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/leftArrowTail.png");
 	min-width: 22.5pt;
 }
 
 .Tapestry_RightArrowCell {
-	background-image: url("../dijit/geoenrichment/themes/common/images/rightArrowTail.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/rightArrowTail.png");
 }
 
 .Tapestry_LeftArrowCell, .Tapestry_RightArrowCell {
@@ -6973,13 +6968,13 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .dj_rtl .Tapestry_LeftArrowCell {
-	background-image: url("../dijit/geoenrichment/themes/common/images/rightArrowTail.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/rightArrowTail.png");
 	background-position: right;
 	width: 100%;
 }
 
 .dj_rtl .Tapestry_RightArrowCell {
-	background-image: url("../dijit/geoenrichment/themes/common/images/leftArrowTail.png");
+	background-image: url("../images/dijit/geoenrichment/themes/common/images/leftArrowTail.png");
 	background-position: right;
 	width: 100%;
 }
@@ -7053,7 +7048,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .main_Loading {
-	background: url("../dijit/geoenrichment/themes/common/images/largeBusy.gif");
+	background: url("../images/dijit/geoenrichment/themes/common/images/largeBusy.gif");
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -7115,7 +7110,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .constructionIcon {
-	background-image: url("../dijit/analysis/images/constructionicon.png");
+	background-image: url("../images/dijit/analysis/images/constructionicon.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7128,7 +7123,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .aggregateIcon {
-	background-image: url("../dijit/analysis/images/AggregatePoints32.png");
+	background-image: url("../images/dijit/analysis/images/AggregatePoints32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7137,7 +7132,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .sumNearbyIcon {
-	background-image: url("../dijit/analysis/images/SummarizeNearby32.png");
+	background-image: url("../images/dijit/analysis/images/SummarizeNearby32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7146,7 +7141,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .sumWithinIcon {
-	background-image: url("../dijit/analysis/images/SummarizeWithin32.png");
+	background-image: url("../images/dijit/analysis/images/SummarizeWithin32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7155,7 +7150,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .buffersIcon {
-	background-image: url("../dijit/analysis/images/CreateBuffers32.png");
+	background-image: url("../images/dijit/analysis/images/CreateBuffers32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7164,7 +7159,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .driveIcon {
-	background-image: url("../dijit/analysis/images/CreateDriveTimeAreas32.png");
+	background-image: url("../images/dijit/analysis/images/CreateDriveTimeAreas32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7173,7 +7168,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .findLocationsIcon {
-	background-image: url("../dijit/analysis/images/FindExistingLocations32.png");
+	background-image: url("../images/dijit/analysis/images/FindExistingLocations32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7182,7 +7177,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .findNewLocationsIcon {
-	background-image: url("../dijit/analysis/images/FindNewLocations32.png");
+	background-image: url("../images/dijit/analysis/images/FindNewLocations32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7191,7 +7186,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .findSimilarLocationsIcon {
-	background-image: url("../dijit/analysis/images/FindSimilarLocations32.png");
+	background-image: url("../images/dijit/analysis/images/FindSimilarLocations32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7200,7 +7195,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .geoenrichLayerIcon {
-	background-image: url("../dijit/analysis/images/GeoenrichFeatures32.png");
+	background-image: url("../images/dijit/analysis/images/GeoenrichFeatures32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7209,7 +7204,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .findClosestFacilityIcon {
-	background-image: url("../dijit/analysis/images/FindNearest32.png");
+	background-image: url("../images/dijit/analysis/images/FindNearest32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7218,7 +7213,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .extractDataIcon {
-	background-image: url("../dijit/analysis/images/ClipAndShip32.png");
+	background-image: url("../images/dijit/analysis/images/ClipAndShip32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7227,7 +7222,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .findHotSpotsIcon {
-	background-image: url("../dijit/analysis/images/FindHotSpots32.png");
+	background-image: url("../images/dijit/analysis/images/FindHotSpots32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7236,7 +7231,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .createDensitySurfaceIcon {
-	background-image: url("../dijit/analysis/images/CreateDensitySurface32.png");
+	background-image: url("../images/dijit/analysis/images/CreateDensitySurface32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7245,7 +7240,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .correlationReporterIcon {
-	background-image: url("../dijit/analysis/images/CorrelationFinder32.png");
+	background-image: url("../images/dijit/analysis/images/CorrelationFinder32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7254,7 +7249,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .createInterpolatedSurfaceIcon {
-	background-image: url("../dijit/analysis/images/CreateInterpolatedSurface32.png");
+	background-image: url("../images/dijit/analysis/images/CreateInterpolatedSurface32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7263,7 +7258,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .attributeCalculatorIcon {
-	background-image: url("../dijit/analysis/images/AttributeCalculator32.png");
+	background-image: url("../images/dijit/analysis/images/AttributeCalculator32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7272,7 +7267,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .overlayLayersIcon {
-	background-image: url("../dijit/analysis/images/OverlayLayers32.png");
+	background-image: url("../images/dijit/analysis/images/OverlayLayers32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7281,7 +7276,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .eraseLayersDisabledIcon {
-	background-image: url("../dijit/analysis/images/EraseDisabled32.png");
+	background-image: url("../images/dijit/analysis/images/EraseDisabled32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7290,7 +7285,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .intersectLayersDisabledIcon {
-	background-image: url("../dijit/analysis/images/IntersectDisabled32.png");
+	background-image: url("../images/dijit/analysis/images/IntersectDisabled32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7299,7 +7294,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .unionLayersDisabledIcon {
-	background-image: url("../dijit/analysis/images/UnionDisabled32.png");
+	background-image: url("../images/dijit/analysis/images/UnionDisabled32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7308,7 +7303,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .eraseLayersIcon {
-	background-image: url("../dijit/analysis/images/Erase32.png");
+	background-image: url("../images/dijit/analysis/images/Erase32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7317,7 +7312,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .intersectLayersIcon {
-	background-image: url("../dijit/analysis/images/Intersect32.png");
+	background-image: url("../images/dijit/analysis/images/Intersect32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7326,7 +7321,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .unionLayersIcon {
-	background-image: url("../dijit/analysis/images/Union32.png");
+	background-image: url("../images/dijit/analysis/images/Union32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7335,7 +7330,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .mergeLayersIcon {
-	background-image: url("../dijit/analysis/images/MergeLayers32.png");
+	background-image: url("../images/dijit/analysis/images/MergeLayers32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7344,7 +7339,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .dissolveBoundariesIcon {
-	background-image: url("../dijit/analysis/images/DissolveBoundaries32.png");
+	background-image: url("../images/dijit/analysis/images/DissolveBoundaries32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7353,7 +7348,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .planRoutesIcon {
-	background-image: url("../dijit/analysis/images/PlanRoutes32.png");
+	background-image: url("../images/dijit/analysis/images/PlanRoutes32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7362,7 +7357,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .connectODIcon {
-	background-image: url("../dijit/analysis/images/ConnectOriginstoDestinations32.png");
+	background-image: url("../images/dijit/analysis/images/ConnectOriginstoDestinations32.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 32px;
@@ -7371,7 +7366,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .esriAnalysisCloseIcon {
-	background-image: url("../dijit/analysis/images/close.gif");
+	background-image: url("../images/dijit/analysis/images/close.gif");
 	background-repeat: no-repeat;
 	width: 16px;
 	height: 16px;
@@ -7385,7 +7380,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .dj_ie8 .helpIcon,.dj_ie7 .helpIcon {
-	background-image: url("../dijit/analysis/images/Help16.png");
+	background-image: url("../images/dijit/analysis/images/Help16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -7394,7 +7389,7 @@ html[dir='rtl'] caption, html[dir='rtl'] th {
 }
 
 .helpIcon {
-	background-image: url("../dijit/analysis/images/Help16.png");
+	background-image: url("../images/dijit/analysis/images/Help16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 12px;
@@ -7599,7 +7594,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .dijitTreeExpando {
-	background-image: url("../dijit/analysis/images/treeExpandImages.png");
+	background-image: url("../images/dijit/analysis/images/treeExpandImages.png");
 	width: 16px;
 	height: 16px;
 }
@@ -7611,14 +7606,14 @@ td.subsectionLineDivider {
 
 .esriAnalysis .optionsClose .dijitTreeExpando {
 	background-position: 0 0;
-	background-image: url("../dijit/analysis/images/treeExpandImages.png");
+	background-image: url("../images/dijit/analysis/images/treeExpandImages.png");
 	width: 16px;
 	height: 16px;
 }
 
 .esriAnalysis .optionsClose.disabled div.dijitTreeExpando:hover {
 	background-position: 0 0;
-	background-image: url("../dijit/analysis/images/treeExpandImages.png");
+	background-image: url("../images/dijit/analysis/images/treeExpandImages.png");
 	cursor: default;
 }
 
@@ -7628,7 +7623,7 @@ td.subsectionLineDivider {
 
 .esriAnalysis .optionsClose div.dijitTreeExpando:hover {
 	background-position: -17px 0;
-	background-image: url("../dijit/analysis/images/treeExpandImages.png");
+	background-image: url("../images/dijit/analysis/images/treeExpandImages.png");
 	cursor: pointer;
 }
 
@@ -7773,79 +7768,79 @@ td.subsectionLineDivider {
 }
 
 .bufferDistanceIcon {
-	background-image: url("../dijit/analysis/images/BufferDistance32.png");
+	background-image: url("../images/dijit/analysis/images/BufferDistance32.png");
 }
 
 .esriDrivingTimeIcon {
-	background-image: url("../dijit/analysis/images/DrivingTime32.png");
+	background-image: url("../images/dijit/analysis/images/DrivingTime32.png");
 }
 
 .esriDrivingTimeDisabledIcon {
-	background-image: url("../dijit/analysis/images/DrivingTimeDisabled32.png");
+	background-image: url("../images/dijit/analysis/images/DrivingTimeDisabled32.png");
 }
 
 .esriDrivingDistanceIcon {
-	background-image: url("../dijit/analysis/images/DrivingDistance32.png");
+	background-image: url("../images/dijit/analysis/images/DrivingDistance32.png");
 }
 
 .bufferAttributeIcon {
-	background-image: url("../dijit/analysis/images/BufferAttribute32.png");
+	background-image: url("../images/dijit/analysis/images/BufferAttribute32.png");
 }
 
 .bufferOverlapIcon {
-	background-image: url("../dijit/analysis/images/Overlap32.png");
+	background-image: url("../images/dijit/analysis/images/Overlap32.png");
 }
 
 .esriAnalysisSplitIcon {
-	background-image: url("../dijit/analysis/images/Split32.png");
+	background-image: url("../images/dijit/analysis/images/Split32.png");
 }
 
 .bufferDissolveIcon {
-	background-image: url("../dijit/analysis/images/Dissolve32.png");
+	background-image: url("../images/dijit/analysis/images/Dissolve32.png");
 }
 
 .bufferDisksIcon {
-	background-image: url("../dijit/analysis/images/Disks32.png");
+	background-image: url("../images/dijit/analysis/images/Disks32.png");
 }
 
 .bufferRingsIcon {
-	background-image: url("../dijit/analysis/images/Rings32.png");
+	background-image: url("../images/dijit/analysis/images/Rings32.png");
 }
 
 .bufferLeftIcon {
-	background-image: url("../dijit/analysis/images/Left32.png");
+	background-image: url("../images/dijit/analysis/images/Left32.png");
 }
 
 .bufferRightIcon {
-	background-image: url("../dijit/analysis/images/Right32.png");
+	background-image: url("../images/dijit/analysis/images/Right32.png");
 }
 
 .bufferAroundIcon {
-	background-image: url("../dijit/analysis/images/Around32.png");
+	background-image: url("../images/dijit/analysis/images/Around32.png");
 }
 
 .bufferRoundIcon {
-	background-image: url("../dijit/analysis/images/Round32.png");
+	background-image: url("../images/dijit/analysis/images/Round32.png");
 }
 
 .bufferFlatIcon {
-	background-image: url("../dijit/analysis/images/Flat32.png");
+	background-image: url("../images/dijit/analysis/images/Flat32.png");
 }
 
 .bufferIncludeIcon {
-	background-image: url("../dijit/analysis/images/Include32.png");
+	background-image: url("../images/dijit/analysis/images/Include32.png");
 }
 
 .bufferExcludeIcon {
-	background-image: url("../dijit/analysis/images/Exclude32.png");
+	background-image: url("../images/dijit/analysis/images/Exclude32.png");
 }
 
 .esriStraightLineDistanceIcon {
-	background-image: url("../dijit/analysis/images/StraightLineDistance32.png");
+	background-image: url("../images/dijit/analysis/images/StraightLineDistance32.png");
 }
 
 .esriStraightLineDistanceDisabledIcon {
-	background-image: url("../dijit/analysis/images/StraightLineDistanceDisabled32.png");
+	background-image: url("../images/dijit/analysis/images/StraightLineDistanceDisabled32.png");
 }
 
 .btn-container {
@@ -7996,7 +7991,7 @@ td.subsectionLineDivider {
 	margin: -10px 0 0 0;
 }
 
-.esriAnalysisExpressionGrid .field-operator ..dgrid-expando-icon {
+.esriAnalysisExpressionGrid .field-operator .dgrid-expando-icon {
 	white-space: pre;
 }
 
@@ -8024,7 +8019,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisEditIcon {
-	background-image: url("../dijit/analysis/images/EditClause.png");
+	background-image: url("../images/dijit/analysis/images/EditClause.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8033,7 +8028,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisEditDisabledIcon {
-	background-image: url("../dijit/analysis/images/EditClauseDisabled16.png");
+	background-image: url("../images/dijit/analysis/images/EditClauseDisabled16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8042,7 +8037,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisRemoveIcon {
-	background-image: url("../dijit/analysis/images/GenericEraser16.png");
+	background-image: url("../images/dijit/analysis/images/GenericEraser16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8051,7 +8046,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisRemoveDisabledIcon {
-	background-image: url("../dijit/analysis/images/GenericEraserDisabled16.png");
+	background-image: url("../images/dijit/analysis/images/GenericEraserDisabled16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8060,7 +8055,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisGroupIcon {
-	background-image: url("../dijit/analysis/images/ClausesGroup16.png");
+	background-image: url("../images/dijit/analysis/images/ClausesGroup16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8069,7 +8064,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisUngroupIcon {
-	background-image: url("../dijit/analysis/images/ClausesUngroup16.png");
+	background-image: url("../images/dijit/analysis/images/ClausesUngroup16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8078,7 +8073,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisUngroupDisabledIcon {
-	background-image: url("../dijit/analysis/images/ClausesUngroup16disabled.png");
+	background-image: url("../images/dijit/analysis/images/ClausesUngroup16disabled.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8087,7 +8082,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisGroupDisabledIcon {
-	background-image: url("../dijit/analysis/images/ClausesGroup16disabled.png");
+	background-image: url("../images/dijit/analysis/images/ClausesGroup16disabled.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8096,7 +8091,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisTextIcon {
-	background-image: url("../dijit/analysis/images/EditView.png");
+	background-image: url("../images/dijit/analysis/images/EditView.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8105,7 +8100,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisGridIcon {
-	background-image: url("../dijit/analysis/images/GridView.png");
+	background-image: url("../images/dijit/analysis/images/GridView.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8114,7 +8109,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisSelectFilterIcon {
-	background-image: url("../dijit/analysis/images/SelectInteractively16.png");
+	background-image: url("../images/dijit/analysis/images/SelectInteractively16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
@@ -8123,7 +8118,7 @@ td.subsectionLineDivider {
 }
 
 .esriAnalysis .esriAnalysisAttributeFiltercon {
-	background-image: url("../dijit/analysis/images/SelectByAttributeFilter16.png");
+	background-image: url("../images/dijit/analysis/images/SelectByAttributeFilter16.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 16px;
