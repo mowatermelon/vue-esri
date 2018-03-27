@@ -11,7 +11,7 @@
 <script>
 
 import Login from './pages/Login'
-import Layout from './layouts/HeaderAsideFooterResponsiveLayout/Layout'
+import Layout from './layouts/HeaderFooterResponsiveLayout/Layout'
 
 export default {
   name: 'app',
