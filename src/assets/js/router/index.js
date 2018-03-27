@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/',
       name: 'v-main',
-      component: Hello
+      component: vueMap
     },
     {
       path: '/Hello',
