@@ -9,7 +9,7 @@
   import esriLoader from 'esri-loader'
 
   export default {
-    name: 'vueMap',
+    name: 'vMap',
     data () {
       return {
         map: {'loaded': ''},
@@ -88,5 +88,10 @@
   .map-info{
     display: none;
   }
+}
+.map_box .map_div {
+  width:100%;
+  height: calc(100vh*0.8);
+  cursor: pointer;
 }
 </style>
