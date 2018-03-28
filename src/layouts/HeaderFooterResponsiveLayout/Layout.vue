@@ -17,7 +17,7 @@
 <script>
 import VHeader from '../../components/Header'
 import ToolBar from '../../components/ToolBar'
-import MapView from '../../pages/Map'
+import MapView from '../../pages/MapView'
 // import ScreenView from '../../pages/ScreenView'
 
 
