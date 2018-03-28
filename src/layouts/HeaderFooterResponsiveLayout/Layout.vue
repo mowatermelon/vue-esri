@@ -8,7 +8,8 @@
         <tool-bar></tool-bar>
       </el-header>
       <el-main>
-        <v-map></v-map>
+        <map-view></map-view>
+        <!-- <screen-view></screen-view> -->
       </el-main>
     </el-container>
   </transition>
@@ -16,7 +17,10 @@
 <script>
 import VHeader from '../../components/Header'
 import ToolBar from '../../components/ToolBar'
-import vMap from '../../pages/Map'
+import MapView from '../../pages/Map'
+// import ScreenView from '../../pages/ScreenView'
+
+
 export default {
   name: 'Layout',
   data () {
@@ -32,8 +36,9 @@ export default {
   },
   components:{
       VHeader,
-      vMap,
+      MapView,
       ToolBar
+      // ScreenView
   }
 
 }
