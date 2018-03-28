@@ -37,7 +37,5 @@ export default {
 </script>
 
 <style lang="scss">
-   @import '../static/plugins/css/normal.css';
-   @import '../static/plugins/css/bootstrap.min.css';
    @import './assets/css/app.scss';
 </style>
