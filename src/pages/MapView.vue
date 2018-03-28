@@ -1,25 +1,26 @@
 <template>
-  <div id="mapBox" class="map_box">
-    <div id="map" @mousemove="showCoordinates($event)" class="map_div"></div>
-    <button @click="centerZoom()" id="zoomCenter" class="btn btn-default" :class="{'hidden': isHide}">★</button>
+  <div class="map_box">
+    <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
-    </div>
+  </div>
 </template>
 <script>
   import esriLoader from 'esri-loader'
 
   export default {
-    name: 'vMap',
+    name: 'MapView',
     data () {
       return {
         map: {'loaded': ''},
         isHide: true,
-        evt:{x:'',y:''}
+        evt:{x:'',y:''},
+        camera:{},
+        view:{}
       }
     },
     watch: {
       'map.loaded': function () {
-        if (this.map.loaded == true) {
+        if (this.map.initialized == true) {
           this.isHide = false;
         }
       }
@@ -38,7 +39,7 @@
           }
         }, {
           // use a specific version instead of latest 4.x
-          url: '../../static/plugins/js/init.js'
+          url: '../../static/plugins/arcgis46/init.js'
         });
       } else {
         // ArcGIS API is already loaded, just create the map
@@ -49,12 +50,18 @@
     methods: {
       // 创建地图
       createMap: function () {
-        esriLoader.dojoRequire(["esri/map", "dojo/domReady!"], (Map) => {
-          this.map = new Map("map", {
-            center: [114.40845006666666,30.456864444444443],
-            zoom: 16,
-            basemap: "osm",//osm hybrid streets gray national-geographic oceans satellite streets-navigation-vector topo
-            logo: false
+        let _this =this;
+
+        esriLoader.dojoRequire(["esri/map", "esri/views/MapView","dojo/domReady!"], (Map,MapView) => {
+          _this.map = new Map({
+            basemap: "osm",
+            ground: "world-elevation"// Use the world elevation service
+          });
+          _this.view = new MapView({
+            container: "viewDiv",     // Reference to the scene div created in step 5
+            map: _this.map,                 // Reference to the map object created before the scene
+            scale: 50,          // Sets the initial scale to 1:50,000,000
+            center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
         });
       },
@@ -65,11 +72,14 @@
       // 显示当前坐标
       showCoordinates: function(e) {
         let _this = this;
-        if(!_this.isHide){
-            _this.evt.x = e.mapPoint.x;
-            _this.evt.y = e.mapPoint.y;
-        }
-
+        _this.view.hitTest(e)
+          .then(function(res){
+            let point = res.screenPoint;
+            if(!_this.isHide){
+                _this.evt.x = point.x;
+                _this.evt.y = point.y;
+            }
+        });
       }
 
     }
@@ -77,18 +87,7 @@
   }
 </script>
 <style lang="scss" scoped>
-
-  // @import url('https://js.arcgis.com/3.15/dijit/themes/tundra/tundra.css');
-  // @import url('https://js.arcgis.com/3.20/esri/css/esri.css');
-  @import './../../static/plugins/css/esri.css';
-@media (max-width:768px){
-  .map_box,.map_box .map_div {
-    height: 100%;
-  }
-  .map-info{
-    display: none;
-  }
-}
+@import './../../static/plugins/arcgis46/esri/css/main.css';
 .map_box .map_div {
   width:100%;
   height: calc(100vh*0.8);
