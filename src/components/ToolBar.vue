@@ -5,7 +5,7 @@
     <el-button type="primary" icon="el-icon-delete" :plain="true" @click="openVn"></el-button>
     <el-button type="primary" icon="el-icon-search" @click="openMsg">搜索</el-button>
     <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
-    <el-upload
+    <!-- <el-upload
       class="upload-demo"
       action="https://jsonplaceholder.typicode.com/posts/"
       :on-preview="handlePreview"
@@ -17,7 +17,7 @@
       :file-list="fileList">
       <el-button size="small" type="primary">点击上传</el-button>
       <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-    </el-upload>
+    </el-upload> -->
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
