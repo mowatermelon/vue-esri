@@ -1,0 +1,3 @@
+//>>built
+define(["./dom-geometry","./_base/lang","./domReady","./sniff","./_base/window"],function(g,h,l,b,c){var d=c.doc.documentElement;c=b("ie");var a=b("opera"),k=Math.floor,m=g.boxModel.replace(/-/,""),a={dj_quirks:0,dj_opera:a,dj_khtml:0,dj_webkit:b("webkit"),dj_safari:b("safari"),dj_chrome:b("chrome"),dj_edge:1,dj_gecko:1,dj_ios:b("ios"),dj_android:0};c&&(a.dj_ie=!0,a["dj_ie"+k(c)]=!0,a.dj_iequirks=0);a["dj_ff"+k(1)]=!0;a["dj_"+m]=!0;var e="",f;for(f in a)a[f]&&(e+=f+" ");d.className=h.trim(d.className+
+" "+e);l(function(){if(!g.isBodyLtr()){var a="dj_rtl dijitRtl "+e.replace(/ /g,"-rtl ");d.className=h.trim(d.className+" "+a+"dj_rtl dijitRtl "+e.replace(/ /g,"-rtl "))}});return b});

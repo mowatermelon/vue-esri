@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../../core/ObjectPool"],function(l,m,c){return function(){function b(a){this.coords=[0,0];this._height=0;this.pixelRatio=1;this._width=this.rotation=this.resolution=0;this.data=a}b.prototype.release=function(){this.data=null};Object.defineProperty(b.prototype,"data",{get:function(){return this._data},set:function(a){this._data=a;this._width=this._height=0;a&&(a instanceof HTMLImageElement?(this._width=a.naturalWidth,this._height=a.naturalHeight):0<a.width&&0<a.height&&
+(this._width=a.width,this._height=a.height))},enumerable:!0,configurable:!0});Object.defineProperty(b.prototype,"height",{get:function(){return this._height},enumerable:!0,configurable:!0});Object.defineProperty(b.prototype,"ready",{get:function(){return 0<this._width},enumerable:!0,configurable:!0});Object.defineProperty(b.prototype,"width",{get:function(){return this._width},enumerable:!0,configurable:!0});b.prototype.draw=function(a,b,c,d,e,h,k,f,g){this.ready&&d&&e&&f&&g&&a.drawImage(this._data,
+b,c,d,e,h,k,f,g)};b.pool=new c(b,!0);return b}()});

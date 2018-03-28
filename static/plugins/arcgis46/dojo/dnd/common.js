@@ -1,0 +1,2 @@
+//>>built
+define(["../sniff","../_base/kernel","../_base/lang","../dom"],function(f,c,d,e){var b=d.getObject("dojo.dnd",!0);b.getCopyKeyState=function(a){return a.metaKey};b._uniqueId=0;b.getUniqueId=function(){var a;do a=c._scopeName+"Unique"+ ++b._uniqueId;while(e.byId(a));return a};b._empty={};b.isFormElement=function(a){a=a.target;3==a.nodeType&&(a=a.parentNode);return 0<=" a button textarea input select option ".indexOf(" "+a.tagName.toLowerCase()+" ")};return b});

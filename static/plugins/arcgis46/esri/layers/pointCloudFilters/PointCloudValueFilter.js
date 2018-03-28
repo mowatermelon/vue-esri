@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define("require exports ../../core/tsSupport/declareExtendsHelper ../../core/tsSupport/decorateHelper ../../core/accessorSupport/decorators ../../core/lang ./PointCloudFilter".split(" "),function(k,l,f,c,b,g,h){return function(e){function a(a){a=e.call(this)||this;a.mode="exclude";a.type="value";a.values=[];return a}f(a,e);d=a;a.prototype.clone=function(){return new d({field:this.field,mode:this.mode,values:g.clone(this.values)})};c([b.property({type:String,json:{write:{enabled:!0,isRequired:!0}}})],
+a.prototype,"mode",void 0);c([b.property()],a.prototype,"type",void 0);c([b.property({type:[Number],json:{write:{enabled:!0,isRequired:!0}}})],a.prototype,"values",void 0);return a=d=c([b.subclass("esri.layers.pointCloudFilters.PointCloudValueFilter")],a);var d}(b.declared(h))});

@@ -1,0 +1,2 @@
+//>>built
+define(["dojo/_base/declare","dojo/sniff","./Audio"],function(a,c,b){return a("dojox.mobile.Video",b,{width:"200px",height:"150px",_tag:"video",_getEmbedRegExp:function(){return/video\/mp4/i}})});

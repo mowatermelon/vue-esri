@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define("require exports ../core/tsSupport/declareExtendsHelper ../core/tsSupport/decorateHelper ../request ../core/Error ./Layer ./mixins/ScaleRangeLayer ../core/accessorSupport/decorators ./mixins/RefreshableLayer".split(" "),function(p,q,h,c,g,k,l,m,d,n){return function(f){function a(){var b=null!==f&&f.apply(this,arguments)||this;b.type="base-dynamic";return b}h(a,f);a.prototype.getImageUrl=function(b,a,d){throw new k("basedynamiclayer:getImageUrl-not-implemented","getImageUrl() is not implemented");
+};a.prototype.fetchImage=function(b,a,d,e){b=this.getImageUrl(b,a,d);var c={responseType:"image",allowImageDataAccess:e&&e.allowImageDataAccess||!1};e&&e.timestamp&&(c.query={_ts:e.timestamp});return"string"===typeof b?g(b,c).then(function(a){return a.data}):b.then(function(a){return g(a,c)}).then(function(a){return a.data})};c([d.shared({"2d":"../views/2d/layers/BaseDynamicLayerView2D","3d":"../views/3d/layers/DynamicLayerView3D"})],a.prototype,"viewModulePaths",void 0);c([d.property({readOnly:!0,
+value:"base-dynamic"})],a.prototype,"type",void 0);return a=c([d.subclass("esri.layers.BaseDynamicLayer")],a)}(d.declared(l,n,m))});

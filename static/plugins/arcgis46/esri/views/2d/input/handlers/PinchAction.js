@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../../../core/tsSupport/extendsHelper","../../../input/InputHandler"],function(c,d,e,f){Object.defineProperty(d,"__esModule",{value:!0});c=function(c){function a(a){var b=c.call(this,!0)||this;b.view=a;b.registerIncoming("drag",function(a){return b._handleDrag(a)});b.registerIncoming("pointer-down",function(a){return b.stopMomentumNavigation()});return b}e(a,c);a.prototype._handleDrag=function(a){var b=a.data;if(!(2>b.pointers.length)){var c=this.view.navigation.pinch;
+switch(b.action){case "start":c.begin(this.view,b);break;case "update":c.update(this.view,b);break;case "end":c.end(this.view,b)}a.stopPropagation()}};a.prototype.stopMomentumNavigation=function(){this.view.navigation.pinch.stopMomentumNavigation()};return a}(f.InputHandler);d.PinchRotateAndZoom=c});

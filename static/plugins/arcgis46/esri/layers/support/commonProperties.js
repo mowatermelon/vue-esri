@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../core/accessorSupport/write","../../core/accessorSupport/utils","../../core/accessorSupport/PropertyOrigin"],function(g,a,e,d,f){Object.defineProperty(a,"__esModule",{value:!0});a.screenSizePerspectiveEnabled={type:Boolean,value:!0,json:{origins:{"web-scene":{read:{source:["id","url","layerType"],reader:function(c,b){if(null==b.screenSizePerspective&&"defaults"===this.originOf("screenSizePerspectiveEnabled"))d.getProperties(this).store.set("screenSizePerspectiveEnabled",
+!1,f.OriginId.DEFAULTS);else return b.screenSizePerspective}},write:{ignoreOrigin:!0,target:"screenSizePerspective",writer:function(c,b,a,d){"defaults"===this.originOf("screenSizePerspectiveEnabled")&&c?b[a]=c:e.willPropertyWrite(this,"screenSizePerspectiveEnabled",{},d)&&(b[a]=c)}}}}}}});

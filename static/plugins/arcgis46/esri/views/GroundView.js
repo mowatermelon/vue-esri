@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define("require exports ../core/tsSupport/declareExtendsHelper ../core/tsSupport/decorateHelper ../core/accessorSupport/decorators ../core/Accessor ../core/Collection ../core/watchUtils ../core/HandleRegistry".split(" "),function(l,m,f,c,b,g,e,h,k){return function(d){function a(){var a=null!==d&&d.apply(this,arguments)||this;a.handles=new k;a.layerViews=new e;return a}f(a,d);a.prototype.initialize=function(){this.handles.add(h.when(this,"view.map.ground",function(a){return a.load()}))};a.prototype.destroy=
+function(){this.view=null;this.handles&&(this.handles.destroy(),this.handles=null)};Object.defineProperty(a.prototype,"suspended",{get:function(){return!this.view||this.view.suspended},enumerable:!0,configurable:!0});c([b.property()],a.prototype,"view",void 0);c([b.property({type:e})],a.prototype,"layerViews",void 0);c([b.property()],a.prototype,"suspended",null);return a=c([b.subclass("esri.views.GroundView")],a)}(b.declared(g))});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","./enums"],function(r,t,e){return function(){function q(){}q.prototype.replayList=function(b,n,f,g,c,h,l,m,k,p,a){var e=this;n=n.symbolLevels;n.length<=f||!(f=n[f])||(b.setStencilTestEnabled(!0),b.setStencilFunction(514,c.stencilRef,255),f.zLevels.forEach(function(d){d=d.geometryDPInfo;d.fill&&e._draw(b,d.fill,g,c,h,l,k,p,m,a);d.line&&e._draw(b,d.line,g,c,h,l,k,p,m,a);d.marker&&e._draw(b,d.marker,g,c,h,l,k,p,m,a);d.text&&e._draw(b,d.text,g,c,h,l,k,p,m,a)}))};q.prototype._draw=
+function(b,n,f,g,c,h,l,m,k,p){n.forEach(function(a){switch(a.geometryType){case e.WGLGeometryType.FILL:f.drawFill(b,a.materialInfo,g,c,h,k,l,m,p,a.indexFrom,a.indexCount);break;case e.WGLGeometryType.LINE:f.drawLine(b,a.materialInfo,g,c,h,k,l,m,a.indexFrom,a.indexCount);break;case e.WGLGeometryType.MARKER:f.drawIcon(b,a.materialInfo,g,c,h,k,a.indexFrom,a.indexCount);break;case e.WGLGeometryType.TEXT:f.drawText(b,a.materialInfo,g,c,h,k,a.indexFrom,a.indexCount)}})};return q}()});

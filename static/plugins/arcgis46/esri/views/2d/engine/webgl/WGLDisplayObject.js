@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../../../core/ObjectPool","./WGLDisplayRecord","./Utils"],function(p,q,n,l,f){return function(){function c(){this.displayRecords=[]}c.prototype.acquire=function(b){this.id=b};c.prototype.release=function(){this.id=void 0;this.displayRecords.length=0};c.serialize=function(b,c,d){var a=0,a=a+f.serializeInteger(b.id,c,d+a),a=a+f.serializeInteger(b.displayRecords.length,c,d+a),e=0;for(b=b.displayRecords;e<b.length;e++)a+=l.serialize(b[e],c,d+a,!0);return a};c.deserialize=
+function(b,h,d){var a=0,e={n:0},a=a+f.deserializeInteger(e,h,d+a),k={n:0},a=a+f.deserializeInteger(k,h,d+a),m={displayRecord:void 0};b.displayObject=c.pool.acquire();b.displayObject.id=e.n;b.displayObject.displayRecords.length=k.n;for(var g=0;g<k.n;++g)a+=l.deserialize(m,h,d+a,!0),b.displayObject.displayRecords[g]=m.displayRecord,b.displayObject.displayRecords[g].id=e.n;return a};c.pool=new n(c);return c}()});

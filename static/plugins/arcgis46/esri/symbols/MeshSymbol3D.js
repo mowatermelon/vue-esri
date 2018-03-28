@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define("require exports ../core/tsSupport/declareExtendsHelper ../core/tsSupport/decorateHelper ../core/lang ../core/Collection ./Symbol3D ./FillSymbol3DLayer ../core/accessorSupport/decorators".split(" "),function(n,p,h,c,d,k,l,m,b){var f=k.ofType({base:null,key:"type",typeMap:{fill:m}});return function(g){function a(a){a=g.call(this)||this;a.symbolLayers=new f;a.type="mesh-3d";return a}h(a,g);e=a;a.prototype.clone=function(){return new e({styleOrigin:d.clone(this.styleOrigin),symbolLayers:d.clone(this.symbolLayers),
+thumbnail:d.clone(this.thumbnail)})};c([b.property({type:f})],a.prototype,"symbolLayers",void 0);c([b.property()],a.prototype,"type",void 0);return a=e=c([b.subclass("esri.symbols.MeshSymbol3D")],a);var e}(b.declared(l))});

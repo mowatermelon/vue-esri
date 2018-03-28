@@ -1,0 +1,101 @@
+/**
+* Represents the {@link module:esri/views/layers/LayerView} of a {@link module:esri/layers/KMLLayer}
+* after it has been added to a {@link module:esri/Map} in a {@link module:esri/views/MapView}.
+*
+* @module esri/views/layers/KMLLayerView
+* @noconstructor
+*
+* @since 4.6
+* @see module:esri/layers/KMLLayer
+* @see module:esri/layers/support/KMLSublayer
+* @see [Sample - KMLLayer](../sample-code/layers-kml/index.html)
+*/
+
+ //
+ // Typedefs --------------------------------------------------
+ //
+
+/**
+* **MapImage** represents an image overlay draped onto the terrain.
+*
+* @typedef {Object} MapImage
+*
+* @property {number} id - Map image id.
+* @property {string} href -URL to the map image.
+* @property {module:esri/geometry/Extent} Extent - The {@link module:esri/geometry/Extent Extent} of the map image.
+* @property {number} rotation - Rotation of the map image about its center, in degrees. Values can be ±180. The default is 0 (north). Rotations are specified in a counterclockwise direction.
+*/
+
+////////////////////////////////////////////////////////////
+//
+// Constructor
+//
+////////////////////////////////////////////////////////////
+
+
+/**
+ * @extends module:esri/views/layers/LayerView
+ * @constructor module:esri/views/layers/KMLLayerView
+ * @param {Object} [properties] - See the [properties](#properties-summary) for a list of all the properties
+ *                            that may be passed into the constructor.
+ */
+
+
+////////////////////////////////////////////////////////////
+//
+// Properties
+//
+////////////////////////////////////////////////////////////
+
+
+ //----------------------------------
+  //  allVisiblePoints
+  //----------------------------------
+
+  /**
+   * A collection of all the points from visible sublayers.
+   *
+   * @name allVisiblePoints
+   * @type {module:esri/core/Collection<module:esri/geometry/Point>}
+   * @readOnly
+   * @instance
+   */
+
+  //----------------------------------
+  //  allVisiblePolylines
+  //----------------------------------
+
+  /**
+   * A collection of all the polylines from visible sublayers.
+   *
+   * @name allVisiblePolylines
+   * @type {module:esri/core/Collection<module:esri/geometry/Polyline>}
+   * @readOnly
+   * @instance
+   */
+
+  //----------------------------------
+  //  allVisiblePolygons
+  //----------------------------------
+
+  /**
+   * A collection of all the polygons from visible sublayers.
+   *
+   * @name allVisiblePolygons
+   * @type {module:esri/core/Collection<module:esri/geometry/Polygon>}
+   * @readOnly
+   * @instance
+   */
+
+  //----------------------------------
+  //  allVisibleMapImages
+  //----------------------------------
+
+  /**
+   * A collection of all the {@link module:esri/views/layers/KMLLayerView~MapImage MapImages} from visible sublayers.
+   *
+   * @name allVisibleMapImages
+   * @type {module:esri/core/Collection<module:esri/views/layers/KMLLayerView~MapImage>}
+   * @readOnly
+   * @instance
+   */

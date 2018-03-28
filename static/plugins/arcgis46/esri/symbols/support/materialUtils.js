@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../Color","../../core/screenUtils"],function(l,c,d,k){function e(a){return Math.max(0,Math.min(Math.round(100*(1-a)),100))}function f(a){return Math.max(0,Math.min(1-a/100,1))}function g(a,b){a=null!=b.transparency?f(b.transparency):1;if((b=b.color)&&Array.isArray(b))return new d([b[0]||0,b[1]||0,b[2]||0,a])}function h(a,b){b.color=a.toJSON().slice(0,3);a=e(a.a);0!==a&&(b.transparency=a)}Object.defineProperty(c,"__esModule",{value:!0});c.opacityToTransparency=e;c.transparencyToOpacity=
+f;c.readColorAndTransparency=g;c.writeColorAndTransparency=h;c.colorAndTransparencyProperty={type:d,json:{type:[Number],read:{source:["color","transparency"],reader:g},write:{target:{color:{type:[Number]},transparency:{type:Number}},writer:h}}};c.screenSizeProperty={type:Number,cast:k.toPt,json:{write:!0}}});

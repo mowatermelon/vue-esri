@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","./MaterialUtil","../../lib/ModelContentType"],function(c,d,e,f){Object.defineProperty(d,"__esModule",{value:!0});c=function(){function b(a){this.visible=!0;this.renderOccluded=!1;this.renderPriority=0;this.parentStage=null;this.id=e.__Material_idGen.gen(a)}b.prototype.getId=function(){return this.id};b.prototype.getParentStage=function(){return this.parentStage};b.prototype.addParentStage=function(a){this.parentStage=a};b.prototype.removeParentStage=function(a){this.parentStage=
+null};b.prototype.setVisible=function(a){this.visible!==a&&(this.visible=a,this.notifyDirty("matChanged"))};b.prototype.isVisible=function(){return this.visible};b.prototype.setRenderOccluded=function(a){this.renderOccluded!==a&&(this.renderOccluded=a,this.notifyDirty("matChanged"))};b.prototype.isRenderOccluded=function(){return this.renderOccluded};b.prototype.notifyDirty=function(a){this.parentStage&&this.parentStage.notifyDirty(f.MATERIAL,this,a)};b.prototype.setRenderPriority=function(a){this.renderPriority=
+a;this.notifyDirty("matChanged")};b.prototype.getRenderPriority=function(){return this.renderPriority};return b}();d.MaterialBase=c;d.default=c});

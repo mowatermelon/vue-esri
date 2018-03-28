@@ -1,0 +1,3 @@
+//>>built
+define(["./has"],function(a){if(a("host-browser")){var b=navigator,c=b.userAgent,b=b.appVersion,e=parseFloat(b);a.add("webkit",void 0);a.add("chrome",void 0);a.add("safari",(0<=b.indexOf("Safari")&&a("chrome"),void 0));if(c.match(/(iPhone|iPod|iPad)/)){var f=RegExp.$1.replace(/P/,"p"),d=c.match(/OS ([\d_]+)/)?RegExp.$1:"1",d=parseFloat(d.replace(/_/,".").replace(/_/g,""));a.add(f,d);a.add("ios",d)}a("webkit")||(0<=c.indexOf("Opera")&&a.add("opera",9.8<=e?parseFloat(c.split("Version/")[1])||e:e),c.indexOf("Gecko"),
+document.all&&!a("opera")&&(c=parseFloat(b.split("MSIE ")[1])||void 0,(b=document.documentMode)&&5!=b&&Math.floor(c)!=b&&(c=b),a.add("ie",c)))}return a});

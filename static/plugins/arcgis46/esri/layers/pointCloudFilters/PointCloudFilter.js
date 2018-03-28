@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define("require exports ../../core/tsSupport/declareExtendsHelper ../../core/tsSupport/decorateHelper ../../core/accessorSupport/decorators ../../core/JSONSupport ../../core/kebabDictionary".split(" "),function(k,l,e,c,b,f,g){var h=g({pointCloudValueFilter:"value",pointCloudBitfieldFilter:"bitfield",pointCloudReturnFilter:"return"});return function(d){function a(a){return d.call(this)||this}e(a,d);a.prototype.clone=function(){console.warn(".clone() is not implemented for "+this.declaredClass);return null};
+c([b.property({type:String,json:{write:{enabled:!0,isRequired:!0}}})],a.prototype,"field",void 0);c([b.property({readOnly:!0,type:String,nonNullable:!0,json:{read:!1,write:h.write}})],a.prototype,"type",void 0);return a=c([b.subclass("esri.layers.pointCloudFilters.PointCloudFilter")],a)}(b.declared(f))});

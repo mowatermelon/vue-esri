@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["require","exports","./Utils"],function(e,f,d){return function(){function b(){this._groupToItems=new Map;this._itemToGroups=new Map}b.prototype.addItem=function(a,c){d.multimapAdd(this._groupToItems,a,c);d.multimapAdd(this._itemToGroups,c,a)};b.prototype.removeItem=function(a,c){d.multimapRemove(this._groupToItems,a,c);d.multimapRemove(this._itemToGroups,c,a)};b.prototype.groupCount=function(a){return this._itemToGroups.has(a)?this._itemToGroups.get(a).size:0};b.prototype.getItems=function(a){return this._groupToItems.has(a)?
+this._groupToItems.get(a):new Set};b.prototype.deleteGroup=function(a){var c=this;this._groupToItems.has(a)&&(this._groupToItems.get(a).forEach(function(b){var d=c._itemToGroups.get(b);d.delete(a);0===d.size&&c._itemToGroups.delete(b)}),this._groupToItems.delete(a))};return b}()});

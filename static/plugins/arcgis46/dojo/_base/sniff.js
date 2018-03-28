@@ -1,0 +1,2 @@
+//>>built
+define(["./kernel","./lang","../sniff"],function(b,c,a){if(!a("host-browser"))return a;b._name="browser";c.mixin(b,{isBrowser:!0,isFF:1,isIE:a("ie"),isKhtml:0,isWebKit:a("webkit"),isMozilla:1,isMoz:1,isOpera:a("opera"),isSafari:a("safari"),isChrome:a("chrome"),isMac:1,isIos:a("ios"),isAndroid:0,isWii:0,isQuirks:0,isAir:0});return a});

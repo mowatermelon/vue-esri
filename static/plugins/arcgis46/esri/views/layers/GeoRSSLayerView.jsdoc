@@ -1,0 +1,80 @@
+/**
+* Represents the {@link module:esri/views/layers/LayerView} of a {@link module:esri/layers/GeoRSSLayer}
+* after it has been added to a {@link module:esri/Map} in either a {@link module:esri/views/MapView} or
+* {@link module:esri/views/SceneView}. The GeoRSSLayerView is responsible for rendering a
+* {@link module:esri/layers/GeoRSSLayer GeoRSSLayer's}
+* features as {@link module:esri/Graphic graphics} in the {@link module:esri/views/View}.
+*
+* @module esri/views/layers/GeoRSSLayerView
+* @noconstructor
+*
+* @since 4.0
+* @see module:esri/layers/GeoRSSLayer
+*/
+
+
+
+////////////////////////////////////////////////////////////
+//
+// Constructor
+//
+////////////////////////////////////////////////////////////
+
+
+
+/**
+ * @extends module:esri/views/layers/LayerView
+ * @constructor module:esri/views/layers/GeoRSSLayerView
+ * @param {Object} [properties] - See the [properties](#properties-summary) for a list of all the properties
+ *                            that may be passed into the constructor.
+ */
+
+
+////////////////////////////////////////////////////////////
+//
+// Methods
+//
+////////////////////////////////////////////////////////////
+
+/**
+ * Highlights the given feature(s).
+ *
+ * ::: esri-md class="panel trailer-1"
+ * **Known Limitations**
+ *
+ * Currently the highlight method is only supported in a {@link module:esri/views/SceneView SceneView}.
+ * :::
+ *
+ * @param {module:esri/Graphic | module:esri/Graphic[]} [target] The feature(s) to highlight.
+ *
+ * @method highlight
+ * @memberOf module:esri/views/layers/GeoRSSLayerView
+ * @since 4.4
+ * @instance
+ *
+ * @return {Object} Returns a highlight handler with a `remove()` method that
+ * can be called to remove the highlight.
+ *
+ * Property | Type | Description
+ * ------------|--------|----------------
+ * remove | Function | When called, removes the highlight of the selected graphics.
+ *
+ * @example
+ * // highlight feature on click
+ * view.on("click", function(event){
+ *   view.hitTest(event).then(function(response){
+ *     if (response.results.length) {
+ *       var graphic = response.results.filter(function (result) {
+ *         return result.graphic.layer === myLayer;
+ *       })[0].graphic;
+ *
+ *      view.whenLayerView(graphic.layer).then(function(lyrView){
+ *        lyrView.highlight(graphic);
+ *      });
+ *     }
+ *   });
+ * });
+ *
+ * @see {@link module:esri/views/SceneView#highlightOptions SceneView.highlightOptions}
+ * @see [Sample: Highlight point features](../sample-code/highlight-point-features/index.html)
+ */

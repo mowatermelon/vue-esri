@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.6/esri/copyright.txt for details.
+//>>built
+define(["../../../geometry/Extent","../../../layers/support/ExportWMSImageParameters","./DynamicLayerView3D"],function(f,g,h){return h.createSubclass({declaredClass:"esri.views.3d.layers.WMSLayerView3D",_exportWMSImageParameters:null,_imageVersion:null,initialize:function(){this._exportWMSImageParameters=new g({layer:this.layer});this._handles.add(this._exportWMSImageParameters.watch("version",function(a){this._imageVersion!==a&&(this._imageVersion=a,this.refetch())}.bind(this)))},destroy:function(){this._exportWMSImageParameters&&
+(this._exportWMSImageParameters.layer=null,this._exportWMSImageParameters.destroy(),this._exportWMSImageParameters=null)},beforeFetch:function(){this._exportWMSImageParameters.scale!==this.view.scale&&(this._exportWMSImageParameters.scale=this.view.scale);this._imageVersion=this._exportWMSImageParameters.version},getPopupData:function(a){a=a.center;var c=this.findExtentInfoAt(a);if(c){var b=c.extent,b=new f(b[0],b[1],b[2],b[3],c.spatialReference),c=c.imageSize,d=c.width,e=b.width/d;if(a=this.layer.fetchFeatureInfo(b,
+d,c.height,Math.round((a.x-b.xmin)/e),Math.round((b.ymax-a.y)/e)))return a.then(function(a){return[a]})}return null}})});
