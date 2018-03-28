@@ -1,29 +1,18 @@
 <template>
-  <div class="mo-oa-header">
-    <div class="navbar-header col-xs-2 col-sm-6">
-      <i class="glyphicon glyphicon-globe"></i>
-      <h1 class="mo-text">watermelon esri</h1>
-    </div>
-    <div class="col-xs-7 col-sm-4 col-md-4 col-lg-3 pull-right">
-      <div class="theme col-xs-4 col-sm-5">
-        <p class="navbar-text mo-text text-center">
-          切换主题<br/>
-          <span v-for='(type,index) in themeType' :key='index' @click="changeTheme(type)" class="badge" :class="'theme-'+type">{{index}}</span>&nbsp;&nbsp;
-        </p>
-      </div>
-
-      <div class="login col-xs-7 col-sm-7">
-        <p class="navbar-text mo-text">
-          <span class="glyphicon glyphicon-user" alt="用户头像"></span>
-          {{uName}}<br/>研发部
-        </p>
-
-        <button type="button" class="btn btn-link" @click="loginOut">
-          <i class="glyphicon glyphicon-log-out"></i>退出
-        </button>
-      </div>
-    </div>
-  </div>
+  <el-row>
+    <el-col :span="18" class="h1">
+      <i class="el-icon-menu"></i>
+      <span>watermelon esri</span>
+    </el-col>
+    <el-col :span="3">
+      <i class="el-icon-setting"></i>
+      {{uName}}<br/>研发部
+    </el-col>
+    <el-col :span="3">
+      <el-button type="primary" icon="el-icon-edit" @click="loginOut">退出</el-button>
+    </el-col>
+  </el-row>
+  <!-- <span v-for='(type,index) in themeType' :key='index' @click="changeTheme(type)" class="badge" :class="'theme-'+type">{{index}}</span>&nbsp;&nbsp; -->
 </template>
 
 <script>
