@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 const Hello = resolve => require(['@/pages/Hello'], resolve)
 const Feature = resolve => require(['@/pages/Feature'], resolve)
-const vueMap = resolve => require(['@/pages/Map'], resolve)
+const ScreenView = resolve => require(['@/components/ScreenView'], resolve)
+const MapView = resolve => require(['@/components/MapView'], resolve)
 
 Vue.use(Router)
 
@@ -15,7 +16,7 @@ export default new Router({
     {
       path: '/',
       name: 'v-main',
-      component: vueMap
+      component: MapView
     },
     {
       path: '/Hello',
@@ -28,9 +29,14 @@ export default new Router({
       component: Feature
     },
     {
-      path: '/Map',
-      name: 'v-Map',
-      component: vueMap
+      path: '/MapView',
+      name: 'v-MapView',
+      component: MapView
+    },
+    {
+      path: '/ScreenView',
+      name: 'v-ScreenView',
+      component: ScreenView
     }
   ]
 })
