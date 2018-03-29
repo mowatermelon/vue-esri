@@ -16,7 +16,7 @@
 </template>
 
 <script>
-const crypto = require('crypto');
+import crypto from 'crypto'
 
 export default {
   name: 'Vheader',
