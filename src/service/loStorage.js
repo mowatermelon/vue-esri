@@ -1,11 +1,14 @@
 'use strict'
 
-function setItem (name, value) {
-  localStorage.setItem(name, value)
+const setItem = (name, value, type) => {
+  if (type) {
+    value = JSON.stringify(value)
+  }
+  window.localStorage.setItem(name, value)
 }
 
-function getItem (name, type) {
-  let res = localStorage.getItem(name)
+const getItem = (name, type) => {
+  let res = window.localStorage.getItem(name)
   if (res !== null) {
     if (!type) { // 为布尔值
       res = JSON.parse(res)
@@ -14,10 +17,10 @@ function getItem (name, type) {
   return res
 }
 
-function initData (init) {
+const initData = (init) => {
   for (let i = 0; i < init.length; i++) {
-    if (localStorage.getItem(init[i].name) === null) {
-      setItem(init[i].name, init[i].value)
+    if (window.localStorage.getItem(init[i].name) === null) {
+      setItem(init[i].name, init[i].value, init[i].type)
     }
   }
 }
