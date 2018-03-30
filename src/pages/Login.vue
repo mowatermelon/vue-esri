@@ -1,141 +1,179 @@
 <template>
   <transition name="fade">
-    <div id="login"  class="container">
-      <p class="text-center alert alert-danger" :class="[!error?'hide':'']" v-text="errorInfo"></p>
-      <p class="text-center alert alert-success"  :class="[!success?'hide':'']" v-text="successInfo"></p>
+    <div>
+      <el-row type="flex" justify="center">
+        <el-col :xs="24" :sm="8" class="loginBox">
 
-      <div class="form-horizontal col-xs-12 col-sm-6 col-sm-offset-3 loginBox">
-          <div class="h1 text-center" v-if="!gores">
-            <span class="glyphicon glyphicon-user loginIcon" alt="用户登录"></span>
+          <div class="text-center">
+            <i class="el-icon-menu loginIcon" alt="用户登录" v-if="!gores"></i>
+            <i class="el-icon-date loginIcon" alt="用户注册" v-if="gores"></i>
           </div>
-          <div class="h1 text-center" v-if="gores">
-            <span class="	glyphicon glyphicon-info-sign loginIcon" alt="用户注册"></span>
-          </div>
-          <div class="form-group" :class="checkForm">
-            <label class="input-group-addon glyphicon glyphicon-user col-xs-2 " for="userName"></label>
-            <div class="col-xs-10 has-feedback">
-              <span class="glyphicon form-control-feedback " :class="checkInput"></span>
-              <input type="text" class="form-control" id="userName" placeholder="请输入用户名"  v-model="uname"/>
-            </div>
-          </div>
+          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm">
 
-          <div class="form-group" :class="checkForm">
-            <label class="input-group-addon glyphicon glyphicon-lock col-xs-2" for="userPwd"></label>
-            <div class="col-xs-10 has-feedback">
-              <span class="glyphicon form-control-feedback" :class="checkInput"></span>
-            <input type="password" class="form-control" id="userPwd" placeholder="请输入密码" v-model="password " autocomplete="off"/>
+            <el-col :span="24" class="n-p-l-r">
+              <el-form-item class="h1" prop="userName">
+                <el-input placeholder="请输入用户名" v-model="ruleForm.userName">
+                  <template slot="prepend"><i class="el-icon-edit"></i></template>
+                </el-input>
+              </el-form-item>
+            </el-col>
 
-            </div>
-          </div>
+            <el-col :span="24" class="n-p-l-r">
+              <el-form-item class="h1" prop="userPwd">
+                <el-input placeholder="请输入密码" v-model="ruleForm.userPwd" type="password">
+                  <template slot="prepend"><i class="el-icon-edit-outline"></i></template>
+                </el-input>
+              </el-form-item>
+            </el-col>
 
-          <div class="form-group" v-if="gores" :class="checkForm">
-            <label class="input-group-addon glyphicon glyphicon-asterisk col-xs-2" for="userrPwd"></label>
-            <div class="col-xs-10 has-feedback">
-              <span class="glyphicon form-control-feedback" :class="checkInput"></span>
-              <input type="password" class="form-control" id="userrPwd" placeholder="请再次确认输入密码"  v-model="rpassword" autocomplete="off"/>
-            </div>
-          </div>
-          <div v-if="!gores">
-            <button class="btn btn-block submitBtn" @click="checkLogin()">登陆账户</button>
-            <button class="btn btn-link pull-right" @click="goReg()">用户注册</button>
-          </div>
-          <div v-if="gores">
-            <button class="btn btn-block submitBtn" @click="checkReg()">注册账户</button>
-            <button class="btn btn-link pull-right" @click="goLogin()">已有帐号去登陆</button>
-          </div>
-      </div>
+            <el-col :span="24" class="n-p-l-r" v-show="gores">
+              <el-form-item class="h1" prop="userRPwd">
+                <el-input placeholder="请再次确认输入密码" v-model="ruleForm.userRPwd" type="password">
+                  <template slot="prepend"><i class="el-icon-edit-outline"></i></template>
+                </el-input>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24" v-if="!gores" class="n-p-l-r">
+              <el-form-item>
+                <el-button type="primary" plain @click="checkLogin('ruleForm')" class="long">登陆账户</el-button>
+              </el-form-item>
+            </el-col>
+
+            <el-col :xs="24" :sm="10" :offset="14" v-if="!gores" class="n-p-l-r">
+              <el-form-item>
+                <el-button plain @click="goReg('ruleForm')" class="long">用户注册</el-button>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24" v-if="gores" class="n-p-l-r">
+              <el-form-item>
+                <el-button type="primary" plain @click="checkReg('ruleForm')" class="long">注册账户</el-button>
+              </el-form-item>
+            </el-col>
+
+            <el-col :xs="24" :sm="10" :offset="14" v-if="gores" class="n-p-l-r">
+              <el-form-item  v-if="gores">
+                <el-button plain @click="goLogin('ruleForm')" class="long">已有帐号去登陆</el-button>
+              </el-form-item>
+            </el-col>
+
+          </el-form>
+        </el-col>
+
+      </el-row>
     </div>
+
   </transition>
 </template>
 
 <script>
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 export default {
   name: 'Login',
   data () {
+    let _this = this;
+    const validateName = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入用户名'));
+      } else {
+
+        const UName = _this.$store.state.userName||_this.aesEncrypt('123', 'UName');
+
+        if (!_this.gores && value !== _this.aesDecrypt(UName, 'UName')) {
+          callback(new Error('请输入正确注册的用户名'));
+        }
+        callback();
+      }
+    };
+
+    const validatePass = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error('请输入密码'));
+      } else {
+        if (_this.gores && _this.ruleForm.userRPwd !== '') {
+          _this.$refs.ruleForm.validateField('userRPwd');
+        }else if (!_this.gores){
+          const UPassd = _this.$store.state.userPassword||_this.aesEncrypt('123', 'UPassd');
+          if (value !== _this.aesDecrypt(UPassd, 'UPassd')) {
+            callback(new Error('请输入正确的密码'));
+          }
+        }
+        callback();
+      }
+    };
+
+    const validatePass2 = (rule, value, callback) => {
+      if(_this.gores){
+        if (!value) {
+          callback(new Error('请输入确认输入密码'));
+        } else if (value !== _this.ruleForm.userPwd) {
+          callback(new Error('两次输入密码不一致!'));
+        } else {
+          callback();
+        }
+      }else{
+        callback();
+      }
+
+    };
     return {
-      uname: '',
-      password: '',
-      rpassword: '',
-      success: false,
-      error: false,
-      errorInfo: '',
-      successInfo: '',
+      ruleForm:{
+        userName: '',
+        userPwd: '',
+        userRPwd: ''
+      },
       gores: false,
-      copyright: 'Copyright © 2018 cover by WaterMelon <br />鄂ICP备66666666号-5<br />出其东门，有女如云，虽则如云，匪我思存。'
+      rules: {
+        userName: [
+          { validator: validateName, trigger: 'blur' }
+        ],
+        userPwd: [
+          { validator: validatePass, trigger: 'blur' }
+        ],
+        userRPwd: [
+          { validator: validatePass2, trigger: 'blur' }
+        ]
+      }
     };
   },
-  computed: {
-    loginInfo () {
-      return '你输入的用户名是' + this.uname + '你输入的密码是' + this.password;
-    },
-    checkForm () {
-      return {
-        'has-success': this.success,
-        'has-error': this.error
-      };
-    },
-    checkInput () {
-      return {
-      'glyphicon-ok': this.success,
-      'glyphicon-remove': this.error
-      };
-    }
-  },
   methods: {
-    checkLogin () {
+    checkLogin (formName) {
       let _this = this;
-      const UName = _this.$store.state.userName||_this.aesEncrypt('123', 'UName');
-      const UPassd = _this.$store.state.userPassword||_this.aesEncrypt('123', 'UPassd');
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          _this.showSuc('登录成功');
+          _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
+          _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
+          _this.$store.commit('checkLogin',false);
+        } else {
+          _this.showErr('用户名或者帐号输入错误请确认');
+        }
+      });
 
-      if (_this.password === _this.aesDecrypt(UPassd, 'UPassd') && _this.uname === _this.aesDecrypt(UName, 'UName')) {
-        _this.error = false;
-        _this.success = true;
-        _this.successInfo = '登录成功正在跳转....';
-
-        _this.$store.commit('setUName',_this.aesEncrypt(_this.uname, 'UName'));
-        _this.$store.commit('setUPassd',_this.aesEncrypt(_this.password, 'UPassd'));
-
-        _this.$store.commit('checkLogin',false);
-
-       //保证登录进入也能有正确的路由信息显示
-        // _this.$router.push({path: '/Map', query: {tabIndex: 1,listIndex:1}});
-      } else {
-        _this.error = true;
-        _this.errorInfo = '用户名或者帐号输入错误请确认';
-      }
     },
-    checkReg () {
+    checkReg (formName) {
       let _this = this;
-      _this.error = false;
-      if (_this.uname!== '' && _this.password !== '' && _this.password === _this.rpassword) {
-        _this.$store.commit('setUName',_this.aesEncrypt(_this.uname, 'UName'));
-        _this.$store.commit('checkLogin',false);
-        //保证登录进入也能有正确的路由信息显示
-        // _this.$router.push({path: '/Map', query: {tabIndex: 1,listIndex:1}});
-        // _this.gores = false;
-      } else {
-        _this.error = true;
-        _this.errorInfo = '请确认所有输入项都填写完成，或者两次密码输入是否匹配';
-      }
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          _this.showSuc('登录成功');
+          _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
+          _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
+          _this.$store.commit('checkLogin',false);
+        } else {
+          _this.showErr('请确认所有输入项都填写完成，或者两次密码输入是否匹配');
+        }
+      });
+
     },
-    goReg () {
-       this.errorInfo = '';
-       this.uname = '';
-       this.password = '';
-       this.error = false;
+    goReg (formName) {
+       this.$refs[formName].resetFields();
        this.gores = true;
     },
-    goLogin () {
-      this.uname = '';
-      this.password = '';
-      this.rpassword = '';
-      this.error = false;
+    goLogin (formName) {
+      this.$refs[formName].resetFields();
       this.gores = false;
-    },
-    goBack () {
-      this.$router.go(-1);
     },
     aesEncrypt(data, key) {
         const cipher = crypto.createCipher('aes192', key);
@@ -148,7 +186,23 @@ export default {
         var decrypted = decipher.update(encrypted, 'hex', 'utf8');
         decrypted += decipher.final('utf8');
         return decrypted;
+    },
+    showSuc(msg){
+      this.$message({
+        showClose: true,
+        message: msg,
+        type: 'success',
+        duration:500
+      });
+    },
+    showErr(msg){
+      this.$message({
+        showClose: true,
+        message: msg,
+        type: 'error'
+      });
     }
+
   }
 };
 </script>
@@ -158,72 +212,24 @@ $normal_shadom:#ddd;//页面默认阴影颜色
 $normal_active:#5bc0de;//页面默认主色调
 $normal_color:#fff; //页面默认未激活色
 
-.container{
-    // position:relative;
-    .loginBox{
-      box-shadow: 0 0 21px 2px $normal_shadom;
-      margin-top:10%;
-      padding: 5%;
-      .loginIcon{
-        background: $normal_active;
-        color:$normal_color;
-        border-radius: 100%;
-        padding: 25px;
-        font-size: 40px;
-        margin-bottom: 30px;
-      }
-      .form-group {
-          margin-right: -30px;
-          margin-left: 0;
-      }
-      label{
-        color: $normal_active;
-        background-color: $normal_color;
-        width: auto;
-        line-height: 20px;
-      }
-      .btn{
-        outline: 0 none;
-      }
-      .submitBtn{
-        border-color:$normal_active;
-        color: $normal_active;
-        background-color: $normal_color;
-      }
-      .submitBtn:hover,
-      .submitBtn:focus,
-      .submitBtn.focus {
-        background-color: $normal_active;
-        color: $normal_color;
-      }
-      .btn-link{
-        text-decoration: none;
-      }
-      .btn-link:hover,
-      .btn-link:focus,
-      .btn-link.focus {
-        font-weight: bolder;
-      }
-      .col-xs-10.has-feedback{
-        padding-left: 0;
-        padding-right: 0;
-        margin-top: 1px;
-        input{
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
 
-      }
-    }
-
+.loginBox{
+  box-shadow: 0 0 21px 2px $normal_shadom;
+  margin-top:8%;
+  padding: 3%;
+  .loginIcon{
+    background: $normal_active;
+    color:$normal_color;
+    border-radius: 100%;
+    padding: 25px;
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width:768px){
-  .container{
-      // position:relative;
-      .loginBox{
-        box-shadow: 0 0 21px 2px $normal_color;
-      }
+  .loginBox{
+    box-shadow: 0 0 21px 2px $normal_color;
   }
 }
 </style>
