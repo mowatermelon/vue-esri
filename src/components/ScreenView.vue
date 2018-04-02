@@ -18,6 +18,10 @@
         view:{}
       }
     },
+    created(){
+      let _this = this;
+      _this.initLoad();
+    },
     watch: {
       'map.loaded': function () {
         if (this.map.initialized == true) {
@@ -26,28 +30,27 @@
       }
 
     },
-    mounted: function () {
-      // 监听esriLoader是否存在，创建map
-      if (!esriLoader.isLoaded()) {
-        // no, lazy load it the ArcGIS API before using its classes
-        esriLoader.bootstrap((err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            // once it's loaded, create the map
-            this.createMap();
-          }
-        }, {
-          // use a specific version instead of latest 4.x
-          url: '../../static/plugins/arcgis46/init.js'
-        });
-      } else {
-        // ArcGIS API is already loaded, just create the map
-        this.createMap();
-      }
-
-    },
     methods: {
+      //初始化
+      initLoad(){
+        if (!esriLoader.isLoaded()) {
+          // no, lazy load it the ArcGIS API before using its classes
+          esriLoader.bootstrap((err) => {
+            if (err) {
+              console.error(err);
+            } else {
+              // once it's loaded, create the map
+              this.createMap();
+            }
+          }, {
+            // use a specific version instead of latest 4.x
+            url: '../../static/plugins/arcgis46/init.js'
+          });
+        } else {
+          // ArcGIS API is already loaded, just create the map
+          this.createMap();
+        }
+      },
       // 创建地图
       createMap: function () {
         let _this =this;
@@ -67,6 +70,7 @@
               tilt: 80
             }
           });
+          EventBus.$emit('setView',_this.view);
         });
       },
       // 缩放到中心图层
