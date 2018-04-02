@@ -10,7 +10,7 @@
           {{uName}}-研发部<i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item :command="item.exec" v-for="item in btngroup" v-text="item.content" :key="item.content" :icon="'ion-'+item.icon" :divided="item.divided"></el-dropdown-item>
+          <el-dropdown-item :command="item.exec" v-for="item in btngroup" :key="item.content" :divided="item.divided"><i :class="'ion-'+item.icon"></i>{{item.content}}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </el-col>
