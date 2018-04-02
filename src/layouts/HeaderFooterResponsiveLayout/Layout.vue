@@ -4,10 +4,10 @@
       <el-header>
         <v-header></v-header>
       </el-header>
-      <el-header>
-        <tool-bar></tool-bar>
-      </el-header>
-      <el-main>
+      <div>
+        <tool-box></tool-box>
+      </div>
+      <el-main class="n-p">
         <map-view></map-view>
         <!-- <screen-view></screen-view> -->
       </el-main>
@@ -16,7 +16,7 @@
 </template>
 <script>
 import VHeader from '../../components/Header'
-import ToolBar from '../../components/ToolBar'
+import ToolBox from '../../components/ToolBox'
 import MapView from '../../components/MapView'
 // import ScreenView from '../../components/ScreenView'
 
@@ -37,7 +37,7 @@ export default {
   components:{
       VHeader,
       MapView,
-      ToolBar
+      ToolBox
       // ScreenView
   }
 
