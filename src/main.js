@@ -5,8 +5,11 @@ import App from './App'
 import router from './assets/js/router'
 import store from './assets/js/vuex/store'
 import ElementUI from 'element-ui'
+import '../static/plugins/reset/normal.css' // 引入重置样式
 import 'element-ui/lib/theme-chalk/index.css'
 import EventBus from './service/Bus'
+
+import '../static/plugins/ionicons/css/ionicons.min.css' // 引入第三方图标库
 
 Vue.use(ElementUI)
 
