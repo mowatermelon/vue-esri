@@ -14,42 +14,43 @@
         map: {'loaded': ''},
         isHide: true,
         evt:{x:'',y:''},
-        camera:{},
         view:{}
       }
     },
+    created(){
+      let _this = this;
+      _this.initLoad();
+    },
     watch: {
       'map.loaded': function () {
-        if (this.map.initialized == true) {
+        if (this.map.initialized) {
           this.isHide = false;
         }
       }
-
-    },
-    mounted: function () {
-      // 监听esriLoader是否存在，创建map
-      if (!esriLoader.isLoaded()) {
-        // no, lazy load it the ArcGIS API before using its classes
-        esriLoader.bootstrap((err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            // once it's loaded, create the map
-            this.createMap();
-          }
-        }, {
-          // use a specific version instead of latest 4.x
-          url: '../../static/plugins/arcgis46/init.js'
-        });
-      } else {
-        // ArcGIS API is already loaded, just create the map
-        this.createMap();
-      }
-
     },
     methods: {
+      //初始化
+      initLoad(){
+        if (!esriLoader.isLoaded()) {
+          // no, lazy load it the ArcGIS API before using its classes
+          esriLoader.bootstrap((err) => {
+            if (err) {
+              console.error(err);
+            } else {
+              // once it's loaded, create the map
+              this.createMap();
+            }
+          }, {
+            // use a specific version instead of latest 4.x
+            url: '../../static/plugins/arcgis46/init.js'
+          });
+        } else {
+          // ArcGIS API is already loaded, just create the map
+          this.createMap();
+        }
+      },
       // 创建地图
-      createMap: function () {
+      createMap() {
         let _this =this;
 
         esriLoader.dojoRequire(["esri/map", "esri/views/MapView","dojo/domReady!"], (Map,MapView) => {
@@ -63,23 +64,28 @@
             scale: 50,          // Sets the initial scale to 1:50,000,000
             center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
+          // debugger;
+          EventBus.$emit('setView',_this.view);
         });
       },
       // 缩放到中心图层
-      centerZoom: function () {
+      centerZoom() {
         this.map.centerAndZoom([114.40845006666666,30.456864444444443], 16);
       },
       // 显示当前坐标
-      showCoordinates: function(e) {
+      showCoordinates(e) {
         let _this = this;
-        _this.view.hitTest(e)
-          .then(function(res){
-            let point = res.screenPoint;
-            if(!_this.isHide){
-                _this.evt.x = point.x;
-                _this.evt.y = point.y;
-            }
-        });
+        if(!_this.isHide){
+          _this.view.hitTest(e)
+            .then(function(res){
+              let point = res.screenPoint;
+              if(!_this.isHide){
+                  _this.evt.x = point.x;
+                  _this.evt.y = point.y;
+              }
+          });
+        }
+
       }
 
     }
