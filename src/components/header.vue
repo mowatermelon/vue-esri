@@ -1,18 +1,20 @@
 <template>
   <el-row>
-    <el-col :span="18" class="h1">
-      <i class="el-icon-menu"></i>
+    <el-col :span="22" class="h1">
+      <i class="ion-earth"></i>
       <span>watermelon esri</span>
     </el-col>
-    <el-col :span="3">
-      <i class="el-icon-setting"></i>
-      {{uName}}<br/>研发部
-    </el-col>
-    <el-col :span="3">
-      <el-button type="primary" icon="el-icon-edit" @click="loginOut">退出</el-button>
+    <el-col :span="2">
+      <el-dropdown @command="handleCommand">
+        <el-button type="primary">
+          {{uName}}-研发部<i class="el-icon-arrow-down el-icon--right"></i>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item :command="item.exec" v-for="item in btngroup" v-text="item.content" :key="item.content" :icon="'ion-'+item.icon" :divided="item.divided"></el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </el-col>
   </el-row>
-  <!-- <span v-for='(type,index) in themeType' :key='index' @click="changeTheme(type)" class="badge" :class="'theme-'+type">{{index}}</span>&nbsp;&nbsp; -->
 </template>
 
 <script>
@@ -23,7 +25,27 @@ export default {
   data () {
     return {
       changeType:'',
-      themeType:['blue','pure','dark']
+      themeType:['blue','pure','dark'],
+      btngroup:[
+        {
+          content:'我的主页',
+          icon:'ios-person-outline',
+          exec: 'goDashboard',
+          divided:false
+        },
+        {
+          content:'设置',
+          icon:'gear-a',
+          exec: 'goSetting',
+          divided: false
+        },
+        {
+          content:'退出',
+          icon:'log-out',
+          exec: 'loginOut',
+          divided: true
+        }
+      ]
     }
   },
   computed: {
@@ -32,6 +54,12 @@ export default {
     }
   },
   methods: {
+    //绑定下拉按钮事件执行情况
+    handleCommand(command){
+      let _this = this;
+      _this.$message('click on item ' + command);
+      _this[command]();//执行每个按钮对应的事件
+    },
     changeTheme(type){
       console.log('checkTheme：'+type);
       let _this = this;
