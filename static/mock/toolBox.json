@@ -1,94 +1,94 @@
 [
   {
     "label": "漫游",
-    "visible": false,
+    "visible": true,
     "index": "0",
     "config": "Widget.NavZoomPan",
-    "icon": "ios-ionic-outline"
+    "icon": "android-hand"
   },
   {
     "label": "放大",
-    "visible": false,
+    "visible": true,
     "index": "1",
     "config": "Widget.NavZoomIn",
-    "icon": "ios-ionic-outline"
+    "icon": "plus-circled"
   },
   {
     "label": "缩小",
-    "visible": false,
+    "visible": true,
     "index": "2",
     "config": "Widget.NavZoomOut",
-    "icon": "ios-ionic-outline"
+    "icon": "android-remove-circle"
   },
   {
     "label": "全图",
-    "visible": false,
+    "visible": true,
     "index": "3",
     "config": "Widget.NavZoomFull",
-    "icon": "ios-ionic-outline"
+    "icon": "earth"
   },
   {
     "label": "定位",
     "visible": true,
     "index": "4",
     "config": "Widget.Location",
-    "icon": "ios-ionic-outline"
+    "icon": "android-locate"
   },
   {
     "label": "量算",
     "visible": true,
     "index": "5",
     "config": "Widget.Measurement",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-help"
   },
   {
     "label": "属性",
     "visible": true,
     "index": "6",
     "config": "Widget.IQuery",
-    "icon": "images/img/iquery.png"
+    "icon": "ios-information"
   },
   {
     "label": "图层",
-    "visible": false,
+    "visible": true,
     "index": "7",
     "config": "Widget.LayerMngTree",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-browsers"
   },
   {
     "label": "叠加",
     "visible": true,
     "index": "8",
     "config": "Widget.OverlayfileMsg",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-browsers-outline"
   },
   {
     "label": "分析",
     "visible": true,
     "index": "9",
     "config": "Widget.AnalysisLand",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-analytics"
   },
   {
     "label": "截图",
     "visible": true,
     "index": "10",
-    "config": "Widget.ScreenShot",
-    "icon": "ios-ionic-outline"
+    "config": "aperture Widget.ScreenShot",
+    "icon": "crop"
   },
   {
     "label": "查询",
     "visible": true,
     "index": "11",
     "config": "Widget.KJQueryMng",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-glasses"
   },
   {
     "label": "幢查询",
-    "visible": false,
+    "visible": true,
     "index": "12",
     "config": "Widget.FZQueryMng",
-    "icon": "ios-ionic-outline"
+    "icon": "ios-search-strong"
   }
 ]
 
