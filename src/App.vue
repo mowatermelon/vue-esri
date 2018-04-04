@@ -4,14 +4,12 @@
       <login></login>
     </div>
     <div v-if="!isLogin">
-      <layout></layout>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
-
-import Login from './pages/Login'
-import Layout from './layouts/HeaderFooterResponsiveLayout/Layout'
+const Login = resolve => require(['@/pages/Login'], resolve)
 
 export default {
   name: 'app',
@@ -27,8 +25,7 @@ export default {
   mounted() {
   },
   components:{
-      Login,
-      Layout
+      Login
   },
   methods:{
   }
