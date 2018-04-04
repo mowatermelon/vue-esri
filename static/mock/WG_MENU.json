@@ -1,0 +1,101 @@
+[
+  {
+    "menuId": "MENU00070009",
+    "iconUrl": "android-remove-circle",
+    "menuText": "联候会内京",
+    "parentId": "MENU00060000",
+    "sortNum": "1",
+    "note": "真活立加气看列参支斗解海增。",
+    "exec": "open_resource_search"
+  },
+  {
+    "menuId": "MENU00080008",
+    "iconUrl": "plus-circled",
+    "menuText": "出但却",
+    "parentId": "MENU00060002",
+    "sortNum": "1",
+    "note": "就质件图还算影知石县复地面列利如。观往的动最调总律口构干对声造。",
+    "exec": "click_url"
+  },
+  {
+    "menuId": "MENU00050005",
+    "iconUrl": "earth",
+    "menuText": "第保验人",
+    "parentId": "MENU00050009",
+    "sortNum": "5",
+    "note": "高业数千次学严决清议名美连几京。取连世算风心了争小儿每合点支。好角立规队利加标世后严车统又及。",
+    "exec": "open_resource_search"
+  },
+  {
+    "menuId": "MENU00070001",
+    "iconUrl": "earth",
+    "menuText": "验话看区米造",
+    "parentId": "MENU00050009",
+    "sortNum": "2",
+    "note": "列变收观团来风及改转节达实增。着六眼行度社情方前路容对中政科着。",
+    "exec": "click_url"
+  },
+  {
+    "menuId": "MENU00090008",
+    "iconUrl": "android-locate",
+    "menuText": "每得口三个规",
+    "parentId": "MENU00030000",
+    "sortNum": "5",
+    "note": "方用法红太太准知深复十少看。",
+    "exec": "open_resource_detail"
+  },
+  {
+    "menuId": "MENU00020000",
+    "iconUrl": "plus-circled",
+    "menuText": "子个美",
+    "parentId": "MENU00060002",
+    "sortNum": "1",
+    "note": "百形图究育中构已程素约二制务性行化。听断群期利交调眼存达斗温务张因更况。",
+    "exec": "open_resource_search"
+  },
+  {
+    "menuId": "MENU00020001",
+    "iconUrl": "earth",
+    "menuText": "快各开合",
+    "parentId": "MENU00070008",
+    "sortNum": "6",
+    "note": "养光包可权存需化界大一百就直必布。强对规次眼效等和基权需克叫办存消车。很节或温动月小型见观利织标表革种家。",
+    "exec": "open_resource_detail"
+  },
+  {
+    "menuId": "MENU00000006",
+    "iconUrl": "earth",
+    "menuText": "于实电除众来",
+    "parentId": "MENU00020006",
+    "sortNum": "7",
+    "note": "养务第济质习山酸电层共里。复她素面内采受听圆提志法化会百往保。",
+    "exec": "click_url"
+  },
+  {
+    "menuId": "MENU00020005",
+    "iconUrl": "plus-circled",
+    "menuText": "学机那心",
+    "parentId": "MENU00080002",
+    "sortNum": "5",
+    "note": "养角象存此维人出器因做转议物。地达图引状果子达养育明为质指识。",
+    "exec": "open_resource_search"
+  },
+  {
+    "menuId": "MENU00020008",
+    "iconUrl": "android-locate",
+    "menuText": "又管角义表争日",
+    "parentId": "MENU00060006",
+    "sortNum": "8",
+    "note": "治都治问色着下受工二调马非支间现。",
+    "exec": "open_resource_search"
+  },
+  {
+    "menuId": "MENU00030007",
+    "iconUrl": "plus-circled",
+    "menuText": "法容民称",
+    "parentId": "MENU00080006",
+    "sortNum": "3",
+    "note": "果事圆适强圆广年人从相大做名立。",
+    "exec": "open_resource_search"
+  }
+]
