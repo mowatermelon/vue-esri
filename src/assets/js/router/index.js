@@ -3,8 +3,10 @@ import Router from 'vue-router'
 
 const Hello = resolve => require(['@/pages/Hello'], resolve)
 const Feature = resolve => require(['@/pages/Feature'], resolve)
-const ScreenView = resolve => require(['@/components/ScreenView'], resolve)
-const MapView = resolve => require(['@/components/MapView'], resolve)
+const ScreenView = resolve => require(['@/components/maps/ScreenView'], resolve)
+const MapView = resolve => require(['@/components/maps/MapView'], resolve)
+const Manage = resolve => require(['@/pages/Manage'], resolve)
+const Default = resolve => require(['@/pages/Default'], resolve)
 
 Vue.use(Router)
 
@@ -16,7 +18,7 @@ export default new Router({
     {
       path: '/',
       name: 'v-main',
-      component: MapView
+      component: Default
     },
     {
       path: '/Hello',
@@ -37,6 +39,16 @@ export default new Router({
       path: '/ScreenView',
       name: 'v-ScreenView',
       component: ScreenView
+    },
+    {
+      path: '/Manage',
+      name: 'v-Manage',
+      component: Manage
+    },
+    {
+      path: '/Default',
+      name: 'v-Default',
+      component: Default
     }
   ]
 })
