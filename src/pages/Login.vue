@@ -147,6 +147,7 @@ export default {
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
           _this.$store.commit('checkLogin',false);
+          _this.$router.push({path: '/Default',params: { req: 'goDefault' }});
         } else {
           _this.showErr('用户名或者帐号输入错误请确认');
         }
@@ -161,6 +162,7 @@ export default {
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
           _this.$store.commit('checkLogin',false);
+          _this.$router.push({path: '/Default',params: { req: 'goDefault' }});
         } else {
           _this.showErr('请确认所有输入项都填写完成，或者两次密码输入是否匹配');
         }
