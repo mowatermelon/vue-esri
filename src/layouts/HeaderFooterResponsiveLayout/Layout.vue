@@ -15,11 +15,9 @@
   </transition>
 </template>
 <script>
-import VHeader from '../../components/Header'
-import ToolBox from '../../components/ToolBox'
-import MapView from '../../components/MapView'
-// import ScreenView from '../../components/ScreenView'
-
+const VHeader = resolve => require(['@/components/pages/Header'], resolve)
+const ToolBox = resolve => require(['@/components/tools/ToolBox'], resolve)
+const MapView = resolve => require(['@/components/maps/MapView'], resolve)
 
 export default {
   name: 'Layout',
