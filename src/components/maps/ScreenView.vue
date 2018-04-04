@@ -44,7 +44,7 @@
             }
           }, {
             // use a specific version instead of latest 4.x
-            url: '../../static/plugins/arcgis46/init.js'
+            url: '../../../static/plugins/arcgis46/init.js'
           });
         } else {
           // ArcGIS API is already loaded, just create the map
@@ -95,7 +95,7 @@
   }
 </script>
 <style lang="scss" scoped>
-@import './../../static/plugins/arcgis46/esri/css/main.css';
+@import '../../../static/plugins/arcgis46/esri/css/main.css';
 .map_box .map_div {
   width:100%;
   height: calc(100vh*0.8);

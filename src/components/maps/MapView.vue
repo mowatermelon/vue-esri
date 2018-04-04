@@ -2,10 +2,12 @@
   <div class="map_box">
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
+    <ScaleBar position="top-left"></ScaleBar>
   </div>
 </template>
 <script>
   import esriLoader from 'esri-loader'
+  import ScaleBar from './ScaleBar'
 
   export default {
     name: 'MapView',
@@ -42,7 +44,7 @@
             }
           }, {
             // use a specific version instead of latest 4.x
-            url: '../../static/plugins/arcgis46/init.js'
+            url: '../../../static/plugins/arcgis46/init.js'
           });
         } else {
           // ArcGIS API is already loaded, just create the map
@@ -64,7 +66,6 @@
             scale: 50,          // Sets the initial scale to 1:50,000,000
             center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
-          // debugger;
           EventBus.$emit('setView',_this.view);
         });
       },
@@ -86,14 +87,33 @@
           });
         }
 
+      },
+      //添加视图部件
+      addWidget(view){
+        this.addWidgetScaleBar(view);
+      },
+      //添加比例尺视图部件
+      addWidgetScaleBar(view){
+        esriLoader.dojoRequire(["esri/widgets/ScaleBar","dojo/domReady!"], (ScaleBar) => {
+          let scaleBar = new ScaleBar({
+            view: view
+          });
+          // Add widget to the bottom left corner of the view
+          view.ui.add(scaleBar, {
+            position: "bottom-left"
+          });
+        });
+
       }
 
+    },
+    components:{
+      ScaleBar
     }
-
   }
 </script>
 <style lang="scss" scoped>
-@import './../../static/plugins/arcgis46/esri/css/main.css';
+@import '../../../static/plugins/arcgis46/esri/css/main.css';
 .map_box .map_div {
   width:100%;
   height: calc(100vh*0.8);
