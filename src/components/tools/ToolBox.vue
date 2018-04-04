@@ -1,12 +1,12 @@
 <template>
   <el-row type="flex" class="row-bg">
-    <el-button v-for="widget in filterWidgets" plain size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
+    <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
   </el-row>
 </template>
 
 <script>
 
-import {getAjax} from '../service/util'
+import {getAjax} from '../../service/util'
 
 export default {
   name: 'ToolBox',
@@ -59,23 +59,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$linear-start:#409EFF;//高亮效果的渐变开始颜色
-$linear-end:#ecf5ff;//高亮效果的渐变结束颜色
+$linear-start:#1861d5;//高亮效果的渐变开始颜色
+$linear-end:#3080fe;//高亮效果的渐变结束颜色
 
-$theme_color: #ecf5ff;; // 页面蓝色主题 --默认色
+$font_color: #666;; //
+$clear_color: #fff;; //
 
-.row-bg{
-  background-image: linear-gradient(90deg,$linear-start 0%,$theme_color 50%,$linear-end 100%);
-}
+// .row-bg{
+//   background-color: $linear-start;
+// }
 .el-button+.el-button {
   margin-left: 0;
-  background-color: transparent;
 }
+.el-button {
+  margin-left: 0;
+  background-color: transparent;
+  color: $font_color;
+}
+
+.el-button.selected,.el-button:hover {
+  background-image: linear-gradient(90deg,$linear-start 0,$linear-end 100%);
+  color:$clear_color;
+}
+
 .el-button--medium, .el-button--medium.is-round {
   padding: 10px;
   font-size: 14px;
   word-spacing: 0.2em;
-  border-radius: 0;
   border:0 none;
 }
 </style>
