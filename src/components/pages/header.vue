@@ -32,6 +32,7 @@
 
 <script>
 import crypto from 'crypto'
+const Manage = resolve => require(['@/pages/Manage'], resolve)
 
 export default {
   name: 'Vheader',
@@ -80,9 +81,13 @@ export default {
     },
     goDashboard(){
       console.log('goDashboard');
+      this.$root.$router.push({path: '/Default', name: 'v-Default',params: { req: 'goDashboard' }});
+      this.$message.warning("进入主界面");
     },
     goSetting(){
       console.log('goSetting');
+      this.$root.$router.push({path: '/Manage', name: 'v-Manage',component: Manage, params: { req: 'goSetting' }});
+      this.$message.warning("进入管理界面");
     },
     loginOut(){
       let _this = this;
