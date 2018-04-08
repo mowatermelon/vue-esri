@@ -25,20 +25,20 @@ export default {
       required: true
     },
     iWidth:{//
-      type: String,
+      type: [String,Number],
       default: "15px"
     },
     iHeight:{//
-      type: String,
+      type: [String,Number],
       default: "15px"
     },
     xOffset:{//
-      type: String,
-      default: "0px"
+      type: [String,Number],
+      default: 0
     },
     yOffset:{//
-      type: String,
-      default: "0px"
+      type: [String,Number],
+      default: 0
     }
   },
   data () {
