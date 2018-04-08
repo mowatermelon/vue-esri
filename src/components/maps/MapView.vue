@@ -2,12 +2,17 @@
   <div class="map_box">
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
-    <ScaleBar position="top-left"></ScaleBar>
+    <scale-bar></scale-bar>
+    <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol>
+    <line-symbol :lPaths="[[114.40845006666666,30.456864444444443],[114.40845006666666,35.456864444444443],[114.40845006666666,40.456864444444443]]" :lColor="[226, 119, 40]" lWidth="2px"></line-symbol>
   </div>
 </template>
 <script>
   import esriLoader from 'esri-loader'
   import ScaleBar from './ScaleBar'
+  import PictureMarkerSymbol from './PictureMarkerSymbol'
+  import LineSymbol from './LineSymbol'
+
 
   export default {
     name: 'MapView',
@@ -55,14 +60,13 @@
       createMap() {
         let _this =this;
 
-        esriLoader.dojoRequire(["esri/map", "esri/views/MapView","dojo/domReady!"], (Map,MapView) => {
+        esriLoader.dojoRequire(["esri/map", "esri/views/MapView"], (Map,MapView) => {
           _this.map = new Map({
-            basemap: "osm",
-            ground: "world-elevation"// Use the world elevation service
+            basemap: "osm"
           });
           _this.view = new MapView({
-            container: "viewDiv",     // Reference to the scene div created in step 5
-            map: _this.map,                 // Reference to the map object created before the scene
+            container: "viewDiv",
+            map: _this.map,
             scale: 50,          // Sets the initial scale to 1:50,000,000
             center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
@@ -108,7 +112,9 @@
 
     },
     components:{
-      ScaleBar
+      ScaleBar,
+      PictureMarkerSymbol,
+      LineSymbol
     }
   }
 </script>
