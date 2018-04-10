@@ -34,7 +34,9 @@ export default {
       let _this = this;
       esriLoader.dojoRequire(["esri/widgets/ScaleBar","dojo/domReady!"], (ScaleBar) => {
         let scaleBar = new ScaleBar({
-          view: _this.view
+          view: _this.view,
+          style:"line",//ruler or line
+          unit:"metric"//non-metric, metric or dual
         });
 
         _this.view.ui.add(scaleBar, {
