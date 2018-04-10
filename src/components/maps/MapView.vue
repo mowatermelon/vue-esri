@@ -4,7 +4,9 @@
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
     <scale-bar></scale-bar>
     <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol>
-    <line-symbol :lPaths="[[114.40845006666666,30.456864444444443],[114.40845006666666,35.456864444444443],[114.40845006666666,40.456864444444443]]" :lColor="[226, 119, 40]" lWidth="2px"></line-symbol>
+    <!-- <line-symbol :lPaths="[[114.40845006666666,30.456864444444443],[114.40845006666666,35.456864444444443],[114.40845006666666,40.456864444444443]]" :lColor="[226, 119, 40]" lWidth="2px"></line-symbol> -->
+    <!-- <size-slider></size-slider> -->
+    <draw></draw>
   </div>
 </template>
 <script>
@@ -12,7 +14,8 @@
   import ScaleBar from './ScaleBar'
   import PictureMarkerSymbol from './PictureMarkerSymbol'
   import LineSymbol from './LineSymbol'
-
+  import SizeSlider from './SizeSlider'
+  import Draw from './Draw'
 
   export default {
     name: 'MapView',
@@ -114,7 +117,9 @@
     components:{
       ScaleBar,
       PictureMarkerSymbol,
-      LineSymbol
+      LineSymbol,
+      SizeSlider,
+      Draw
     }
   }
 </script>
