@@ -43,16 +43,10 @@ export default {
   },
   data () {
     return {
-      view:{}
     }
   },
   created(){
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.initLoad();
   },
   methods: {
@@ -77,11 +71,11 @@ export default {
           symbol: picSymbol,
           geometry: picPoint
         });
+
         // Add the picture graphic to the view's GraphicsLayer
-        _this.view.graphics.add(picGraphic);
+        window.view.graphics.add(picGraphic);
 
       });
-      EventBus.$emit('setView',_this.view);
     }
   }
 }

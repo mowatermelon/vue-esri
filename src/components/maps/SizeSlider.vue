@@ -22,11 +22,6 @@ export default {
   },
   created(){
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.initLoad();
   },
   methods: {
@@ -45,12 +40,9 @@ export default {
           // statistics: stats,  // object generated from summaryStatistics()
           visualVariable: sliderVisualVariable,  // size visual variable generated from a sizeRendererCreator method
         }, "sliderDiv");
-        // _this.view
 
-
-        _this.view.ui.add(sizeSlider);
+        window.view.ui.add(sizeSlider);
       });
-      EventBus.$emit('setView',_this.view);
     }
   }
 }

@@ -17,16 +17,10 @@ export default {
   },
   data () {
     return {
-      view:{}
     }
   },
   created(){
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.initLoad();
   },
   methods: {
@@ -34,16 +28,15 @@ export default {
       let _this = this;
       esriLoader.dojoRequire(["esri/widgets/ScaleBar","dojo/domReady!"], (ScaleBar) => {
         let scaleBar = new ScaleBar({
-          view: _this.view,
+          view: window.view,
           style:"line",//ruler or line
           unit:"metric"//non-metric, metric or dual
         });
 
-        _this.view.ui.add(scaleBar, {
+        window.view.ui.add(scaleBar, {
           position: _this.position
         });
       });
-      EventBus.$emit('setView',_this.view);
     }
   }
 }
