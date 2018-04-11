@@ -3,8 +3,10 @@
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
     <scale-bar></scale-bar>
-    <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol>
-    <!-- <line-symbol :lPaths="[[114.40845006666666,30.456864444444443],[114.40845006666666,35.456864444444443],[114.40845006666666,40.456864444444443]]" :lColor="[226, 119, 40]" lWidth="2px"></line-symbol> -->
+    <!-- <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol> -->
+    <!-- <picture-marker-symbol  :iLong="12735876.221217055" :iLati="3562426.95469336"></picture-marker-symbol> -->
+
+    <line-symbol :lPaths="[[114.40845006666666,30.456864444444443],[114.40845006666666,35.456864444444443],[114.40845006666666,40.456864444444443]]" :lColor="[226, 119, 40]" lWidth="2px"></line-symbol>
     <!-- <size-slider></size-slider> -->
     <draw></draw>
   </div>
@@ -73,7 +75,7 @@
             scale: 50,          // Sets the initial scale to 1:50,000,000
             center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
-          EventBus.$emit('setView',_this.view);
+          window.view = _this.view;
         });
       },
       // 缩放到中心图层
@@ -93,32 +95,13 @@
               }
           });
         }
-
-      },
-      //添加视图部件
-      addWidget(view){
-        this.addWidgetScaleBar(view);
-      },
-      //添加比例尺视图部件
-      addWidgetScaleBar(view){
-        esriLoader.dojoRequire(["esri/widgets/ScaleBar","dojo/domReady!"], (ScaleBar) => {
-          let scaleBar = new ScaleBar({
-            view: view
-          });
-          // Add widget to the bottom left corner of the view
-          view.ui.add(scaleBar, {
-            position: "bottom-left"
-          });
-        });
-
       }
-
     },
     components:{
       ScaleBar,
       PictureMarkerSymbol,
-      LineSymbol,
       SizeSlider,
+      LineSymbol,
       Draw
     }
   }
