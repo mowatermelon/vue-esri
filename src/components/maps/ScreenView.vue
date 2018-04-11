@@ -14,8 +14,7 @@
         map: {'loaded': ''},
         isHide: true,
         evt:{x:'',y:''},
-        camera:{},
-        view:{}
+        camera:{}
       }
     },
     created(){
@@ -70,7 +69,7 @@
               tilt: 80
             }
           });
-          EventBus.$emit('setView',_this.view);
+          window.view = _this.view;
         });
       },
       // 缩放到中心图层
