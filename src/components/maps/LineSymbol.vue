@@ -26,16 +26,10 @@ export default {
   },
   data () {
     return {
-      view:{}
     }
   },
   created(){
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.initLoad();
   },
   methods: {
@@ -45,30 +39,29 @@ export default {
         let polyline = {
           type: "polyline",  // autocasts as new Polyline()
           paths: _this.lPaths
+
         };
         // Create a simple line symbol for rendering the line in the view
         let lineSymbol = {
           type: "simple-line",  // autocasts as new SimpleLineSymbol()
           color: _this.lColor,  // RGB color values as an array
-          width: _this.lWidth
+          width: _this.lWidth,
+          cap: "round",
+          join: "round"
         };
-        // let lineAtt = {
-        //   Name: "Keystone Pipeline",  // The name of the pipeline
-        //   Owner: "TransCanada",  // The owner of the pipeline
-        //   Length: "3,456 km"  // The length of the pipeline
-        // };
+        let lineAtt = {
+          Name: "polyline"+Number(new Date()),  // The name of the pipeline
+        };
 
         let polylineGraphic = new Graphic({
           geometry: polyline,   // Add the geometry created in step 4
           symbol: lineSymbol,   // Add the symbol created in step 5
-          // attributes: lineAtt   // Add the attributes created in step 6
+          attributes: lineAtt   // Add the attributes created in step 6
         });
 
-        _this.view.graphics.add(polylineGraphic);
-
-
+        console.group("i begin to draw lines")
+        window.view.graphics.add(polylineGraphic);
       });
-      EventBus.$emit('setView',_this.view);
     }
   }
 }
