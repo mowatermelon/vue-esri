@@ -1,10 +1,18 @@
 <template>
-  <div id="sliderDiv"></div>
+  <div id="DrawDiv">
+    <!-- <component :is="item.component" :lPaths="item.lPaths" v-for="(item,iIdx) in items" :key="iIdx" :lColor="[226, 119, 40]" lWidth="20px"></component> -->
+    <component :is="item.component" :iLong="item.iLong" :iLati="item.iLati" v-for="(item,iIdx) in items" :key="iIdx"></component>
+
+  </div>
 </template>
 
 <script>
 
 import esriLoader from 'esri-loader'
+import LineSymbol from './LineSymbol'
+import PictureMarkerSymbol from './PictureMarkerSymbol'
+import {getById,prependElm} from '../../service/domOperating'
+
 
 export default {
   name: 'Draw',
@@ -16,7 +24,7 @@ export default {
   },
   data () {
     return {
-      view:{}
+      items:[]
     }
   },
   created(){
@@ -33,65 +41,40 @@ export default {
       let _this = this;
       esriLoader.dojoRequire(["esri/views/2d/draw/Draw","dojo/domReady!"], (Draw) => {
         let draw = new Draw({
-          view: _this.view
+          view: window.view
         });
 
         // create an instance of draw polyline action
         let action = draw.create("polyline");//point | multipoint | polyline | polygon
 
-        // fires when a vertex is added
-        action.on("vertex-add", function (evt) {
+        // fires when the drawing is completed
+        action.on("draw-complete", function (evt) {
+          console.group("i know you draw complete")
           _this.measureLine(evt.vertices);
         });
 
-        // fires when the pointer moves
-        // action.on("cursor-update", function (evt) {
-        //   _this.measureLine(evt.vertices);
-        // });
-
-        // fires when the drawing is completed
-        // action.on("draw-complete", function (evt) {
-        //   _this.measureLine(evt.vertices);
-        // });
-
-        // fires when a vertex is removed
-        // action.on("vertex-remove", function (evt) {
-        //   _this.measureLine(evt.vertices);
-        // });
       });
-      EventBus.$emit('setView',_this.view);
     },
     measureLine(vertices) {
       let _this = this;
-      debugger;
+      console.group("i know get the data of line",vertices)
+      // _this.items.push({
+      //    component: 'line-symbol',
+      //    lPaths: vertices
+      // })
+      _this.items.push({
+         component: 'picture-marker-symbol',
+         iLong: 114.40845006666666,
+         iLati: 30.456864444444443
+      })
       // _this.view.graphics.removeAll();
-
-      // let line = _this.createLine(vertices);
-      // let lineLength = geometryEngine.geodesicLength(line, "miles");
-      // let graphic = createGraphic(line);
-      // _this.view.graphics.add(graphic);
+      // <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol>
     },
-    createPolylineGraphic(vertices){
-      let _this = this;
-      _this.view.graphics.removeAll();
-      var polyline = {
-        type: "polyline", // autocasts as Polyline
-        paths: vertices,
-        spatialReference: _this.view.spatialReference
-      };
 
-      var graphic = new Graphic({
-        geometry: polyline,
-        symbol: {
-          type: "simple-line", // autocasts as SimpleLineSymbol
-          color: [4, 90, 141],
-          width: 3,
-          cap: "round",
-          join: "round"
-        }
-    });
-    view.graphic.add(graphic);
-    }
+  },
+  components:{
+    LineSymbol,
+    PictureMarkerSymbol
   }
 }
 </script>
