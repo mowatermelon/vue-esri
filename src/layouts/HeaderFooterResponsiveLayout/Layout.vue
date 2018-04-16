@@ -17,7 +17,7 @@
 <script>
 const VHeader = resolve => require(['@/components/pages/Header'], resolve)
 const ToolBox = resolve => require(['@/components/tools/ToolBox'], resolve)
-const MapView = resolve => require(['@/components/maps/MapView'], resolve)
+const MapView = resolve => require(['@/components/maps/Views/MapView'], resolve)
 
 export default {
   name: 'Layout',
