@@ -12,16 +12,22 @@ export default {
   props: {
     PRings:{//polygon's rings
       type: Array,
-      default: [],
+      default: () =>{
+        return [];
+      },
       required: true
     },
     PColor:{//polygon's fill color
       type: Array,
-      default: [255, 255, 255]
+      default: () =>{
+        return [255, 255, 255];
+      }
     },
     PlColor:{//polygon's outline color
       type: Array,
-      default: [255, 255, 255]
+      default: () =>{
+        return [255, 255, 255];
+      }
     },
     PlWidth:{//polygon's outline width
       type: [String,Number],
@@ -42,7 +48,7 @@ export default {
       esriLoader.dojoRequire(["esri/Graphic","dojo/domReady!"], (Graphic) => {
         let polygon = {
           type: "polygon", // autocasts as Polygon
-          rings: vertices,
+          rings: _this.PRings,
           spatialReference: window.view.spatialReference
         };
         // Create a simple line symbol for rendering the line in the view
