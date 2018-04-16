@@ -1,6 +1,7 @@
 <template>
   <div id="DrawDiv">
-    <component :is="item.component" :lPaths="item.lPaths" v-for="(item,iIdx) in items" :key="iIdx" :lColor="[48, 128, 254]" lWidth="5px"></component>
+    <!-- <component :is="item.component" :lPaths="item.lPaths" v-for="(item,iIdx) in items" :key="iIdx" :lColor="[48, 128, 254]" lWidth="5px"></component> -->
+    <component :is="item.component" :PRings="item.PRings" v-for="(item,iIdx) in items" :key="iIdx" :PlColor="[48, 128, 254]" PlWidth="5px"></component>
     <!-- <component :is="item.component" :iLong="item.iLong" :iLati="item.iLati" v-for="(item,iIdx) in items" :key="iIdx"></component> -->
 
   </div>
@@ -9,8 +10,10 @@
 <script>
 
 import esriLoader from 'esri-loader'
-import LineSymbol from './LineSymbol'
-import PictureMarkerSymbol from './PictureMarkerSymbol'
+
+const LineSymbol = resolve => require(['@/components/maps/Draw/LineSymbol'], resolve)
+const PolygonSymbol = resolve => require(['@/components/maps/Draw/PolygonSymbol'], resolve)
+const PictureMarkerSymbol = resolve => require(['@/components/maps/Draw/PictureMarkerSymbol'], resolve)
 
 export default {
   name: 'Draw',
@@ -55,7 +58,7 @@ export default {
         action.on("vertex-add", _this.updateVertices);
 
         // listen to vertex-remove event on the polyline draw action
-        action.on("vertex-remove", _this.updateVertices);
+        action.on("vertex-remove", _this.measureLine);
 
         // listen to cursor-update event on the polyline draw action
         action.on("cursor-update",  _this.updateVertices);
@@ -67,16 +70,47 @@ export default {
     measureLine(evt) {
       // console.group("i know you draw complete")
       let _this = this;
-      // console.group("i know get the data of line",evt.vertices)
-      _this.items.push({
-         component: 'line-symbol',
-         lPaths: evt.vertices
-      })
-      // _this.items.push({
-      //    component: 'picture-marker-symbol',
-      //    iLong: 114.40845006666666,
-      //    iLati: 30.456864444444443
-      // })
+      // debugger;
+      switch(_this.drawType){
+        case "point":{
+          _this.items.push({
+            component: 'picture-marker-symbol',
+            iLong: evt.vertices.x,
+            iLati: evt.vertices.y
+          })
+          break;
+        }
+        case "multipoint":{
+          _this.items.push({
+            component: 'picture-marker-symbol',
+            iLong: evt.vertices.x,
+            iLati: evt.vertices.y
+          })
+          break;
+        }
+        case "polyline":{
+            _this.items.push({
+              component: 'line-symbol',
+              lPaths: evt.vertices
+            })
+          break;
+        }
+        case "polygon":{
+          _this.items.push({
+            component: 'polygon-symbol',
+            PRings: evt.vertices
+          })
+          break;
+        }
+        default:{
+            _this.items.push({
+              component: 'line-symbol',
+              lPaths: evt.vertices
+            })
+          break;
+        }
+      }
+
       // _this.view.graphics.removeAll();
     },
     /**
@@ -93,6 +127,7 @@ export default {
   },
   components:{
     LineSymbol,
+    PolygonSymbol,
     PictureMarkerSymbol
   }
 }
