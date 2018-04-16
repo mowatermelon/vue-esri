@@ -38,8 +38,8 @@ export default {
       esriLoader.dojoRequire(["esri/Graphic","dojo/domReady!"], (Graphic) => {
         let polyline = {
           type: "polyline",  // autocasts as new Polyline()
-          paths: _this.lPaths
-
+          paths: _this.lPaths,
+          spatialReference: window.view.spatialReference
         };
         // Create a simple line symbol for rendering the line in the view
         let lineSymbol = {
