@@ -6,7 +6,7 @@
     <!-- <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol> -->
     <!-- <picture-marker-symbol  :iLong="12735876.221217055" :iLati="3562426.95469336"></picture-marker-symbol> -->
     <!-- <size-slider></size-slider> -->
-    <draw drawType="polyline"></draw>
+    <draw drawType="polygon"></draw>
   </div>
 </template>
 <script>
