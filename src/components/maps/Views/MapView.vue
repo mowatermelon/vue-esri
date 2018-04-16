@@ -2,19 +2,26 @@
   <div class="map_box">
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
+    <scale-bar></scale-bar>
+    <!-- <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol> -->
+    <!-- <picture-marker-symbol  :iLong="12735876.221217055" :iLati="3562426.95469336"></picture-marker-symbol> -->
+    <!-- <size-slider></size-slider> -->
+    <draw drawType="polyline"></draw>
   </div>
 </template>
 <script>
   import esriLoader from 'esri-loader'
+  import ScaleBar from '../Widgets/ScaleBar'
+  import Draw from '../Draw/Draw'
 
   export default {
-    name: 'ScreenView',
+    name: 'MapView',
     data () {
       return {
         map: {'loaded': ''},
         isHide: true,
         evt:{x:'',y:''},
-        camera:{}
+        view:{}
       }
     },
     created(){
@@ -23,11 +30,10 @@
     },
     watch: {
       'map.loaded': function () {
-        if (this.map.initialized == true) {
+        if (this.map.initialized) {
           this.isHide = false;
         }
       }
-
     },
     methods: {
       //初始化
@@ -43,7 +49,7 @@
             }
           }, {
             // use a specific version instead of latest 4.x
-            url: '../../../static/plugins/arcgis46/init.js'
+            url: '../../../../static/plugins/arcgis46/init.js'
           });
         } else {
           // ArcGIS API is already loaded, just create the map
@@ -51,50 +57,49 @@
         }
       },
       // 创建地图
-      createMap: function () {
+      createMap() {
         let _this =this;
 
-        esriLoader.dojoRequire(["esri/map", "esri/views/SceneView","dojo/domReady!"], (Map,SceneView) => {
+        esriLoader.dojoRequire(["esri/map", "esri/views/MapView"], (Map,MapView) => {
           _this.map = new Map({
-            basemap: "osm",
-            ground: "world-elevation"// Use the world elevation service
+            basemap: "osm"
           });
-          _this.view = new SceneView({
-            container: "viewDiv",     // Reference to the scene div created in step 5
-            map: _this.map,                 // Reference to the map object created before the scene
-            scale: 50000000,          // Sets the initial scale to 1:50,000,000
-            center: [114.40845006666666,30.456864444444443],  // Sets the center point of view with lon/lat
-            camera: {
-              position: [7.654, 45.919, 5184],
-              tilt: 80
-            }
+          _this.view = new MapView({
+            container: "viewDiv",
+            map: _this.map,
+            scale: 50,          // Sets the initial scale to 1:50,000,000
+            center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
           });
           window.view = _this.view;
         });
       },
       // 缩放到中心图层
-      centerZoom: function () {
+      centerZoom() {
         this.map.centerAndZoom([114.40845006666666,30.456864444444443], 16);
       },
       // 显示当前坐标
-      showCoordinates: function(e) {
+      showCoordinates(e) {
         let _this = this;
-        _this.view.hitTest(e)
-          .then(function(res){
-            let point = res.results[0].mapPoint;
-            if(!_this.isHide){
-                _this.evt.x = point.x;
-                _this.evt.y = point.y;
-            }
-        });
+        if(!_this.isHide){
+          _this.view.hitTest(e)
+            .then(function(res){
+              let point = res.screenPoint;
+              if(!_this.isHide){
+                  _this.evt.x = point.x;
+                  _this.evt.y = point.y;
+              }
+          });
+        }
       }
-
+    },
+    components:{
+      ScaleBar,
+      Draw
     }
-
   }
 </script>
 <style lang="scss" scoped>
-@import '../../../static/plugins/arcgis46/esri/css/main.css';
+@import '../../../../static/plugins/arcgis46/esri/css/main.css';
 .map_box .map_div {
   width:100%;
   height: calc(100vh*0.8);
