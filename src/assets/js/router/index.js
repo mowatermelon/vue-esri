@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 const Hello = resolve => require(['@/pages/Hello'], resolve)
 const Feature = resolve => require(['@/pages/Feature'], resolve)
-const ScreenView = resolve => require(['@/components/maps/ScreenView'], resolve)
-const MapView = resolve => require(['@/components/maps/MapView'], resolve)
+const ScreenView = resolve => require(['@/components/maps/Views/ScreenView'], resolve)
+const MapView = resolve => require(['@/components/maps/Views/MapView'], resolve)
 const Manage = resolve => require(['@/pages/Manage'], resolve)
 const Default = resolve => require(['@/pages/Default'], resolve)
 
