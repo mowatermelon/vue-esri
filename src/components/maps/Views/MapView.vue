@@ -3,9 +3,6 @@
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
     <scale-bar></scale-bar>
-    <!-- <picture-marker-symbol  :iLong="114.40845006666666" :iLati="30.456864444444443"></picture-marker-symbol> -->
-    <!-- <picture-marker-symbol  :iLong="12735876.221217055" :iLati="3562426.95469336"></picture-marker-symbol> -->
-    <!-- <size-slider></size-slider> -->
     <draw drawType="polygon"></draw>
   </div>
 </template>
