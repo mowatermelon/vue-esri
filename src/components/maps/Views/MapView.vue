@@ -15,7 +15,7 @@
     name: 'MapView',
     data () {
       return {
-        map: {'loaded': ''},
+        map: {initialized: false},
         isHide: true,
         evt:{x:'',y:''},
         view:{}
