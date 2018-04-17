@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div v-if="isLogin">
+    <div v-show="isLogin">
       <login></login>
     </div>
-    <div v-if="!isLogin">
+    <div v-show="!isLogin">
       <el-container>
         <el-header>
           <top-bar></top-bar>
