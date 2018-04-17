@@ -4,12 +4,25 @@
       <login></login>
     </div>
     <div v-if="!isLogin">
-      <router-view></router-view>
+      <el-container>
+        <el-header>
+          <top-bar></top-bar>
+        </el-header>
+        <el-main class="n-p">
+          <!-- <router-view></router-view> -->
+          <manage v-show="isManage"></manage>
+          <default v-show="!isManage"></default>
+        </el-main>
+      </el-container>
+
     </div>
   </div>
 </template>
 <script>
 const Login = resolve => require(['@/pages/Login'], resolve)
+const TopBar = resolve => require(['@/components/pages/TopBar'], resolve)
+const Manage = resolve => require(['@/pages/Manage'], resolve)
+const Default = resolve => require(['@/pages/Default'], resolve)
 
 export default {
   name: 'app',
@@ -20,14 +33,16 @@ export default {
   computed: {
     isLogin () {
       return this.$store.state.isLogin;
+    },
+    isManage(){
+      return JSON.parse(this.$store.state.isManage);
     }
   },
-  mounted() {
-  },
   components:{
-      Login
-  },
-  methods:{
+    Login,
+    TopBar,
+    Manage,
+    Default
   }
 }
 
