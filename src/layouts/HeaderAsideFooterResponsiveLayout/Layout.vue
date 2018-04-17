@@ -1,45 +1,37 @@
 <template>
   <transition name="fade">
-    <el-container>
-      <el-header>
-        <v-header></v-header>
-      </el-header>
-      <el-container class="mainBox">
-        <el-aside width="200px">
-          <left-aside></left-aside>
-        </el-aside>
-        <el-container>
-          <el-header>
-            <el-dropdown>
-              <i class="el-icon-setting" style="margin-right: 15px"></i>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>查看</el-dropdown-item>
-                <el-dropdown-item>新增</el-dropdown-item>
-                <el-dropdown-item>删除</el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-            <span>王小虎</span>
-          </el-header>
-          <el-main>
-            <message></message>
-            <el-footer>
-              <vfooter></vfooter>
-            </el-footer>
-          </el-main>
+    <el-container class="mainBox">
+      <el-aside width="200px">
+        <left-aside></left-aside>
+      </el-aside>
+      <el-container>
+        <el-header>
+          <el-dropdown>
+            <i class="el-icon-setting" style="margin-right: 15px"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>查看</el-dropdown-item>
+              <el-dropdown-item>新增</el-dropdown-item>
+              <el-dropdown-item>删除</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <span>王小虎</span>
+        </el-header>
+        <el-main>
+          <message></message>
+          <el-footer>
+            <copyright></copyright>
+          </el-footer>
+        </el-main>
 
-        </el-container>
       </el-container>
     </el-container>
-
-
   </transition>
 </template>
 <script>
 
-const VHeader = resolve => require(['@/components/pages/Header'], resolve)
 const LeftAside = resolve => require(['@/components/pages/LeftAside'], resolve)
 const Message = resolve => require(['@/components/pages/Message'], resolve)
-const Vfooter = resolve => require(['@/components/pages/Footer'], resolve)
+const Copyright = resolve => require(['@/components/pages/Copyright'], resolve)
 
 
 export default {
@@ -56,10 +48,9 @@ export default {
   methods:{
   },
   components:{
-      VHeader,
-      LeftAside,
-      Message,
-      Vfooter
+    LeftAside,
+    Message,
+    Copyright
   }
 
 }
