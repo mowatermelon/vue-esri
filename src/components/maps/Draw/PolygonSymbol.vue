@@ -18,15 +18,15 @@ export default {
       required: true
     },
     PColor:{//polygon's fill color
-      type: Array,
+      type: [String,Array],
       default: () =>{
-        return [255, 255, 255];
+        return [255, 255, 255, 0.3];
       }
     },
     PlColor:{//polygon's outline color
-      type: Array,
+      type: [String,Array],
       default: () =>{
-        return [255, 255, 255];
+        return [48, 128, 254];
       }
     },
     PlWidth:{//polygon's outline width
@@ -73,15 +73,12 @@ export default {
           symbol: polygonSymbol,   // Add the symbol created in step 5
           attributes: polygonAtt   // Add the attributes created in step 6
         });
-
-        console.group("i begin to draw polygons")
         window.view.graphics.add(polygonGraphic);
       });
     }
   }
 }
 </script>
-
 
 
 
