@@ -9,7 +9,8 @@ const init = [
   {name: 'isLogin', value: 'true', type: false},
   {name: 'themeColor', value: '#409EFF', type: false},
   {name: 'userName', value: '', type: false},
-  {name: 'userPassword', value: '', type: false}
+  {name: 'userPassword', value: '', type: false},
+  {name: 'isManage', value: 'false', type: false}
 ]
 
 loS.initData(init)
@@ -21,7 +22,8 @@ const store = new Vuex.Store({
     isLogin: loS.getItem('isLogin', false),
     themeColor: loS.getItem('themeColor', true),
     userName: loS.getItem('userName', true),
-    userPassword: loS.getItem('userPassword', true)
+    userPassword: loS.getItem('userPassword', true),
+    isManage: loS.getItem('isManage', true)
   },
   mutations: {
     checkLogin (state, code) {
@@ -39,6 +41,10 @@ const store = new Vuex.Store({
     setUPassd (state, code) {
       loS.setItem('userPassword', code, false)
       state.userPassword = loS.getItem('userPassword', true)
+    },
+    setIsManage (state, code) {
+      loS.setItem('isManage', code, false)
+      state.isManage = loS.getItem('isManage', true)
     }
   }
 
