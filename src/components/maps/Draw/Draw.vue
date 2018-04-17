@@ -1,8 +1,8 @@
 <template>
   <div id="DrawDiv">
-    <!-- <component :is="item.component" :lPaths="item.lPaths" v-for="(item,iIdx) in items" :key="iIdx" :lColor="[48, 128, 254]" lWidth="5px"></component> -->
-    <component :is="item.component" :PRings="item.PRings" v-for="(item,iIdx) in items" :key="iIdx" :PlColor="[48, 128, 254]" PlWidth="5px"></component>
-    <!-- <component :is="item.component" :iLong="item.iLong" :iLati="item.iLati" v-for="(item,iIdx) in items" :key="iIdx"></component> -->
+    <component :is="polylineItem.component" :lPaths="polylineItem.lPaths" v-for="(polylineItem,polylineIIdx) in items.polyline" :key="polylineIIdx" :lColor="[48, 128, 254]" lWidth="5px"></component>
+    <component :is="polygonItem.component" :PRings="polygonItem.PRings" v-for="(polygonItem,polygonIIdx) in items.polygon" :key="polygonIIdx" PlWidth="3px"></component>
+    <component :is="pointItem.component" :iLong="pointItem.iLong" :iLati="pointItem.iLati" v-for="(pointItem,pointIIdx) in items.point" :key="pointIIdx"></component>
 
   </div>
 </template>
@@ -26,7 +26,12 @@ export default {
   },
   data () {
     return {
-      items:[]
+      items:{
+        point:[],
+        multipoint:[],
+        polyline:[],
+        polygon:[]
+      }
     }
   },
   created(){
@@ -49,31 +54,26 @@ export default {
         // create an instance of draw polyline action
         let action = draw.create(_this.drawType);//point | multipoint | polyline | polygon
         window.view.focus();
-        // fires when the drawing is completed
-        // action.on("draw-complete", function (evt) {
-        //   console.group("i know you draw complete")
-        //   _this.measureLine(evt.vertices);
-        // });
+
         // listen to vertex-add event on the polyline draw action
         action.on("vertex-add", _this.updateVertices);
 
         // listen to vertex-remove event on the polyline draw action
-        action.on("vertex-remove", _this.measureLine);
+        action.on("vertex-remove", _this.updateVertices);
 
         // listen to cursor-update event on the polyline draw action
         action.on("cursor-update",  _this.updateVertices);
 
         // listen to draw-complete event on the polyline draw action
-        action.on("draw-complete", _this.measureLine);
+        action.on("draw-complete", _this.beginDrawing);
       });
     },
-    measureLine(evt) {
-      // console.group("i know you draw complete")
+    beginDrawing(evt) {
       let _this = this;
       // debugger;
       switch(_this.drawType){
         case "point":{
-          _this.items.push({
+          _this.items.point.push({
             component: 'picture-marker-symbol',
             iLong: evt.vertices.x,
             iLati: evt.vertices.y
@@ -81,7 +81,7 @@ export default {
           break;
         }
         case "multipoint":{
-          _this.items.push({
+          _this.items.multipoint.push({
             component: 'picture-marker-symbol',
             iLong: evt.vertices.x,
             iLati: evt.vertices.y
@@ -89,21 +89,21 @@ export default {
           break;
         }
         case "polyline":{
-            _this.items.push({
+            _this.items.polyline.push({
               component: 'line-symbol',
               lPaths: evt.vertices
             })
           break;
         }
         case "polygon":{
-          _this.items.push({
+          _this.items.polygon.push({
             component: 'polygon-symbol',
             PRings: evt.vertices
           })
           break;
         }
         default:{
-            _this.items.push({
+            _this.items.polyline.push({
               component: 'line-symbol',
               lPaths: evt.vertices
             })
@@ -121,7 +121,7 @@ export default {
     updateVertices(evt) {
       let _this = this;
       if (evt.type !=="cursor-update") {
-        _this.measureLine(evt);
+        _this.beginDrawing(evt);
       }
     }
   },
