@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Vfooter',
+  name: 'Copyright',
   data () {
     return {
 
