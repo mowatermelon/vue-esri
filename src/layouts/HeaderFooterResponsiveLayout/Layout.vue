@@ -1,9 +1,6 @@
 <template>
   <transition name="fade">
-    <el-container>
-      <el-header>
-        <v-header></v-header>
-      </el-header>
+    <div>
       <div>
         <tool-box></tool-box>
       </div>
@@ -11,11 +8,11 @@
         <map-view></map-view>
         <!-- <screen-view></screen-view> -->
       </el-main>
-    </el-container>
+    </div>
   </transition>
 </template>
 <script>
-const VHeader = resolve => require(['@/components/pages/Header'], resolve)
+
 const ToolBox = resolve => require(['@/components/tools/ToolBox'], resolve)
 const MapView = resolve => require(['@/components/maps/Views/MapView'], resolve)
 
@@ -33,9 +30,8 @@ export default {
   methods:{
   },
   components:{
-      VHeader,
-      MapView,
-      ToolBox
+    MapView,
+    ToolBox
       // ScreenView
   }
 
