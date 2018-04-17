@@ -59,7 +59,6 @@ export default {
           attributes: lineAtt   // Add the attributes created in step 6
         });
 
-        console.group("i begin to draw lines")
         window.view.graphics.add(polylineGraphic);
       });
     }
