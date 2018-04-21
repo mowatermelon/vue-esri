@@ -1,12 +1,16 @@
 <template>
   <el-row type="flex" class="row-bg">
     <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
+    <el-dialog title="收货地址" :visible.sync="dialogVisible" :modal="false">
+      <dialog-form></dialog-form>
+    </el-dialog>
   </el-row>
 </template>
 
 <script>
 
 import {getAjax} from '../../service/util'
+const DialogForm = resolve => require(['@/components/forms/DialogForm'], resolve)
 
 export default {
   name: 'ToolBox',
@@ -47,13 +51,23 @@ export default {
             console.error(error);
           });
       },
-      open() {
+      open(type) {
+        if(!!type){
+          let _this = this;
+          _this.dialogVisible = true;
+        }else{
+          _this.showMessage("请求类型错误，请注意");
+        }
+      },
+      showMessage(msg){
         this.$message({
           showClose: true,
-          message: '恭喜你，这是一条成功消息',
-          type: 'success'
+          message: msg
         });
       }
+  },
+  components:{
+    DialogForm
   }
 }
 </script>
