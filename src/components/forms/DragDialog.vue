@@ -2,11 +2,7 @@
     <!-- <el-dialog title="收货地址" :visible.sync="dialogVisible" :modal="false">
       <dialog-form></dialog-form>
     </el-dialog> -->
-    <el-dialog v-dialogDrag
-    title="收货地址"
-    ref="dialog__wrapper"
-    :visible.sync="visible"
-    :before-close="handleClose">
+    <el-dialog v-dialogDrag title="收货地址" ref="dialog__wrapper" :visible.sync="visible" :before-close="handleClose" :width.sync="width">
       <div class="dialog-body">
         <dialog-form :dialogVisible="visible" @increment="closeDialog"></dialog-form>
 
@@ -35,7 +31,11 @@ export default {
     changeWidth:{
       type: Boolean,
       default: false
-    }
+    },
+    width:{
+      type: String,
+      default: '50%'
+    },
   },
   data() {
     return {
@@ -52,8 +52,8 @@ export default {
       let _this =this;
        _this.$confirm('确认关闭？')
         .then(_ => {
-          //  _this.visible = false;
-          done();
+          _this.closeDialog(false);
+          // done();
         })
         .catch(_ => {});
     },
