@@ -2,7 +2,16 @@
     <!-- <el-dialog title="收货地址" :visible.sync="dialogVisible" :modal="false">
       <dialog-form></dialog-form>
     </el-dialog> -->
-    <el-dialog v-dialogDrag title="收货地址" ref="dialog__wrapper" :visible.sync="visible" :before-close="handleClose" :width.sync="width">
+    <el-dialog v-dialogDrag ref="dialog__wrapper" :visible.sync="visible" :before-close="handleClose" :width.sync="width" :close-on-click-modal="closeOnClickModal" :fullscreen="isFullscreen">
+      <div slot="title">
+        <el-row type="flex">
+          <el-col :sm="18" class="h4">{{title}}</el-col>
+          <el-col :sm="5">
+            <el-button icon="ion-arrow-shrink" circle @click.stop.prevent="isFullscreen = false"></el-button>
+            <el-button icon="ion-arrow-expand" circle @click.stop.prevent="isFullscreen = true"></el-button>
+          </el-col>
+        </el-row>
+      </div>
       <div class="dialog-body">
         <dialog-form :dialogVisible="visible" @increment="closeDialog"></dialog-form>
 
@@ -33,13 +42,21 @@ export default {
       default: false
     },
     width:{
+      type: String
+    },
+    title:{
       type: String,
-      default: '50%'
+      default: '请注意'
+    },
+    closeOnClickModal:{
+      type: Boolean,
+      default: false
     },
   },
   data() {
     return {
-      visible: false
+      visible: this.dialogVisible,
+      isFullscreen:false
     };
   },
   watch:{
@@ -74,5 +91,8 @@ export default {
 }
 .rotate-icon{
   transform:rotate(-135deg);
+}
+.el-button.is-circle {
+  padding: 12px 13px;
 }
 </style>
