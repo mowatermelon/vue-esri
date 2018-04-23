@@ -1,16 +1,14 @@
 <template>
   <el-row type="flex" class="row-bg">
     <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
-    <el-dialog title="收货地址" :visible.sync="dialogVisible" :modal="false">
-      <dialog-form></dialog-form>
-    </el-dialog>
+    <drag-dialog :dialogVisible="dialogVisible" :change-width="true" @increment="closeDialog"></drag-dialog>
   </el-row>
 </template>
 
 <script>
 
 import {getAjax} from '../../service/util'
-const DialogForm = resolve => require(['@/components/forms/DialogForm'], resolve)
+const DragDialog = resolve => require(['@/components/forms/DragDialog'], resolve)
 
 export default {
   name: 'ToolBox',
@@ -39,35 +37,41 @@ export default {
       }
   },
   methods: {
-      loadWidgets(){
-        let _this = this;
-        getAjax('../../static/mock/toolBox.json')
-          .then((response) => {
-            console.log("请求到的工具箱数据是");
-            console.log(response.data);
-            _this.widgets = response.data || [];
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      },
-      open(type) {
-        if(!!type){
-          let _this = this;
-          _this.dialogVisible = true;
-        }else{
-          _this.showMessage("请求类型错误，请注意");
-        }
-      },
-      showMessage(msg){
-        this.$message({
-          showClose: true,
-          message: msg
+    loadWidgets(){
+      let _this = this;
+      getAjax('../../static/mock/toolBox.json')
+        .then((response) => {
+          console.log("请求到的工具箱数据是");
+          console.log(response.data);
+          _this.widgets = response.data || [];
+        })
+        .catch((error) => {
+          console.error(error);
         });
+    },
+    open(type) {
+      if(!!type){
+        let _this = this;
+        _this.$nextTick(function () {
+          _this.dialogVisible = true;
+        })
+
+      }else{
+        _this.showMessage("请求类型错误，请注意");
       }
+    },
+    showMessage(msg){
+      this.$message({
+        showClose: true,
+        message: msg
+      });
+    },
+    closeDialog(visible){
+      this.dialogVisible = visible;
+    }
   },
   components:{
-    DialogForm
+    DragDialog
   }
 }
 </script>
