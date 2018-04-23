@@ -1,7 +1,7 @@
 <template>
   <el-row type="flex" class="row-bg">
     <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
-    <drag-dialog :dialogVisible="dialogVisible" @increment="closeDialog" changeWidth></drag-dialog>
+    <drag-dialog :dialogVisible="dialogVisible" @increment="closeDialog" title ="收货地址"></drag-dialog>
   </el-row>
 </template>
 
