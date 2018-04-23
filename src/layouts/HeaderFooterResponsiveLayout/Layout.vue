@@ -13,8 +13,9 @@
 </template>
 <script>
 
-const ToolBox = resolve => require(['@/components/tools/ToolBox'], resolve)
+const ToolBox = resolve => require(['@/components/widgets/ToolBox'], resolve)
 const MapView = resolve => require(['@/components/maps/Views/MapView'], resolve)
+const ScreenView = resolve => require(['@/components/maps/Views/ScreenView'], resolve)
 
 export default {
   name: 'Layout',
@@ -31,8 +32,8 @@ export default {
   },
   components:{
     MapView,
-    ToolBox
-      // ScreenView
+    ToolBox,
+    ScreenView
   }
 
 }
