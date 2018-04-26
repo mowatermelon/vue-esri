@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Hello = resolve => require(['@/pages/Hello'], resolve)
-const Feature = resolve => require(['@/pages/Feature'], resolve)
-const ScreenView = resolve => require(['@/components/maps/Views/ScreenView'], resolve)
-const MapView = resolve => require(['@/components/maps/Views/MapView'], resolve)
 const Manage = resolve => require(['@/pages/Manage'], resolve)
 const Default = resolve => require(['@/pages/Default'], resolve)
+const NotFound = resolve => require(['@/pages/NotFound'], resolve)
 
 Vue.use(Router)
 
@@ -16,29 +13,17 @@ export default new Router({
   linkActiveClass: 'mo-active',
   routes: [
     {
+      path: '*',
+      name: 'v-NotFound',
+      component: NotFound,
+      meta: {
+        title: '404未找到'
+      }
+    },
+    {
       path: '/',
       name: 'v-main',
       component: Default
-    },
-    {
-      path: '/Hello',
-      name: 'v-Hello',
-      component: Hello
-    },
-    {
-      path: '/Feature',
-      name: 'v-Feature',
-      component: Feature
-    },
-    {
-      path: '/MapView',
-      name: 'v-MapView',
-      component: MapView
-    },
-    {
-      path: '/ScreenView',
-      name: 'v-ScreenView',
-      component: ScreenView
     },
     {
       path: '/Manage',
