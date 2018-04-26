@@ -1,6 +1,9 @@
 <template>
   <div>
     <el-form :model="form">
+      <el-form-item label="编辑组件测试" :label-width="formLabelWidth">
+        <edit-input :isEdit="false" :editValue="form.name"></edit-input>
+      </el-form-item>
       <el-form-item label="活动名称" :label-width="formLabelWidth">
         <el-input v-model="form.name" auto-complete="off"></el-input>
       </el-form-item>
@@ -18,6 +21,8 @@
   </div>
 </template>
 <script>
+
+const EditInput = resolve => require(['@/components/forms/EditInput'], resolve)
 
 export default {
   name: 'DialogForm',
@@ -43,6 +48,9 @@ export default {
       formLabelWidth: '120px',
       visible: this.dialogVisible
     }
+  },
+  components:{
+    EditInput
   },
   methods:{
     emitClose(){
