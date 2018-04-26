@@ -144,3 +144,16 @@ p {
 .icon-content{
   word-spacing: 0.5em;
 }
+.over-hide{
+  overflow: hidden;
+}
+/**flex相关 */
+.flex-container{
+  display: flex;
+}
+.align-items-center{
+  align-items: center;
+}
+.justify-content-center{
+  justify-content: center
+}
