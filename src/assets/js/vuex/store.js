@@ -8,8 +8,8 @@ import loS from '../../../service/loStorage'
 const init = [
   {name: 'isLogin', value: 'true', type: false},
   {name: 'themeColor', value: '#409EFF', type: false},
-  {name: 'userName', value: '', type: false},
-  {name: 'userPassword', value: '', type: false},
+  {name: 'userName', value: '2201fa35d2915d8bb97ec82db604d705', type: false},
+  {name: 'userPassword', value: '163cffd52c45201d3515ef526c902813', type: false},
   {name: 'isManage', value: 'false', type: false}
 ]
 
