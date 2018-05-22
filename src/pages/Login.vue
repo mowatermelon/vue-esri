@@ -143,10 +143,10 @@ export default {
       let _this = this;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          _this.showSuc('登录成功');
+          // _this.showSuc('登录成功');
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
-          _this.$router.push({path: '/Main/Default'});
+          _this.$router.replace({path: '/Default'});
         } else {
           _this.showErr('用户名或者帐号输入错误请确认');
         }
@@ -160,7 +160,7 @@ export default {
           _this.showSuc('登录成功');
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
-          _this.$router.push({path: '/Main/Default'});
+          _this.$router.replace({path: '/Default'});
         } else {
           _this.showErr('请确认所有输入项都填写完成，或者两次密码输入是否匹配');
         }

@@ -80,17 +80,17 @@ export default {
     },
     goDashboard(){
       console.log('goDashboard');
-      this.$root.$router.push({path: '/Main/Default', query: { req: 'goDashboard' }});
+      this.$root.$router.replace({path: '/Default', query: { req: 'goDashboard' }});
       this.$message.warning("进入主界面");
     },
     goSetting(){
       console.log('goSetting');
-      this.$root.$router.push({path: '/Main/Manage', query: { req: 'goSetting' }});
+      this.$root.$router.replace({path: '/Manage', query: { req: 'goSetting' }});
       this.$message.warning("进入管理界面");
     },
     loginOut(){
       let _this = this;
-      _this.$router.push({path: '/Login'});
+      _this.$router.replace({path: '/Login'});
       console.log('loginOut');
     },
     getChangeColor(color){
