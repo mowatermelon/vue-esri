@@ -7,8 +7,8 @@ import loS from '../../../service/loStorage'
 // 在使用vuex之前使用，先初始化相关数据
 const init = [
   {name: 'themeColor', value: '#409EFF', type: false},
-  {name: 'userName', value: '2201fa35d2915d8bb97ec82db604d705', type: false},
-  {name: 'userPassword', value: '163cffd52c45201d3515ef526c902813', type: false}
+  {name: 'userName', value: '', type: false},
+  {name: 'userPassword', value: '', type: false}
 ]
 
 loS.initData(init)
@@ -25,7 +25,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     checkLogin (state, code) {
-      localStorage.setItem('isLogin', code, false)
+      loS.setItem('isLogin', code, false)
       state.isLogin = loS.getItem('isLogin', false)
     },
     setTheme (state, code) {
