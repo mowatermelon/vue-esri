@@ -42,50 +42,57 @@
     "icon": "ios-help"
   },
   {
-    "label": "属性",
+    "label": "绘制",
     "visible": true,
+    "index": "5",
+    "config": "Widget.Measurement",
+    "icon": "ios-help"
+  },
+  {
+    "label": "属性",
+    "visible": false,
     "index": "6",
     "config": "Widget.IQuery",
     "icon": "ios-information"
   },
   {
     "label": "图层",
-    "visible": true,
+    "visible": false,
     "index": "7",
     "config": "Widget.LayerMngTree",
     "icon": "ios-browsers"
   },
   {
     "label": "叠加",
-    "visible": true,
+    "visible": false,
     "index": "8",
     "config": "Widget.OverlayfileMsg",
     "icon": "ios-browsers-outline"
   },
   {
     "label": "分析",
-    "visible": true,
+    "visible": false,
     "index": "9",
     "config": "Widget.AnalysisLand",
     "icon": "ios-analytics"
   },
   {
     "label": "截图",
-    "visible": true,
+    "visible": false,
     "index": "10",
     "config": "aperture Widget.ScreenShot",
     "icon": "crop"
   },
   {
     "label": "查询",
-    "visible": true,
+    "visible": false,
     "index": "11",
     "config": "Widget.KJQueryMng",
     "icon": "ios-glasses"
   },
   {
     "label": "幢查询",
-    "visible": true,
+    "visible": false,
     "index": "12",
     "config": "Widget.FZQueryMng",
     "icon": "ios-search-strong"
