@@ -80,20 +80,17 @@ export default {
     },
     goDashboard(){
       console.log('goDashboard');
-      // this.$root.$router.push({path: '/Default', query: { req: 'goDashboard' }});
-      this.$store.commit('setIsManage',false);
+      this.$root.$router.push({path: '/Main/Default', query: { req: 'goDashboard' }});
       this.$message.warning("进入主界面");
     },
     goSetting(){
       console.log('goSetting');
-      // this.$root.$router.push({path: '/Manage', query: { req: 'goSetting' }});
-      this.$store.commit('setIsManage',true);
+      this.$root.$router.push({path: '/Main/Manage', query: { req: 'goSetting' }});
       this.$message.warning("进入管理界面");
     },
     loginOut(){
       let _this = this;
-      _this.$store.commit('checkLogin',true);
-      // _this.$router.push({path: '/'});
+      _this.$router.push({path: '/Login'});
       console.log('loginOut');
     },
     getChangeColor(color){

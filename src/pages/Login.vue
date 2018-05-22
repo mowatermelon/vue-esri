@@ -146,9 +146,7 @@ export default {
           _this.showSuc('登录成功');
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
-          _this.$store.commit('checkLogin',false);
-          _this.$store.commit('setIsManage',false);
-          // _this.$router.push({path: '/Default',params: { req: 'goDefault' }});
+          _this.$router.push({path: '/Main/Default'});
         } else {
           _this.showErr('用户名或者帐号输入错误请确认');
         }
@@ -162,9 +160,7 @@ export default {
           _this.showSuc('登录成功');
           _this.$store.commit('setUName',_this.aesEncrypt(_this.ruleForm.userName, 'UName'));
           _this.$store.commit('setUPassd',_this.aesEncrypt(_this.ruleForm.userPwd, 'UPassd'));
-          _this.$store.commit('checkLogin',false);
-          _this.$store.commit('setIsManage',false);
-          // _this.$router.push({path: '/Default',params: { req: 'goDefault' }});
+          _this.$router.push({path: '/Main/Default'});
         } else {
           _this.showErr('请确认所有输入项都填写完成，或者两次密码输入是否匹配');
         }
