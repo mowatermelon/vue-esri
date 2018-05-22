@@ -5,7 +5,7 @@
             <top-bar></top-bar>
         </el-header>
         <el-main class="n-p">
-            <router-view></router-view>
+            <router-view replace></router-view>
         </el-main>
     </el-container>
   </div>
