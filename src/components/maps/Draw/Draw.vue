@@ -44,8 +44,6 @@ export default {
   methods: {
     initLoad: function() {
       let _this = this;
-// debugger;
-      // let view = _this.$store.state.view;
 
       loadModules(["esri/views/2d/draw/Draw", "dojo/domReady!"], {
         url: "../../../../static/plugins/arcgis47/init.js"
