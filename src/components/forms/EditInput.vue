@@ -1,7 +1,7 @@
 <template>
   <div>
     <span v-if="!edit">{{value}}</span>
-    <el-input placeholder="请输入内容" autocomplete="off" v-model="value" v-if="edit"></el-input>
+    <el-input placeholder="请输入内容" auto-complete="off" v-model="value" v-if="edit"></el-input>
     <el-button icon="el-icon-edit" circle @click="edit=true"></el-button>
     <el-button icon="el-icon-check" circle @click="edit=false"></el-button>
   </div>
