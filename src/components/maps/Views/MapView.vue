@@ -81,7 +81,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../../static/plugins/arcgis46/esri/css/main.css";
+@import "../../../../static/plugins/arcgis47/esri/css/main.css";
 .map_box .map_div {
   width: 100%;
   height: calc(100vh * 0.8);
