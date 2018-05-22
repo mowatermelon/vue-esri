@@ -54,20 +54,26 @@ export default {
           });
 
           // create an instance of draw polyline action
-          let action = draw.create(_this.drawType); //point | multipoint | polyline | polygon
+          window.action = draw.create(_this.drawType); //point | multipoint | polyline | polygon
           _this.$store.state.view.focus();
 
           // listen to vertex-add event on the polyline draw action
-          action.on("vertex-add", _this.updateVertices);
+          window.action.on("vertex-add", _this.updateVertices);
 
           // listen to vertex-remove event on the polyline draw action
-          action.on("vertex-remove", _this.updateVertices);
+          window.action.on("vertex-remove", _this.updateVertices);
 
           // listen to cursor-update event on the polyline draw action
-          action.on("cursor-update", _this.updateVertices);
+          window.action.on("cursor-update", _this.updateVertices);
 
           // listen to draw-complete event on the polyline draw action
-          action.on("draw-complete", _this.beginDrawing);
+          window.action.on("draw-complete", _this.beginDrawing);
+
+          // listen to redo event on the polyline draw action
+          window.action.on("redo", _this.updateVertices);
+
+          // listen to undo event on the polyline draw action
+          window.action.on("undo", _this.updateVertices);
         })
         .catch(err => {
           // handle any errors
