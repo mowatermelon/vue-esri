@@ -3,103 +3,88 @@
     <div id="viewDiv" class="map_div" @mousemove="showCoordinates($event)" ></div>
     <p class="text-right map-info" :class="{'hide': isHide}">当前坐标：x:{{evt.x}},y:{{evt.y}}</p>
     <scale-bar></scale-bar>
-    <draw drawType="polygon"></draw>
+    <draw drawType="point"></draw>
   </div>
 </template>
 <script>
-  import esriLoader from 'esri-loader'
-  import ScaleBar from '../Widgets/ScaleBar'
-  import Draw from '../Draw/Draw'
+import { loadModules } from "esri-loader";
+import ScaleBar from "../Widgets/ScaleBar";
+import Draw from "../Draw/Draw";
 
-  export default {
-    name: 'MapView',
-    data () {
-      return {
-        map: {initialized: false},
-        isHide: true,
-        evt:{x:'',y:''},
-        view:{}
-      }
-    },
-    created(){
+export default {
+  name: "MapView",
+  data() {
+    return {
+      isHide: true,
+      evt: { x: "", y: "" }
+    };
+  },
+  created() {
+    let _this = this;
+    _this.initLoad();
+  },
+  methods: {
+    //初始化
+    initLoad() {
       let _this = this;
-      _this.initLoad();
-    },
-    watch: {
-      'map.loaded': function () {
-        if (this.map.initialized) {
-          this.isHide = false;
-        }
-      }
-    },
-    methods: {
-      //初始化
-      initLoad(){
-        if (!esriLoader.isLoaded()) {
-          // no, lazy load it the ArcGIS API before using its classes
-          esriLoader.bootstrap((err) => {
-            if (err) {
-              console.error(err);
-            } else {
-              // once it's loaded, create the map
-              this.createMap();
-            }
-          }, {
-            // use a specific version instead of latest 4.x
-            url: '../../../../static/plugins/arcgis46/init.js'
-          });
-        } else {
-          // ArcGIS API is already loaded, just create the map
-          this.createMap();
-        }
-      },
-      // 创建地图
-      createMap() {
-        let _this =this;
 
-        esriLoader.dojoRequire(["esri/map", "esri/views/MapView"], (Map,MapView) => {
-          _this.map = new Map({
-            basemap: "osm"
-          });
-          _this.view = new MapView({
-            container: "viewDiv",
-            map: _this.map,
-            scale: 50,          // Sets the initial scale to 1:50,000,000
-            center: [114.40845006666666,30.456864444444443]  // Sets the center point of view with lon/lat
-          });
-          window.view = _this.view;
-        });
-      },
-      // 缩放到中心图层
-      centerZoom() {
-        this.map.centerAndZoom([114.40845006666666,30.456864444444443], 16);
-      },
-      // 显示当前坐标
-      showCoordinates(e) {
-        let _this = this;
-        if(!_this.isHide){
-          _this.view.hitTest(e)
-            .then(function(res){
-              let point = res.screenPoint;
-              if(!_this.isHide){
-                  _this.evt.x = point.x;
-                  _this.evt.y = point.y;
-              }
-          });
-        }
-      }
+      loadModules(["esri/Map", "esri/views/MapView"], {
+        url: "../../../../static/plugins/arcgis47/init.js"
+      })
+      .then(([Map, MapView]) => {
+        _this.createMap(Map, MapView);
+      })
+      .catch(err => {
+        // handle any errors
+        console.error(err);
+      });
     },
-    components:{
-      ScaleBar,
-      Draw
+    createMap(Map, MapView) {
+      let _this = this;
+      let map = new Map({
+        basemap: "osm",
+        showLegend:true
+      });
+      _this.isHide = false;
+      _this.$store.commit("setMap", map);
+      let view = new MapView({
+        container: "viewDiv",
+        map,
+        scale: 50, // Sets the initial scale to 1:50,000,000
+        center: [114.40845006666666, 30.456864444444443] // Sets the center point of view with lon/lat
+      });
+      _this.$store.commit("setView", view);
+    },
+    // 缩放到中心图层
+    centerZoom() {
+      this.map.centerAndZoom([114.40845006666666, 30.456864444444443], 16);
+    },
+    // 显示当前坐标
+    showCoordinates(e) {
+      let _this = this;
+      if (!_this.isHide) {
+        let view = _this.$store.state.view;
+        view.hitTest(e).then(function(res) {
+          let point = res.screenPoint;
+          if (!_this.isHide) {
+            _this.evt.x = point.x;
+            _this.evt.y = point.y;
+          }
+        });
+      }
     }
+  },
+  components: {
+    ScaleBar,
+    Draw
   }
+};
 </script>
 <style lang="scss" scoped>
-@import '../../../../static/plugins/arcgis46/esri/css/main.css';
+@import "../../../../static/plugins/arcgis46/esri/css/main.css";
 .map_box .map_div {
-  width:100%;
-  height: calc(100vh*0.8);
+  width: 100%;
+  height: calc(100vh * 0.8);
   cursor: pointer;
 }
 </style>
