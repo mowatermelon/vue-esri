@@ -1,92 +1,127 @@
 <template>
   <el-row type="flex" class="row-bg">
-    <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
+    <el-button v-for="widget in filterWidgets" size="medium" type="text" :key="widget.label" :icon="'ion-md-' + widget.icon" @click="open">&nbsp;{{widget.label}}</el-button>
+
+    <el-dropdown @command="handleCommand">
+      <el-button type="text">
+        绘制图形<i class="el-icon-arrow-down el-icon--right"></i>
+      </el-button>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item class="icon-content" :type="item.type" :command="item.exec" v-for="item in btngroups" :key="item.content" :divided="item.divided"><i :class="'ion-md-'+item.icon"></i>&nbsp;{{item.content}}</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
     <drag-dialog :dialogVisible="dialogVisible" @increment="closeDialog" title ="收货地址"></drag-dialog>
   </el-row>
 </template>
 
 <script>
-
-import {getAjax} from '../../service/util'
-const DragDialog = resolve => require(['@/components/forms/DragDialog'], resolve)
+import { getAjax } from "../../service/util";
+const DragDialog = resolve =>
+  require(["@/components/forms/DragDialog"], resolve);
 
 export default {
-  name: 'ToolBox',
+  name: "ToolBox",
   data() {
-      return {
-        dialogVisible: false,
-        view:{},
-        widgets:[]
-      };
+    return {
+      dialogVisible: false,
+      view: {},
+      widgets: [],
+      btngroups: [
+        {
+          content: "添加标识",
+          type: "picture",
+          icon: "bookmarks",
+          exec: "addDraw",
+          divided: false
+        },
+        {
+          content: "添加lineSymbol",
+          type: "line",
+          icon: "cog",
+          exec: "addDraw",
+          divided: false
+        },
+        {
+          content: "添加polygonSymbol",
+          type: "polygon",
+          icon: "logo-polymer",
+          exec: "addDraw",
+          divided: true
+        }
+      ]
+    };
   },
-  created(){
+  created() {
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.loadWidgets();
   },
   computed: {
-      filterWidgets: function () {
-          let t_widgets = this.widgets;
-          return t_widgets.filter(function (item) {
-              return item.visible
-          });
-      }
+    filterWidgets: function() {
+      let t_widgets = this.widgets;
+      return t_widgets.filter(function(item) {
+        return item.visible;
+      });
+    }
   },
   methods: {
-    loadWidgets(){
+    //绑定下拉按钮事件执行情况
+    handleCommand(command,vm) {
       let _this = this;
-      getAjax('../../static/mock/toolBox.json')
-        .then((response) => {
+      _this.$message("click on item " + command,"click on type " + vm.$attrs.type);
+      _this[command](vm.$attrs.type); //执行每个按钮对应的事件
+    },
+    loadWidgets() {
+      let _this = this;
+      getAjax("../../static/mock/toolBox.json")
+        .then(response => {
           console.log("请求到的工具箱数据是");
           console.log(response.data);
           _this.widgets = response.data || [];
         })
-        .catch((error) => {
+        .catch(error => {
           console.error(error);
         });
     },
+    addDraw(type) {
+      this.showMessage("addDraw"+type);
+    },
     open(type) {
-      if(!!type){
+      if (!!type) {
         let _this = this;
-        _this.$nextTick(function () {
+        _this.$nextTick(function() {
           _this.dialogVisible = true;
-        })
-
-      }else{
+        });
+      } else {
         _this.showMessage("请求类型错误，请注意");
       }
     },
-    showMessage(msg){
+    showMessage(msg) {
       this.$message({
         showClose: true,
         message: msg
       });
     },
-    closeDialog(visible){
+    closeDialog(visible) {
       this.dialogVisible = visible;
     }
   },
-  components:{
+  components: {
     DragDialog
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-$linear-start:#1861d5;//高亮效果的渐变开始颜色
-$linear-end:#3080fe;//高亮效果的渐变结束颜色
+$linear-start: #1861d5; //高亮效果的渐变开始颜色
+$linear-end: #3080fe; //高亮效果的渐变结束颜色
 
-$font_color: #666;; //
-$clear_color: #fff;; //
+$font_color: #666; //
+$clear_color: #fff; //
 
 // .row-bg{
 //   background-color: $linear-start;
 // }
-.el-button+.el-button {
+.el-button + .el-button {
   margin-left: 0;
 }
 .el-button {
@@ -95,15 +130,17 @@ $clear_color: #fff;; //
   color: $font_color;
 }
 
-.el-button.selected,.el-button:hover {
-  background-image: linear-gradient(90deg,$linear-start 0,$linear-end 100%);
-  color:$clear_color;
+.el-button.selected,
+.el-button:hover {
+  background-image: linear-gradient(90deg, $linear-start 0, $linear-end 100%);
+  color: $clear_color;
 }
 
-.el-button--medium, .el-button--medium.is-round {
+.el-button--medium,
+.el-button--medium.is-round {
   padding: 10px;
   font-size: 14px;
   word-spacing: 0.2em;
-  border:0 none;
+  border: 0 none;
 }
 </style>

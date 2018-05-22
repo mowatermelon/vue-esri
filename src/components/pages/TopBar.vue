@@ -12,7 +12,7 @@
         <el-button type="text">
           <el-col :span="10">
             <div class="user-avatar">
-              <i class="ion-person"></i>
+              <i class="ion-md-person"></i>
             </div>
           </el-col>
           <el-col :span="10" class="avatar-line">
@@ -23,7 +23,7 @@
           </el-col>
         </el-button>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item class="icon-content" :command="item.exec" v-for="item in btngroup" :key="item.content" :divided="item.divided"><i :class="'ion-'+item.icon"></i>&nbsp;{{item.content}}</el-dropdown-item>
+          <el-dropdown-item class="icon-content" :command="item.exec" v-for="item in btngroup" :key="item.content" :divided="item.divided"><i :class="'ion-md-'+item.icon"></i>&nbsp;{{item.content}}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </el-col>
@@ -42,13 +42,13 @@ export default {
       btngroup:[
         {
           content:'我的主页',
-          icon:'ios-person',
+          icon:'person',
           exec: 'goDashboard',
           divided:false
         },
         {
           content:'设置',
-          icon:'gear-a',
+          icon:'cog',
           exec: 'goSetting',
           divided: false
         },

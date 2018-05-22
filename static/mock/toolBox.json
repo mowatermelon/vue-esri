@@ -4,77 +4,77 @@
     "visible": true,
     "index": "0",
     "config": "Widget.NavZoomPan",
-    "icon": "android-hand"
+    "icon": "hand"
   },
   {
     "label": "放大",
     "visible": true,
     "index": "1",
     "config": "Widget.NavZoomIn",
-    "icon": "plus-circled"
+    "icon": "add"
   },
   {
     "label": "缩小",
     "visible": true,
     "index": "2",
     "config": "Widget.NavZoomOut",
-    "icon": "android-remove-circle"
+    "icon": "remove-circle-outline"
   },
   {
     "label": "全图",
     "visible": true,
     "index": "3",
     "config": "Widget.NavZoomFull",
-    "icon": "earth"
+    "icon": "globe"
   },
   {
     "label": "定位",
     "visible": true,
     "index": "4",
     "config": "Widget.Location",
-    "icon": "android-locate"
+    "icon": "pin"
   },
   {
     "label": "量算",
     "visible": true,
     "index": "5",
     "config": "Widget.Measurement",
-    "icon": "ios-help"
+    "icon": "help-circle-outline"
   },
   {
     "label": "绘制",
     "visible": true,
     "index": "5",
     "config": "Widget.Measurement",
-    "icon": "ios-help"
+    "icon": "brush"
   },
   {
     "label": "属性",
     "visible": false,
     "index": "6",
     "config": "Widget.IQuery",
-    "icon": "ios-information"
+    "icon": "information-circle"
   },
   {
     "label": "图层",
     "visible": false,
     "index": "7",
     "config": "Widget.LayerMngTree",
-    "icon": "ios-browsers"
+    "icon": "browsers"
   },
   {
     "label": "叠加",
     "visible": false,
     "index": "8",
     "config": "Widget.OverlayfileMsg",
-    "icon": "ios-browsers-outline"
+    "icon": "map"
   },
   {
     "label": "分析",
     "visible": false,
     "index": "9",
     "config": "Widget.AnalysisLand",
-    "icon": "ios-analytics"
+    "icon": "albums"
   },
   {
     "label": "截图",
@@ -88,14 +88,14 @@
     "visible": false,
     "index": "11",
     "config": "Widget.KJQueryMng",
-    "icon": "ios-glasses"
+    "icon": "glasses"
   },
   {
     "label": "幢查询",
     "visible": false,
     "index": "12",
     "config": "Widget.FZQueryMng",
-    "icon": "ios-search-strong"
+    "icon": "search"
   }
 ]
 

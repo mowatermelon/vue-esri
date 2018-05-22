@@ -7,17 +7,18 @@
         <el-row type="flex">
           <el-col :sm="18" class="h4">{{title}}</el-col>
           <el-col :sm="5">
-            <el-button icon="ion-arrow-shrink" circle @click.stop.prevent="isFullscreen = false"></el-button>
-            <el-button icon="ion-arrow-expand" circle @click.stop.prevent="isFullscreen = true"></el-button>
+            <el-button icon="ion-md-contract" circle @click.stop.prevent="isFullscreen = false"></el-button>
+            <el-button icon="ion-md-expand" circle @click.stop.prevent="isFullscreen = true"></el-button>
           </el-col>
         </el-row>
+
       </div>
       <div class="dialog-body">
         <dialog-form :dialogVisible="visible" @increment="closeDialog"></dialog-form>
 
         <el-row type="flex" justify="end" v-if="changeWidth">
           <el-col :span="1">
-            <div class="text-right rotate-icon" v-dialogDragWidth="$refs.dialog__wrapper"><span class="ion-arrow-resize h3"></span></div>
+            <div class="text-right rotate-icon" v-dialogDragWidth="$refs.dialog__wrapper"><span class="ion-md-resize h3"></span></div>
           </el-col>
         </el-row>
 
