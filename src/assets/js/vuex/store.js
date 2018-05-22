@@ -42,11 +42,10 @@ const store = new Vuex.Store({
     },
     setMap (state, code) {
       loS.setItem('map', code, true)
-      state.map = loS.getItem('map', true)
+      state.map = loS.getItem('map', false)
     },
     setView (state, code) {
-      loS.setItem('view', code, true)
-      state.view = loS.getItem('view', true)
+      state.view = code
     }
   }
 
