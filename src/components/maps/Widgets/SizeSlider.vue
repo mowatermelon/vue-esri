@@ -5,7 +5,7 @@
 
 <script>
 
-import esriLoader from 'esri-loader'
+import { loadModules } from "esri-loader";
 
 export default {
   name: 'SizeSlider',
@@ -27,7 +27,10 @@ export default {
   methods: {
     initLoad: function() {
       let _this = this;
-      esriLoader.dojoRequire(["esri/widgets/SizeSlider","dojo/domReady!"], (SizeSlider) => {
+      loadModules(["esri/widgets/SizeSlider","dojo/domReady!"], {
+        url: "../../../../static/plugins/arcgis47/init.js"
+      })
+        .then(([SizeSlider]) => {
         let sliderVisualVariable = {
           type: "size",
           field: "count",
@@ -41,8 +44,12 @@ export default {
           visualVariable: sliderVisualVariable,  // size visual variable generated from a sizeRendererCreator method
         }, "sliderDiv");
 
-        window.view.ui.add(sizeSlider);
-      });
+        _this.$store.state.view.ui.add(sizeSlider);
+        })
+        .catch(err => {
+          // handle any errors
+          console.error(err);
+        });
     }
   }
 }

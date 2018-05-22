@@ -8,105 +8,113 @@
 </template>
 
 <script>
+import { loadModules } from "esri-loader";
 
-import esriLoader from 'esri-loader'
-
-const LineSymbol = resolve => require(['@/components/maps/Draw/LineSymbol'], resolve)
-const PolygonSymbol = resolve => require(['@/components/maps/Draw/PolygonSymbol'], resolve)
-const PictureMarkerSymbol = resolve => require(['@/components/maps/Draw/PictureMarkerSymbol'], resolve)
+const LineSymbol = resolve =>
+  require(["@/components/maps/Draw/LineSymbol"], resolve);
+const PolygonSymbol = resolve =>
+  require(["@/components/maps/Draw/PolygonSymbol"], resolve);
+const PictureMarkerSymbol = resolve =>
+  require(["@/components/maps/Draw/PictureMarkerSymbol"], resolve);
 
 export default {
-  name: 'Draw',
+  name: "Draw",
   props: {
-    drawType:{//
+    drawType: {
+      //
       type: String,
-      default: "polyline",//point | multipoint | polyline | polygon
+      default: "polyline", //point | multipoint | polyline | polygon
       required: true
     }
   },
-  data () {
+  data() {
     return {
-      items:{
-        point:[],
-        multipoint:[],
-        polyline:[],
-        polygon:[]
+      items: {
+        point: [],
+        multipoint: [],
+        polyline: [],
+        polygon: []
       }
-    }
+    };
   },
-  created(){
+  created() {
     let _this = this;
-    if(!!_this.view){
-      EventBus.$on('setView',function(data){
-        _this.view = data;
-      });
-    }
     _this.initLoad();
   },
   methods: {
     initLoad: function() {
       let _this = this;
-      esriLoader.dojoRequire(["esri/views/2d/draw/Draw","dojo/domReady!"], (Draw) => {
-        let draw = new Draw({
-          view: window.view
+// debugger;
+      // let view = _this.$store.state.view;
+
+      loadModules(["esri/views/2d/draw/Draw", "dojo/domReady!"], {
+        url: "../../../../static/plugins/arcgis47/init.js"
+      })
+        .then(([Draw]) => {
+          let draw = new Draw({
+            view: _this.$store.state.view
+          });
+
+          // create an instance of draw polyline action
+          let action = draw.create(_this.drawType); //point | multipoint | polyline | polygon
+          _this.$store.state.view.focus();
+
+          // listen to vertex-add event on the polyline draw action
+          action.on("vertex-add", _this.updateVertices);
+
+          // listen to vertex-remove event on the polyline draw action
+          action.on("vertex-remove", _this.updateVertices);
+
+          // listen to cursor-update event on the polyline draw action
+          action.on("cursor-update", _this.updateVertices);
+
+          // listen to draw-complete event on the polyline draw action
+          action.on("draw-complete", _this.beginDrawing);
+        })
+        .catch(err => {
+          // handle any errors
+          console.error(err);
         });
-
-        // create an instance of draw polyline action
-        let action = draw.create(_this.drawType);//point | multipoint | polyline | polygon
-        window.view.focus();
-
-        // listen to vertex-add event on the polyline draw action
-        action.on("vertex-add", _this.updateVertices);
-
-        // listen to vertex-remove event on the polyline draw action
-        action.on("vertex-remove", _this.updateVertices);
-
-        // listen to cursor-update event on the polyline draw action
-        action.on("cursor-update",  _this.updateVertices);
-
-        // listen to draw-complete event on the polyline draw action
-        action.on("draw-complete", _this.beginDrawing);
-      });
     },
     beginDrawing(evt) {
       let _this = this;
-      // debugger;
-      switch(_this.drawType){
-        case "point":{
+
+      switch (_this.drawType) {
+        case "point": {
           _this.items.point.push({
-            component: 'picture-marker-symbol',
-            iLong: evt.vertices.x,
-            iLati: evt.vertices.y
-          })
+            component: "picture-marker-symbol",
+            iLong: evt.coordinates[0],
+            iLati: evt.coordinates[1]
+          });
           break;
         }
-        case "multipoint":{
+        case "multipoint": {
           _this.items.multipoint.push({
-            component: 'picture-marker-symbol',
-            iLong: evt.vertices.x,
-            iLati: evt.vertices.y
-          })
+            component: "picture-marker-symbol",
+            iLong: evt.coordinates[0],
+            iLati: evt.coordinates[1]
+          });
           break;
         }
-        case "polyline":{
-            _this.items.polyline.push({
-              component: 'line-symbol',
-              lPaths: evt.vertices
-            })
+        case "polyline": {
+          _this.items.polyline.push({
+            component: "line-symbol",
+            lPaths: evt.vertices
+          });
           break;
         }
-        case "polygon":{
+        case "polygon": {
           _this.items.polygon.push({
-            component: 'polygon-symbol',
+            component: "polygon-symbol",
             PRings: evt.vertices
-          })
+          });
           break;
         }
-        default:{
-            _this.items.polyline.push({
-              component: 'line-symbol',
-              lPaths: evt.vertices
-            })
+        default: {
+          _this.items.polyline.push({
+            component: "line-symbol",
+            lPaths: evt.vertices
+          });
           break;
         }
       }
@@ -117,18 +125,18 @@ export default {
      * This function is called from the "vertex-add" and "vertex-remove"
      * events. Checks if the last vertex is making the line intersect itself.
      * @param {Vertices} evt
-    */
+     */
     updateVertices(evt) {
       let _this = this;
-      if (evt.type !=="cursor-update") {
+      if (evt.type !== "cursor-update") {
         _this.beginDrawing(evt);
       }
     }
   },
-  components:{
+  components: {
     LineSymbol,
     PolygonSymbol,
     PictureMarkerSymbol
   }
-}
+};
 </script>
