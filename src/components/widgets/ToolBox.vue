@@ -29,14 +29,14 @@ export default {
       btngroups: [
         {
           content: "添加标识",
-          type: "picture",
+          type: "point",
           icon: "bookmarks",
           exec: "addDraw",
           divided: false
         },
         {
           content: "添加lineSymbol",
-          type: "line",
+          type: "polyline",
           icon: "cog",
           exec: "addDraw",
           divided: false
@@ -46,7 +46,35 @@ export default {
           type: "polygon",
           icon: "logo-polymer",
           exec: "addDraw",
+          divided: false
+        },
+        {
+          content: "撤销绘制",
+          type: "undo",
+          icon: "undo",
+          exec: "undoDraw",
           divided: true
+        },
+        {
+          content: "重做绘制",
+          type: "redo",
+          icon: "redo",
+          exec: "redoDraw",
+          divided: false
+        },
+        // {
+        //   content: "停止绘制",
+        //   type: "clear",
+        //   icon: "hand",
+        //   exec: "stopDraw",
+        //   divided: true
+        // },
+        {
+          content: "清除绘制",
+          type: "clear",
+          icon: "trash",
+          exec: "clearDraw",
+          divided: false
         }
       ]
     };
@@ -65,9 +93,12 @@ export default {
   },
   methods: {
     //绑定下拉按钮事件执行情况
-    handleCommand(command,vm) {
+    handleCommand(command, vm) {
       let _this = this;
-      _this.$message("click on item " + command,"click on type " + vm.$attrs.type);
+      _this.$message(
+        "click on item " + command,
+        "click on type " + vm.$attrs.type
+      );
       _this[command](vm.$attrs.type); //执行每个按钮对应的事件
     },
     loadWidgets() {
@@ -83,7 +114,31 @@ export default {
         });
     },
     addDraw(type) {
-      this.showMessage("addDraw"+type);
+      let _this = this;
+      this.showMessage("addDraw" + type);
+      let tempArr = _this.$store.state.drawComponents || [];
+      tempArr.push({
+        component: "draw",
+        drawType: type
+      });
+      _this.$store.commit("setDraw", tempArr);
+    },
+    clearDraw() {
+      this.$store.state.view.graphics.removeAll();
+      this.$store.commit("setDraw", []);
+    },
+    stopDraw() {
+      window.draw.complete();
+    },
+    redoDraw() {
+      if (window.action.canRedo()) {
+        window.action.redo();
+      }
+    },
+    undoDraw() {
+      if (window.action.canUndo()) {
+        window.action.undo();
+      }
     },
     open(type) {
       if (!!type) {
