@@ -19,6 +19,7 @@ const store = new Vuex.Store({
   state: {
     map: {},
     view: {},
+    drawComponents: loS.getItem('drawComponents', false) || [],
     themeColor: loS.getItem('themeColor', true),
     userName: loS.getItem('userName', true),
     userPassword: loS.getItem('userPassword', true)
@@ -46,6 +47,10 @@ const store = new Vuex.Store({
     },
     setView (state, code) {
       state.view = code
+    },
+    setDraw (state, code) {
+      loS.setItem('drawComponents', code, true)
+      state.drawComponents = loS.getItem('drawComponents', false)
     }
   }
 
