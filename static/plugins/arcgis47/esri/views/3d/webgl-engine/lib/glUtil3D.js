@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define("require exports ./DefaultVertexAttributeLocations ./DefaultVertexBufferLayouts ../../../webgl/BufferObject ../../../webgl/Texture ../../../webgl/VertexArrayObject".split(" "),function(k,a,e,c,f,g,h){Object.defineProperty(a,"__esModule",{value:!0});a.createQuadVAO=function(d,b){void 0===b&&(b=c.Pos2);var a=b===c.Pos3Tex?new Float32Array([-1,-1,0,0,0,1,-1,0,1,0,-1,1,0,0,1,1,1,0,1,1]):new Float32Array([-1,-1,1,-1,-1,1,1,1]);return new h(d,e.Default3D,{geometry:b},{geometry:f.createVertex(d,35044,
+a)})};a.createEmptyTexture=function(a){return new g(a,{target:3553,pixelFormat:6408,dataType:5121,samplingMode:9728,width:4,height:4})}});

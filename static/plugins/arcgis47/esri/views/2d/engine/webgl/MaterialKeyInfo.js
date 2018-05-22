@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["require","exports"],function(c,d){return function(){function b(){this.heatmap=this.pattern=this.visibility=this.vvOpacity=this.vvRotation=this.vvColor=this.vvSizeUnitValue=this.vvSizeFieldStops=this.vvSizeScaleStops=this.vvSizeMinMaxValue=this.sdf=!1}b.prototype.copy=function(a){this.geometryType=a.geometryType;this.sdf=a.sdf;this.vvSizeMinMaxValue=a.vvSizeMinMaxValue;this.vvSizeScaleStops=a.vvSizeScaleStops;this.vvSizeFieldStops=a.vvSizeFieldStops;this.vvSizeUnitValue=a.vvSizeUnitValue;
+this.vvColor=a.vvColor;this.vvRotation=a.vvRotation;this.vvOpacity=a.vvOpacity;this.visibility=a.visibility;this.pattern=a.pattern;this.heatmap=a.heatmap};return b}()});

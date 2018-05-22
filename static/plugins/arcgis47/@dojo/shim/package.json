@@ -1,0 +1,82 @@
+{
+  "_from": "@dojo/shim@~0.2.7",
+  "_id": "@dojo/shim@0.2.7",
+  "_inBundle": false,
+  "_integrity": "sha512-3R/n4a1/17acl9S5Wtay/0rcKzUqtVVJkCLPrGZq4NmRzWop09Unryqg/GV0Y1V7SbcILHKBL7bOTEfrpVX63g==",
+  "_location": "/@dojo/shim",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@dojo/shim@~0.2.7",
+    "name": "@dojo/shim",
+    "escapedName": "@dojo%2fshim",
+    "scope": "@dojo",
+    "rawSpec": "~0.2.7",
+    "saveSpec": null,
+    "fetchSpec": "~0.2.7"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@dojo/shim/-/shim-0.2.7.tgz",
+  "_shasum": "e5f45543d3887afcf2c1b118522353e398e10d3e",
+  "_spec": "@dojo/shim@~0.2.7",
+  "_where": "C:\\Users\\xiao2192\\.jenkins\\workspace\\hydra",
+  "bugs": {
+    "url": "https://github.com/dojo/shim/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "intersection-observer": "0.4.2",
+    "pepjs": "0.4.2",
+    "tslib": "~1.8.0",
+    "web-animations-js": "2.3.1"
+  },
+  "deprecated": false,
+  "description": "Modules that provide modular fills of ES6+ functionality",
+  "devDependencies": {
+    "@dojo/loader": "~0.1.1",
+    "@types/glob": "~5.0.0",
+    "@types/grunt": "~0.4.0",
+    "@types/node": "~6.0.49",
+    "grunt": "~1.0.1",
+    "grunt-dojo2": "latest",
+    "grunt-tslint": "5.0.1",
+    "husky": "0.14.3",
+    "intern": "~4.1.0",
+    "lint-staged": "6.0.0",
+    "prettier": "1.9.2",
+    "tslint": "5.8.0",
+    "typescript": "~2.6.1"
+  },
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://dojo.io",
+  "license": "BSD-3-Clause",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "main": "main.js",
+  "name": "@dojo/shim",
+  "peerDependencies": {
+    "@dojo/has": "~0.1.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true,
+    "parser": "typescript",
+    "printWidth": 120,
+    "arrowParens": "always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojo/shim.git"
+  },
+  "version": "0.2.7"
+}

@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../../../../core/kebabDictionary","./StaticControllerConfigurator"],function(e,a,b,c){Object.defineProperty(a,"__esModule",{value:!0});a.createDefaultControllerConfigurator=function(a){return new c(a)};var d=b({esriGeometryPoint:"point",esriGeometryMultipoint:"multipoint",esriGeometryPolyline:"polyline",esriGeometryPolygon:"polygon",esriGeometryMultiPatch:"multipatch"});a.toJSONGeometryType=function(a){return d.toJSON(a)}});

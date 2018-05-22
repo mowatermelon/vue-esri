@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["require","exports","./tsSupport/generatorHelper","./tsSupport/awaiterHelper","./promiseUtils"],function(h,a,c,f,g){Object.defineProperty(a,"__esModule",{value:!0});a.forEach=function(a,d,e){return f(this,void 0,void 0,function(){return c(this,function(b){switch(b.label){case 0:return[4,g.eachAlways(a.map(function(a,b){return d.apply(e,[a,b])}))];case 1:return b.sent(),[2]}})})};a.map=function(a,d,e){return f(this,void 0,void 0,function(){var b;return c(this,function(c){switch(c.label){case 0:return[4,
+g.eachAlways(a.map(function(a,b){return d.apply(e,[a,b])}))];case 1:return b=c.sent(),[2,b.map(function(a){return a.value})]}})})}});

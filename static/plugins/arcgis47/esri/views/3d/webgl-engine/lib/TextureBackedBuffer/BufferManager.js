@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["require","exports","./ManagedTextureBackedBuffer"],function(c,e,f){Object.defineProperty(e,"__esModule",{value:!0});c=function(){function b(a){this.rctx=a;this.buffers=[]}b.prototype.garbageCollect=function(){this.buffers=this.buffers.filter(function(a){return 0===a.activeCount?(a.dispose(),!1):!0})};b.prototype.getBuffer=function(a){for(var d=0,b=this.buffers;d<b.length;d++){var c=b[d];if(c.availableCount>=a)return c}if(!(a>f.MAX_INDEX_COUNT))return a=new f.ManagedTextureBackedBuffer(this.rctx),
+this.buffers.push(a),a};b.prototype.updateTextures=function(){for(var a=0,b=this.buffers;a<b.length;a++)b[a].textureBuffer.updateTexture()};return b}();e.BufferManager=c});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["../lib/glMatrix"],function(l){function m(d,c,a,b){b.clip[0]=0;b.clip[1]=a?b.len:Number.MAX_VALUE;for(a=0;a<d.length;a++){var f;var g=d[a],h=c;f=b;var k=e.dot(g,f.dir),h=-e.dot(h,g)-g[3];0>h&&0<=k?f=!1:-1E-6<k&&1E-6>k?f=!0:!(0>h||0>k)||0>h&&0>k?(h/=k,0<k?h<f.clip[1]&&(f.clip[1]=h):h>f.clip[0]&&(f.clip[0]=h),f=f.clip[0]<=f.clip[1]):f=!0;if(!f)return!1}return!0}function n(d,c,a,b){d?(a&&b&&(g.len=e.dist(c,a)),e.set(d,g.dir)):b?(g.len=e.dist(c,a),e.scale(e.subtract(a,c,g.dir),1/g.len)):e.normalize(e.subtract(a,
+c,g.dir));return g}var e=l.vec3d;l=l.vec2d;var g={dir:e.create(),len:0,clip:l.create()},p={planeSphere:function(d,c,a){return d[0]*c[0]+d[1]*c[1]+d[2]*c[2]+d[3]<a},frustumSphere:function(d,c,a){for(var b=0;6>b;b++)if(!p.planeSphere(d[b],c,a))return!1;return!0},frustumRay:function(d,c,a,b){a=n(b,c,a,!1);return m(d,c,null,a)},frustumPoint:function(d,c){for(var a=0;6>a;a++){var b=d[a];if(0>-e.dot(c,b)-b[3])return!1}return!0},frustumLineSegment:function(d,c,a,b){b=n(b,c,a,!0);return m(d,c,a,b)},closestPointOnRay:function(d,
+c,a,b){a=e.dot(c,e.subtract(a,d,b));e.add(d,e.scale(c,a,b),b);return b}};return p});

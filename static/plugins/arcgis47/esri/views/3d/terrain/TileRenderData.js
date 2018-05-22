@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/4.7/esri/copyright.txt for details.
+//>>built
+define(["require","exports","../lib/glMatrix","../support/aaBoundingBox"],function(f,g,e,b){var d=e.vec2d;return function(){function c(){this.overlayTexOffset=d.create();this.texOffset=d.create();this.geometryInfo={indices:null,vertexAttributes:null,boundingBox:b.create(b.NEGATIVE_INFINITY),numSurfaceIndices:0,numSkirtIndices:0,numWithoutSkirtIndices:0,numVertsPerRow:0};this.init()}c.prototype.init=function(){var a=this.geometryInfo;a.indices=null;a.vertexAttributes=null;b.set(a.boundingBox,b.NEGATIVE_INFINITY);
+a.numSurfaceIndices=0;a.numSkirtIndices=0;a.numWithoutSkirtIndices=0;a.numVertsPerRow=0;this.textureReference=this.texture=this.vao=this.geometryState=null;d.set2(0,0,this.texOffset);this.texScale=1;this.highlightOverlayTexId=this.overlayTexId=null;this.overlayTexScale=[1,1];this.overlayOpacity=1;this.localOrigin=null};c.prototype.updateGeometryState=function(a){return this.geometryState=a.geometryState(this.geometryState)};c.prototype.estimateGeometryMemoryUsage=function(){var a=this.geometryInfo;
+return a.indices.byteLength+a.vertexAttributes.byteLength};return c}()});
