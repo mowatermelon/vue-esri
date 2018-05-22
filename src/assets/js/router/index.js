@@ -4,6 +4,8 @@ import Router from 'vue-router'
 const Manage = resolve => require(['@/pages/Manage'], resolve)
 const Default = resolve => require(['@/pages/Default'], resolve)
 const NotFound = resolve => require(['@/pages/NotFound'], resolve)
+const Login = resolve => require(['@/pages/Login'], resolve)
+const Main = resolve => require(['@/pages/Main'], resolve)
 
 Vue.use(Router)
 
@@ -22,18 +24,30 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'v-main',
-      component: Default
+      component: Login
     },
     {
-      path: '/Manage',
-      name: 'v-Manage',
-      component: Manage
+      path: '/Login',
+      name: 'Login',
+      component: Login
     },
     {
-      path: '/Default',
-      name: 'v-Default',
-      component: Default
+      path: '/main',
+      component: Main,
+      children: [
+        {
+          path: '',
+          component: Default
+        },
+        {
+          path: 'manage',
+          component: Manage
+        },
+        {
+          path: 'default',
+          component: Default
+        }
+      ]
     }
   ]
 })
