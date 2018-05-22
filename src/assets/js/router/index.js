@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import loS from '../../../service/loStorage'
 
 const Manage = resolve => require(['@/pages/Manage'], resolve)
 const Default = resolve => require(['@/pages/Default'], resolve)
@@ -13,8 +14,7 @@ export default new Router({
   mode: 'history', // "hash" | "history" | "abstract"
   base: __dirname,
   linkActiveClass: 'mo-active',
-  routes: [
-    {
+  routes: [{
       path: '*',
       name: 'v-NotFound',
       component: NotFound,
@@ -23,19 +23,14 @@ export default new Router({
       }
     },
     {
-      path: '/',
-      component: Login
-    },
-    {
       path: '/Login',
       name: 'Login',
       component: Login
     },
     {
-      path: '/main',
+      path: '/',
       component: Main,
-      children: [
-        {
+      children: [{
           path: '',
           component: Default
         },
@@ -47,7 +42,21 @@ export default new Router({
           path: 'default',
           component: Default
         }
-      ]
+      ],
+      beforeEnter: (to, from, next) => {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        if (!!loS.getItem('userName', true)&&!!loS.getItem('userPassword', true)) {
+          next()
+        } else {
+          next({
+            name: 'Login',
+            path: '/Login'
+          });
+          // next(false);
+        }
+
+      }
     }
   ]
 })
