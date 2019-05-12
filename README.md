@@ -1,4 +1,6 @@
 # vue-esri
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmowatermelon%2Fvue-esri.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmowatermelon%2Fvue-esri?ref=badge_shield)
+
 
 基于vue，vuex,axios 和Arcgis for js的esri地图后台操作模板
 
@@ -39,3 +41,7 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmowatermelon%2Fvue-esri.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmowatermelon%2Fvue-esri?ref=badge_large)
