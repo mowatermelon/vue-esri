@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "12:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 4.19.1
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: webpack-bundle-analyzer
+    versions:
+    - 4.4.0
+  - dependency-name: babel-loader
+    versions:
+    - 7.1.5
+  - dependency-name: file-loader
+    versions:
+    - 2.0.0
